@@ -18,6 +18,7 @@
 
   boot.kernelParams = [
     "drm_kms_helper.edid_firmware=edid/1920x1080.bin"
+    "drm.edid_firmware=edid/1920x1080.bin"
     "consoleblank=0"
   ];
 
@@ -64,16 +65,25 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "nouveau" ];
+  #services.xserver.videoDrivers = [ "nouveau" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.layout = "dvorak";
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
 
   # Prefer 120 Hz
-  services.xserver.monitorSection = "Modeline \"1920x1080@120\" 285.54 1920 1968 2000 2080 1080 1083 1088 1144 -HSync +Vsync
-  Option \"PreferredMode\" \"1920x1080@120\"
-  ";
+  services.xserver.deviceSection = ''
+    Option "ConnectedMonitor" "LVDS-1"
+    Option "CustomEDID" "LVDS-1:/etc/nixos/customEdid/1920x1080.bin"
+    Option "IgnoreEDID" "false"
+    Option "UseEDID" "true"
+  '';
+
+  services.xserver.monitorSection = ''
+    Modeline "1920x1080@120" 285.54 1920 1968 2000 2080 1080 1083 1088 1144 -HSync +Vsync
+    Option "PreferredMode" "1920x1080@120"
+  '';
 
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
@@ -94,7 +104,43 @@
     extraGroups = [ "wheel" "audio" "docker" "adbusers" ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxHyNeiwAzZoExz8iOWkxYmb/3xsN9QVwp/R0/SRUZlFQRPoXk4Ncwkt/U8aiSpm0XmrG1WWGYO9lf5UzAPX8LyHOfjaOyvCTok7RhyMSYZ1cBOJsEQ8MfMRKqjZ0vBaLjRDZoFBERT+/VBfazjTUB1Fv8dGHS8PLvdhMly2VinsSGTc/tApdigP61SJeLmo7NoDavBqTKHx1efJRAw4dRKilhl8fOvAsBCuOn9UzBdZAYX4WTpHvlZGFnkRvLteeAmHGuFPUq8ofc3X4HZfukIz1/l5Ya8l5srHAQEsSpKGcG7EuRHBz+cwEulfjDKlVyFK1Jx7UwJHFGKENtFbST rasse@servy" ];
-    packages = [ pkgs.steam ];
+  };
+
+  services.udev = {
+    extraRules = ''
+# This rule is needed for basic functionality of the controller in Steam and keyboard/mouse emulation
+SUBSYSTEM=="usb", ATTRS{idVendor}=="28de", MODE="0666"
+
+# This rule is necessary for gamepad emulation
+KERNEL=="uinput", SUBSYSTEM="misc", MODE="0660", TAG+="uaccess", OPTIONS+="static_node=uinput"
+
+# Valve HID devices over USB hidraw
+KERNEL=="hidraw*", ATTRS{idVendor}=="28de", MODE="0666"
+
+# Valve HID devices over bluetooth hidraw
+KERNEL=="hidraw*", KERNELS=="*28DE:*", MODE="0666"
+
+# DualShock 4 over USB hidraw
+KERNEL=="hidraw*", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="05c4", MODE="0666"
+
+# DualShock 4 wireless adapter over USB hidraw
+KERNEL=="hidraw*", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="0ba0", MODE="0666"
+
+# DualShock 4 Slim over USB hidraw
+KERNEL=="hidraw*", ATTRS{idVendor}=="054c", ATTRS{idProduct}=="09cc", MODE="0666"
+
+# DualShock 4 over bluetooth hidraw
+KERNEL=="hidraw*", KERNELS=="*054C:05C4*", MODE="0666"
+
+# DualShock 4 Slim over bluetooth hidraw
+KERNEL=="hidraw*", KERNELS=="*054C:09CC*", MODE="0666"
+
+# Nintendo Switch Pro Controller over USB hidraw
+KERNEL=="hidraw*", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2009", MODE="0666"
+
+# Nintendo Switch Pro Controller over bluetooth hidraw
+KERNEL=="hidraw*", KERNELS=="*057E:2009*", MODE="0666"
+    '';
   };
 
   virtualisation.docker.enable = true;

@@ -39,6 +39,8 @@ in {
     unstable.yarn
     docker
     docker_compose
+    python2
+    python3
 
     # Thesis stuff
     pandoc
@@ -63,5 +65,6 @@ in {
     synergy
     okular
     filezilla
+    unstable.steam
   ];
 }
