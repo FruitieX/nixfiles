@@ -8,8 +8,8 @@ stdenv.mkDerivation rec {
   phases = [ "installPhase" ];
 
   installPhase = ''
-    mkdir -p $out/lib/firmware
-    cp ${src} $out/lib/firmware
+    mkdir -p $out/lib/firmware/edid
+    cp ${src} $out/lib/firmware/edid/1920x1080.bin
   '';
 
   meta = {

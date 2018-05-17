@@ -17,7 +17,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelParams = [
-    "drm_kms_helper.edid_firmware=edid/1920x1080.bin"
+    #"drm_kms_helper.edid_firmware=edid/1920x1080.bin"
     "drm.edid_firmware=edid/1920x1080.bin"
     "consoleblank=0"
   ];
@@ -74,12 +74,11 @@
 
   # Prefer 120 Hz
   services.xserver.deviceSection = ''
-    Option "ConnectedMonitor" "LVDS-1"
-    Option "CustomEDID" "LVDS-1:/etc/nixos/customEdid/1920x1080.bin"
+    Option "ConnectedMonitor" "LVDS-0"
+    Option "CustomEDID" "LVDS-0:/etc/nixos/customEdid/1920x1080.bin"
     Option "IgnoreEDID" "false"
     Option "UseEDID" "true"
   '';
-
   services.xserver.monitorSection = ''
     Modeline "1920x1080@120" 285.54 1920 1968 2000 2080 1080 1083 1088 1144 -HSync +Vsync
     Option "PreferredMode" "1920x1080@120"
