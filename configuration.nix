@@ -111,7 +111,7 @@
 SUBSYSTEM=="usb", ATTRS{idVendor}=="28de", MODE="0666"
 
 # This rule is necessary for gamepad emulation
-KERNEL=="uinput", SUBSYSTEM="misc", MODE="0660", TAG+="uaccess", OPTIONS+="static_node=uinput"
+KERNEL=="uinput", SUBSYSTEM="misc", MODE="0666", TAG+="uaccess", OPTIONS+="static_node=uinput"
 
 # Valve HID devices over USB hidraw
 KERNEL=="hidraw*", ATTRS{idVendor}=="28de", MODE="0666"
