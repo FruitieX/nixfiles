@@ -44,6 +44,8 @@
   # Networking
   networking.hostName = "rasse-laptop"; # Define your hostname.
   networking.networkmanager.enable = true;
+  networking.firewall.enable = false;
+  networking.firewall.allowedTCPPorts = [ 1234 3000 ];
 
   # Select internationalisation properties.
   i18n = {
@@ -59,6 +61,37 @@
 
   # KDE handles this, enabling both causes trouble at shutdown
   # services.ntp.enable = true;
+
+  services.prometheus = {
+    enable = true;
+    scrapeConfigs = [
+      {
+        job_name = "node";
+        scrape_interval = "10s";
+        static_configs = [
+          {
+            targets = [
+              "localhost:9100"
+            ];
+            labels = {
+              alias = "prometheus.fruitiex.org";
+            };
+          }
+        ];
+      }
+    ];
+    exporters.node = {
+      enable = true;
+      enabledCollectors = [
+        "logind"
+        "systemd"
+      ];
+    };
+  };
+  services.grafana = {
+    enable = true;
+    port = 4000;
+  };
 
   # Hibernate on laptop lid close
   services.logind.lidSwitch = "hybrid-sleep";
@@ -89,6 +122,16 @@
   services.xserver.desktopManager.plasma5.enable = true;
   #services.xserver.windowManager.xmonad.enable = true;
   #services.xserver.windowManager.xmonad.enableContribAndExtras = true;
+  
+  services.redshift.enable = true;
+  services.redshift.provider = "geoclue2";
+  #services.redshift.latitude = "0.0";
+  #services.redshift.longitude = "0.0";
+  services.redshift.temperature.night = 1900;
+
+  services.synergy.client.enable = true;
+  services.synergy.client.autoStart = true;
+  services.synergy.client.serverAddress = "192.168.1.234";
 
   # Android stuff
   programs.adb.enable = true;

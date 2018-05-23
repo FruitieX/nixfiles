@@ -30,6 +30,9 @@ in {
     binutils
     automake
     gnumake
+    sshfs
+    ncdu
+    (import ./fhs)
 
     # Dev stuff
     nodejs-9_x
@@ -56,15 +59,22 @@ in {
     nix-zsh-completions
 
     # GUI stuff
+    ark
     unstable.firefox
     unstable.google-chrome
     alacritty
     xorg.xmodmap
     unstable.gimp
+    unstable.rawtherapee
     nitrogen
     synergy
     okular
     filezilla
+    kdeApplications.kio-extras               # MTP support for Dolphin
     unstable.steam
+    (pkgs.renoise.override {
+      releasePath = "/etc/nixos/renoise/rns_3_1_1_linux_x86_64.tar.gz";
+    })
+    libreoffice-fresh
   ];
 }
