@@ -8,9 +8,11 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./packages.nix
       ./user-packages.nix
+      ./pkgs-root.nix
     ];
+
+  environment.systemPackages = import ./pkgs-global.nix pkgs;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -154,7 +156,9 @@
 SUBSYSTEM=="usb", ATTRS{idVendor}=="28de", MODE="0666"
 
 # This rule is necessary for gamepad emulation
-KERNEL=="uinput", SUBSYSTEM="misc", MODE="0666", TAG+="uaccess", OPTIONS+="static_node=uinput"
+#KERNEL=="uinput", SUBSYSTEM="misc", MODE="0666", TAG+="uaccess", OPTIONS+="static_node=uinput"
+KERNEL=="uinput", MODE="0660", GROUP="users", OPTIONS+="static_node=uinput"
+KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess", TAG+="udev-acl"
 
 # Valve HID devices over USB hidraw
 KERNEL=="hidraw*", ATTRS{idVendor}=="28de", MODE="0666"

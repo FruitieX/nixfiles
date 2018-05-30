@@ -4,16 +4,7 @@ buildFHSUserEnv {
   name = "fhs";
 
   # TODO: automatically pick these from packages.nix somehow?
-  targetPkgs = pkgs: with pkgs; [
-    zsh
-    tmux
-    androidsdk
-    android-studio
-    nodejs-9_x
-    yarn
-    python2
-    python3
-  ];
+  targetPkgs = pkgs: with pkgs; import ../pkgs-global.nix pkgs;
 
   # Most of these are from pkgs/games/steam/chrootenv.nix
   multiPkgs = pkgs: with pkgs; [
