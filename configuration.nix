@@ -150,6 +150,7 @@
     openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxHyNeiwAzZoExz8iOWkxYmb/3xsN9QVwp/R0/SRUZlFQRPoXk4Ncwkt/U8aiSpm0XmrG1WWGYO9lf5UzAPX8LyHOfjaOyvCTok7RhyMSYZ1cBOJsEQ8MfMRKqjZ0vBaLjRDZoFBERT+/VBfazjTUB1Fv8dGHS8PLvdhMly2VinsSGTc/tApdigP61SJeLmo7NoDavBqTKHx1efJRAw4dRKilhl8fOvAsBCuOn9UzBdZAYX4WTpHvlZGFnkRvLteeAmHGuFPUq8ofc3X4HZfukIz1/l5Ya8l5srHAQEsSpKGcG7EuRHBz+cwEulfjDKlVyFK1Jx7UwJHFGKENtFbST rasse@servy" ];
   };
 
+# Steam controller udev rules
   services.udev = {
     extraRules = ''
 # This rule is needed for basic functionality of the controller in Steam and keyboard/mouse emulation
@@ -189,6 +190,7 @@ KERNEL=="hidraw*", KERNELS=="*057E:2009*", MODE="0666"
     '';
   };
 
+  # Docker
   virtualisation.docker.enable = true;
 
   # This value determines the NixOS release with which your system is to be
