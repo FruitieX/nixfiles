@@ -4,12 +4,23 @@
 
 { config, pkgs, ... }:
 
-{
+let
+  unstableTarball =
+    fetchTarball
+      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+  hostName = "rasse-laptop";
+in {
+  nixpkgs.config.packageOverrides = {
+    unstable = import unstableTarball {
+      config = config.nixpkgs.config;
+    };
+  };
+
   imports =
     [
-      ./hardware-configuration.nix
-      ./user-packages.nix
+      ("/etc/nixos/hosts/" + hostName + "/hardware-configuration.nix")
       ./pkgs-root.nix
+      ("/etc/nixos/hosts/" + hostName)
     ];
 
   environment.systemPackages = import ./pkgs-global.nix pkgs;
@@ -18,17 +29,17 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  #boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
+  boot.kernelPackages = pkgs.unstable.linuxPackages_latest;
   boot.kernelParams = [
-    #"drm_kms_helper.edid_firmware=edid/1920x1080.bin"
-    "drm.edid_firmware=edid/1920x1080.bin"
     "consoleblank=0"
+    #"drm_kms_helper.edid_firmware=edid/1920x1080.bin"
+    #"drm.edid_firmware=edid/1920x1080.bin"
+    #"psmouse.synaptics_intertouch=1"
   ];
 
-  hardware.firmware = [
-    (pkgs.callPackage ./customEdid {})
-    #"/etc/nixos"
-    #pkgs.firmwareLinuxNonfree
-  ];
+  powerManagement.cpuFreqGovernor = "ondemand";
+  powerManagement.powertop.enable = true;
 
   hardware.opengl.driSupport32Bit = true;
 
@@ -44,7 +55,7 @@
   };
 
   # Networking
-  networking.hostName = "rasse-laptop"; # Define your hostname.
+  networking.hostName = hostName;
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
   networking.firewall.allowedTCPPorts = [ 1234 3000 ];
@@ -63,6 +74,12 @@
 
   # KDE handles this, enabling both causes trouble at shutdown
   # services.ntp.enable = true;
+  
+  services.openssh = {
+    enable = true;
+    startWhenNeeded = true;
+    passwordAuthentication = false;
+  };
 
   services.prometheus = {
     enable = true;
@@ -96,28 +113,18 @@
   };
 
   # Hibernate on laptop lid close
-  services.logind.lidSwitch = "hybrid-sleep";
+  # KDE handles this
+  #services.logind.lidSwitch = "hybrid-sleep";
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   #services.xserver.videoDrivers = [ "nouveau" ];
-  services.xserver.videoDrivers = [ "nvidia" ];
+  #services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.layout = "dvorak";
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
-
-  # Prefer 120 Hz
-  services.xserver.deviceSection = ''
-    Option "ConnectedMonitor" "LVDS-0"
-    Option "CustomEDID" "LVDS-0:/etc/nixos/customEdid/1920x1080.bin"
-    Option "IgnoreEDID" "false"
-    Option "UseEDID" "true"
-  '';
-  services.xserver.monitorSection = ''
-    Modeline "1920x1080@120" 285.54 1920 1968 2000 2080 1080 1083 1088 1144 -HSync +Vsync
-    Option "PreferredMode" "1920x1080@120"
-  '';
+  #services.xserver.synaptics.enable = false;
 
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
@@ -125,15 +132,23 @@
   #services.xserver.windowManager.xmonad.enable = true;
   #services.xserver.windowManager.xmonad.enableContribAndExtras = true;
   
+  #services.xserver.config = ''
+  #  Section "InputClass"
+  #    Identifier     "Enable libinput for TrackPoint"
+  #    MatchIsPointer "on"
+  #    Driver         "libinput"
+  #  EndSection
+  #'';
+
   services.redshift.enable = true;
   services.redshift.provider = "geoclue2";
   #services.redshift.latitude = "0.0";
   #services.redshift.longitude = "0.0";
   services.redshift.temperature.night = 1900;
 
-  services.synergy.client.enable = true;
-  services.synergy.client.autoStart = true;
-  services.synergy.client.serverAddress = "192.168.1.234";
+  #services.synergy.client.enable = true;
+  #services.synergy.client.autoStart = true;
+  #services.synergy.client.serverAddress = "192.168.1.234";
 
   # Android stuff
   programs.adb.enable = true;
@@ -145,7 +160,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.rasse = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "docker" "adbusers" ];
+    extraGroups = [ "wheel" "audio" "docker" "adbusers" "vboxusers" ];
     shell = pkgs.zsh;
     openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxHyNeiwAzZoExz8iOWkxYmb/3xsN9QVwp/R0/SRUZlFQRPoXk4Ncwkt/U8aiSpm0XmrG1WWGYO9lf5UzAPX8LyHOfjaOyvCTok7RhyMSYZ1cBOJsEQ8MfMRKqjZ0vBaLjRDZoFBERT+/VBfazjTUB1Fv8dGHS8PLvdhMly2VinsSGTc/tApdigP61SJeLmo7NoDavBqTKHx1efJRAw4dRKilhl8fOvAsBCuOn9UzBdZAYX4WTpHvlZGFnkRvLteeAmHGuFPUq8ofc3X4HZfukIz1/l5Ya8l5srHAQEsSpKGcG7EuRHBz+cwEulfjDKlVyFK1Jx7UwJHFGKENtFbST rasse@servy" ];
   };
@@ -190,8 +205,9 @@ KERNEL=="hidraw*", KERNELS=="*057E:2009*", MODE="0666"
     '';
   };
 
-  # Docker
-  virtualisation.docker.enable = true;
+  # Virtualisation
+  # virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

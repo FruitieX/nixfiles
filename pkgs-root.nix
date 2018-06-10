@@ -18,6 +18,19 @@ in {
     # Dev stuff
     unstable.android-studio
 
+    # Key generation
+    openssl
+
+    # Debugging power stuff
+    powertop
+
+    # qdbus lives in qttools
+    unstable.qt5.qttools
+
+    # Windows crap
+    wine
+    ntfs3g
+
     # GUI stuff
     unstable.ark
     unstable.firefox
@@ -32,9 +45,9 @@ in {
     unstable.filezilla
     unstable.kdeApplications.kio-extras               # MTP support for Dolphin
     unstable.steam
-    (pkgs.renoise.override {
-      releasePath = "/etc/nixos/renoise/rns_3_1_1_linux_x86_64.tar.gz";
-    })
+    #(pkgs.renoise.override {
+      #releasePath = "/etc/nixos/renoise/rns_3_1_1_linux_x86_64.tar.gz";
+    #})
     unstable.libreoffice-fresh
   ];
 }

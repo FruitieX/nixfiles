@@ -15,6 +15,7 @@ pkgs: with pkgs; [
   binutils
   sshfs
   ncdu
+  unzip
 
   # Build stuff
   gnumake
