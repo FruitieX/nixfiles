@@ -1,14 +1,24 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ../../server.nix
-    ];
+  # Audio
+  hardware.pulseaudio = {
+    # System-wide needed in headless usage
+    systemWide = true;
 
-  environment.systemPackages = with pkgs; [
-    mongodb-tools
-  ];
+    # Allow anonymous clients on the local network
+    tcp.anonymousClients.allowAll = true;
+    tcp.anonymousClients.allowedIpRanges = [ "127.0.0.1" "192.168.1.0/24" ];
+
+    # Server publishes pulseaudio sink in the local network
+    zeroconf.publish.enable = true;
+  };
+
+  # Sync system time with NTP
+  services.ntp.enable = true;
+
+  # Enable password authentication to satsuma
+  services.openssh.passwordAuthentication = true;
 
   # Nginx
   services.nginx.enable = true;
@@ -46,6 +56,7 @@
 
   # MongoDB
   services.mongodb.enable = true;
+  environment.systemPackages = with pkgs; [ mongodb-tools ];
 
   # Prometheus scrapes Windows machine
   services.prometheus.scrapeConfigs = [
