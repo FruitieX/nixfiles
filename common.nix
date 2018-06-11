@@ -32,7 +32,7 @@ in {
     enable = true;
 
     # Enable tcp streaming support
-    tcp.enable = true;
+    #tcp.enable = true;
   };
   #users.extraUsers.rasse.extraGroups = ["audio"];
 

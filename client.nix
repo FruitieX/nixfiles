@@ -17,14 +17,14 @@
     package = pkgs.pulseaudioFull;
 
     # Discover PulseAudio sinks on the local network
-    zeroconf.discovery.enable = true;
+    #zeroconf.discovery.enable = true;
 
     # Tweak the latency offset of a certain Bluetooth speaker
-    extraClientConf = ''
-      set-port-latency-offset bluez_card.B8_D5_0B_E5_11_22 speaker-output 30000
+    extraConfig = ''
+      #set-port-latency-offset bluez_card.B8_D5_0B_E5_11_22 speaker-output 30000
 
-      load-module module-null-sink sink_name=rtp
-      load-module module-rtp-send source=rtp.monitor
+      #load-module module-null-sink sink_name=rtp
+      #load-module module-rtp-send source=rtp.monitor
     '';
   };
 

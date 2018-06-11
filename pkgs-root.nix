@@ -26,6 +26,7 @@ in {
 
     # Network debugging tools
     tcpdump
+    iperf
 
     # Audio
     pulseaudio-dlna
