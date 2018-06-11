@@ -1,7 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  # Sync system time with NTP
   services.ntp.enable = true;
+
+  # Enable password authentication to servers
+  services.openssh.passwordAuthentication = true;
 
   # Audio
   hardware.pulseaudio = {

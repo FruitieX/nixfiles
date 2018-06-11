@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   hostname = import ./hostname.nix;
@@ -52,23 +52,19 @@ in {
   services.openssh = {
     enable = true;
     startWhenNeeded = true;
-    passwordAuthentication = false;
+    passwordAuthentication = lib.mkDefault false;
   };
 
   services.prometheus = {
     enable = true;
+    globalConfig.scrape_interval = "10s";
     scrapeConfigs = [
       {
         job_name = "node";
-        scrape_interval = "10s";
         static_configs = [
           {
-            targets = [
-              "localhost:9100"
-            ];
-            labels = {
-              alias = "prometheus.fruitiex.org";
-            };
+            targets = [ "localhost:9100" ];
+            labels.alias = hostname;
           }
         ];
       }
@@ -147,4 +143,8 @@ KERNEL=="hidraw*", KERNELS=="*057E:2009*", MODE="0666"
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "18.03"; # Did you read the comment?
+
+  # TODO: make this clear out ancient kernels so /boot doesn't fill up
+  # OR: resize /boot partition on satsuma so this is no longer an issue
+  # system.autoUpgrade.enable = true;
 }
