@@ -12,6 +12,11 @@
 
     # Server publishes pulseaudio sink in the local network
     zeroconf.publish.enable = true;
+
+    # Try out some RTP crap
+    extraClientConf = ''
+      load-module module-rtp-recv
+    '';
   };
 
   # Sync system time with NTP
