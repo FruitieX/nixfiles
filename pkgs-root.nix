@@ -24,6 +24,9 @@ in {
     # Debugging power stuff
     powertop
 
+    # Network debugging tools
+    tcpdump
+
     # Audio
     pulseaudio-dlna
 
