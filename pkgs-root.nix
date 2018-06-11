@@ -24,6 +24,9 @@ in {
     # Debugging power stuff
     powertop
 
+    # Audio
+    pulseaudio-dlna
+
     # qdbus lives in qttools
     unstable.qt5.qttools
 

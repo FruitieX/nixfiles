@@ -1,10 +1,15 @@
 { config, pkgs, ... }:
 
 {
+  imports =
+    [
+      ../../client.nix
+    ];
+
   # Fix S3 suspend on X1C6 by patching DSDT tables.
   # How to obtain your own acpi_override file:
   # https://delta-xi.net/#056
-  boot.initrd.prepend = [ "/etc/nixos/hosts/rasse-laptop/acpi_override" ];
+  boot.initrd.prepend = [ "/etc/nixos/hosts/lime/acpi_override" ];
   boot.kernelParams = [
     "acpi.ec_no_wakeup=1"
     "mem_sleep_default=deep"
