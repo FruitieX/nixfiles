@@ -58,7 +58,7 @@ in {
   services.prometheus = {
     enable = true;
     globalConfig.scrape_interval = "10s";
-    scrapeConfigs = [
+    scrapeConfigs = lib.mkDefault [
       {
         job_name = "node";
         static_configs = [
