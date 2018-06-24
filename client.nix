@@ -3,7 +3,17 @@
 
 { config, pkgs, ... }:
 
-{
+let
+  unstableTarball =
+    fetchTarball
+      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+in {
+  nixpkgs.config.packageOverrides = {
+    unstable = import unstableTarball {
+      config = config.nixpkgs.config;
+    };
+  };
+
   # Enable Bluetooth support
   hardware.bluetooth.enable = true;
 
@@ -47,16 +57,19 @@
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.windowManager.herbstluftwm.enable = true;
+  #services.xserver.windowManager.herbstluftwm.enable = true;
 
   # Enable GNOME 3
   #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.displayManager.gdm.wayland = true;
   #services.xserver.desktopManager.gnome3.enable = true;
 
   # Adjust display color temperature during nighttime
   services.redshift.enable = true;
   services.redshift.provider = "geoclue2";
   services.redshift.temperature.night = 1900;
+
+  boot.plymouth.enable = true;
 
   # Android stuff
   programs.adb.enable = true;
