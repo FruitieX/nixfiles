@@ -20,13 +20,19 @@
     zeroconf.discovery.enable = true;
 
     # Tweak the latency offset of a certain Bluetooth speaker
-    extraConfig = ''
+    #extraConfig = ''
       #set-port-latency-offset bluez_card.B8_D5_0B_E5_11_22 speaker-output 30000
 
     #  load-module module-null-sink sink_name=rtp
     #  load-module module-rtp-send source=rtp.monitor destination_ip=192.168.1.101
-    '';
+    #'';
   };
+
+  # PulseAudio needs a restart after resume to fix Bluetooth audio
+  powerManagement.resumeCommands = "killall pulseaudio";
+
+  # Suspend when lid closed
+  services.logind.lidSwitch = "suspend";
 
   # Steam & co. needs this
   hardware.opengl.driSupport32Bit = true;
@@ -41,6 +47,11 @@
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.windowManager.herbstluftwm.enable = true;
+
+  # Enable GNOME 3
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.desktopManager.gnome3.enable = true;
 
   # Adjust display color temperature during nighttime
   services.redshift.enable = true;

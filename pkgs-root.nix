@@ -36,9 +36,13 @@ in {
 
     # Windows crap
     wine
+    winetricks
     ntfs3g
 
     # GUI stuff
+    rofi
+    xorg.xkill
+    terminus_font
     unstable.ark
     unstable.firefox
     unstable.google-chrome
@@ -52,9 +56,9 @@ in {
     unstable.filezilla
     unstable.kdeApplications.kio-extras               # MTP support for Dolphin
     unstable.steam
-    #(pkgs.renoise.override {
-      #releasePath = "/etc/nixos/renoise/rns_3_1_1_linux_x86_64.tar.gz";
-    #})
-    unstable.libreoffice-fresh
+    (pkgs.renoise.override {
+      releasePath = "/home/rasse/nixfiles/ignore/rns_3_1_1_linux_x86_64.tar.gz";
+    })
+    libreoffice-fresh
   ];
 }
