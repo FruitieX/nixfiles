@@ -13,8 +13,8 @@
     # Server publishes pulseaudio sink in the local network
     zeroconf.publish.enable = true;
 
-    # Try out some RTP crap
-    extraClientConf = ''
+    # Play multicast RTP streams on local network
+    extraConfig = ''
       load-module module-rtp-recv
     '';
   };
