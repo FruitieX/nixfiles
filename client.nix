@@ -14,6 +14,40 @@ in {
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    # Dev stuff
+    unstable.android-studio
+
+    # qdbus lives in qttools
+    unstable.qt5.qttools
+
+    # Windows crap
+    wine
+    winetricks
+
+    # GUI stuff
+    rofi
+    xorg.xkill
+    terminus_font
+    unstable.ark
+    unstable.firefox
+    unstable.google-chrome
+    unstable.alacritty
+    unstable.xorg.xmodmap
+    unstable.gimp
+    unstable.rawtherapee
+    unstable.nitrogen
+    unstable.synergy
+    unstable.okular
+    unstable.filezilla
+    unstable.kdeApplications.kio-extras               # MTP support for Dolphin
+    unstable.steam
+    (pkgs.renoise.override {
+      releasePath = "/home/rasse/nixfiles/ignore/rns_3_1_1_linux_x86_64.tar.gz";
+    })
+    libreoffice-fresh
+  ];
+
   # Enable Bluetooth support
   hardware.bluetooth.enable = true;
 

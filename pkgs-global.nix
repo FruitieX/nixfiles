@@ -4,6 +4,7 @@ pkgs: with pkgs; [
   htop
   git
   pass
+  gnupg
   tmux
   httpie
   jq
@@ -36,9 +37,9 @@ pkgs: with pkgs; [
   python3
 
   # Thesis stuff
-  pandoc
-  texlive.combined.scheme-full
-  python36Packages.pygments
+  #pandoc
+  #texlive.combined.scheme-full
+  #python36Packages.pygments
 
   # System utils
   pciutils
