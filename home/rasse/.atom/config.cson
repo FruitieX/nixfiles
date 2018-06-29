@@ -1,0 +1,81 @@
+"*":
+  "atom-ide-ui":
+    use: {}
+  "bracket-matcher":
+    autocompleteBrackets: false
+  core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "autosave"
+      "linter"
+    ]
+    packagesWithKeymapsDisabled: []
+    telemetryConsent: "limited"
+    warnOnLargeFileLimit: 2
+  "disable-keybindings":
+    prefixKeys: [
+      "ctrl-k"
+    ]
+  editor:
+    softWrap: true
+  elmjutsu:
+    autocompleteEnabled: true
+    autocompleteSnippetsEnabled: true
+    cacheDirectory: "/tmp/rasse/elmjutsu14905QSuYs3L7QT3M"
+    hyperclickEnabled: true
+  "exception-reporting":
+    userId: "9071e8b9-6d50-df37-1f04-100d4e7870f5"
+  "git-diff":
+    showIconsInEditorGutter: true
+  "git-plus":
+    experimental: {}
+  "ide-purescript": {}
+  "language-babel":
+    emmetCSSAutocomplete: true
+  "language-elm":
+    autocompleteEnabled: false
+  linter: {}
+  "linter-ui-default":
+    panelHeight: 86
+    showPanel: true
+  minimap:
+    charHeight: 1
+    plugins:
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      linter: true
+      linterDecorationsZIndex: 0
+      pigments: true
+      pigmentsDecorationsZIndex: 0
+      selection: true
+      selectionDecorationsZIndex: 0
+  "prettier-atom":
+    formatOnSaveOptions:
+      isDisabledIfNoConfigFile: true
+      showInStatusBar: true
+    prettierOptions:
+      singleQuote: true
+      trailingComma: "all"
+    useEslint: true
+  "spell-check":
+    locales: [
+      "en-US"
+    ]
+  "tree-view":
+    hideVcsIgnoredFiles: true
+  "vim-mode-plus":
+    highlightSearch: true
+    incrementalSearch: true
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
+  "vim-mode-plus-ex-mode":
+    notifiedUseExMode: true
+  welcome:
+    showOnStartup: false
+  zentabs:
+    neverCloseUnsaved: true
+".psci.purescript.source":
+  editor:
+    autoIndentOnPaste: true

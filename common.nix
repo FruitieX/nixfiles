@@ -24,7 +24,7 @@ in {
     isNormalUser = true;
     extraGroups = [ "wheel" "adbusers" "vboxusers" "audio" ];
     shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxHyNeiwAzZoExz8iOWkxYmb/3xsN9QVwp/R0/SRUZlFQRPoXk4Ncwkt/U8aiSpm0XmrG1WWGYO9lf5UzAPX8LyHOfjaOyvCTok7RhyMSYZ1cBOJsEQ8MfMRKqjZ0vBaLjRDZoFBERT+/VBfazjTUB1Fv8dGHS8PLvdhMly2VinsSGTc/tApdigP61SJeLmo7NoDavBqTKHx1efJRAw4dRKilhl8fOvAsBCuOn9UzBdZAYX4WTpHvlZGFnkRvLteeAmHGuFPUq8ofc3X4HZfukIz1/l5Ya8l5srHAQEsSpKGcG7EuRHBz+cwEulfjDKlVyFK1Jx7UwJHFGKENtFbST rasse@servy" ];
+    openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxHyNeiwAzZoExz8iOWkxYmb/3xsN9QVwp/R0/SRUZlFQRPoXk4Ncwkt/U8aiSpm0XmrG1WWGYO9lf5UzAPX8LyHOfjaOyvCTok7RhyMSYZ1cBOJsEQ8MfMRKqjZ0vBaLjRDZoFBERT+/VBfazjTUB1Fv8dGHS8PLvdhMly2VinsSGTc/tApdigP61SJeLmo7NoDavBqTKHx1efJRAw4dRKilhl8fOvAsBCuOn9UzBdZAYX4WTpHvlZGFnkRvLteeAmHGuFPUq8ofc3X4HZfukIz1/l5Ya8l5srHAQEsSpKGcG7EuRHBz+cwEulfjDKlVyFK1Jx7UwJHFGKENtFbST rasse" ];
   };
 
   # Audio
@@ -99,4 +99,28 @@ in {
   # TODO: make this clear out ancient kernels so /boot doesn't fill up
   # OR: resize /boot partition on satsuma so this is no longer an issue
   # system.autoUpgrade.enable = true;
+
+  # Symlink dotfiles
+  system.activationScripts.dotfiles = ''
+    # Symlink all the files in $1 to $2, $1 needs to be an absolute path
+    linkdir() {
+      for f in $(find $1 -maxdepth 1 -type f -printf '%P\n'); do
+        ln -s -f -v $1/$f $2/$f;
+      done
+    }
+
+    # Recursively symlink all the files in $1 to $2
+    reclink () {
+      linkdir $1 $2
+      for d in $(find $1 -type d -printf '%P\n'); do
+        mkdir -p -v $2/$d;
+        linkdir $1/$d $2/$d;
+      done
+    };
+
+    reclink /etc/nixos/home /home
+
+    unset -f linkdir
+    unset -f reclink
+  '';
 }

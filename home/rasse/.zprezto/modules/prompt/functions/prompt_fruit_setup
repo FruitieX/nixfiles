@@ -1,0 +1,94 @@
+#
+# A simple theme that displays relevant, contextual information.
+# Based on Sorin's theme
+#
+# Authors:
+#   FruitieX <fruitiex@gmail.com>
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Load dependencies.
+pmodload 'helper'
+
+function prompt_fruit_user {
+  _prompt_fruit_user="${USER:0:1}"
+  _prompt_fruit_usercolor="white"
+  if [[ "$USER" == "root" ]]; then
+    _prompt_fruit_usercolor="red"
+  fi
+}
+
+function prompt_fruit_host {
+  _prompt_fruit_host="${HOST:0:1}"
+}
+
+function prompt_fruit_pwd {
+  local pwd="${PWD/#$HOME/~}"
+
+  if [[ "$pwd" == (#m)[/~] ]]; then
+    _prompt_fruit_pwd="$MATCH"
+    unset MATCH
+  else
+    _prompt_fruit_pwd="${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}"
+  fi
+}
+
+function prompt_fruit_precmd {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+
+  # Format PWD, host, user.
+  prompt_fruit_pwd
+  prompt_fruit_host
+  prompt_fruit_user
+
+  # Get Git repository information.
+  if (( $+functions[git-info] )); then
+    git-info
+  fi
+}
+
+function prompt_fruit_setup {
+  setopt LOCAL_OPTIONS
+  unsetopt XTRACE KSH_ARRAYS
+  prompt_opts=(cr percent subst)
+
+  # Load required functions.
+  autoload -Uz add-zsh-hook
+
+  # Add hook for calling git-info before each command.
+  add-zsh-hook precmd prompt_fruit_precmd
+
+  # Set editor-info parameters.
+  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary' format ' %B%F{white}>%f%b'
+  zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format ' %F{red}o%f'
+  zstyle ':prezto:module:editor:info:keymap:alternate' format ' %B%F{242}>%f%b'
+
+  # Set git-info parameters.
+  zstyle ':prezto:module:git:info' verbose 'yes'
+  zstyle ':prezto:module:git:info:action' format ':%%B%F{yellow}%s%f%%b'
+  zstyle ':prezto:module:git:info:added' format ' %%B%F{green}+%f%%b'
+  zstyle ':prezto:module:git:info:ahead' format ' %%B%F{yellow}>%f%%b'
+  zstyle ':prezto:module:git:info:behind' format ' %%B%F{yellow}<%f%%b'
+  zstyle ':prezto:module:git:info:branch' format ':%F{green}%b%f'
+  zstyle ':prezto:module:git:info:commit' format ':%F{green}%.7c%f'
+  zstyle ':prezto:module:git:info:deleted' format ' %%B%F{red}d%f%%b'
+  zstyle ':prezto:module:git:info:modified' format ' %%B%F{blue}*%f%%b'
+  zstyle ':prezto:module:git:info:position' format ':%F{red}%p%f'
+  zstyle ':prezto:module:git:info:renamed' format ' %%B%F{magenta}r%f%%b'
+  zstyle ':prezto:module:git:info:stashed' format ' %%B%F{cyan}s%f%%b'
+  zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{yellow}═%f%%b'
+  zstyle ':prezto:module:git:info:untracked' format ' %%B%F{white}u%f%%b'
+  zstyle ':prezto:module:git:info:keys' format \
+    'prompt' ' %F{blue}git%f$(coalesce "%b" "%p" "%c")%s' \
+    'rprompt' '%A%B%S%a%d%m%r%U%u'
+
+  # Define prompts.
+  PROMPT='%F{$_prompt_fruit_usercolor}${_prompt_fruit_user} %F{242}${_prompt_fruit_host} %F{white}${_prompt_fruit_pwd}%f${git_info:+${(e)git_info[prompt]}}%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
+  RPROMPT='${editor_info[overwrite]}%(?:: %F{red}x%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
+  SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+}
+
+prompt_fruit_setup "$@"
+
