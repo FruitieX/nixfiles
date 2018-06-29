@@ -3,11 +3,20 @@
 """"""""""""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""""""""
+" Automatically install plug.vim if missing
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.config/nvim/plugged')
 "Plug 'SirVer/ultisnips'
+Plug 'chriskempson/base16-vim'
 Plug 'honza/vim-snippets'
 Plug 'bentayloruk/vim-react-es6-snippets'
 Plug 'ervandew/supertab'
+Plug 'gabrielelana/vim-markdown'
 
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -101,7 +110,7 @@ let g:EasyMotion_leader_key = '<Leader>'
 " Appearance
 """"""""""""""""""""""""""""""""
 set background=dark
-colorscheme base16-default
+colorscheme base16-default-dark
 
 " flag problematic whitespace
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
