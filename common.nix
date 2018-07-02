@@ -106,6 +106,7 @@ in {
     linkdir() {
       for f in $(find $1 -maxdepth 1 -type f -printf '%P\n'); do
         ln -s -f -v $1/$f $2/$f;
+        chown -h rasse:users $2/$f
       done
     }
 
@@ -114,6 +115,7 @@ in {
       linkdir $1 $2
       for d in $(find $1 -type d -printf '%P\n'); do
         mkdir -p -v $2/$d;
+        chown rasse:users $2/$d
         linkdir $1/$d $2/$d;
       done
     };
