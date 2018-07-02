@@ -6,6 +6,9 @@
       ../../client.nix
     ];
 
+  # Use the most recent kernel in hopes of eventual better S0i3 support
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Fix S3 suspend on X1C6 by patching DSDT tables.
   # How to obtain your own acpi_override file:
   # https://delta-xi.net/#056

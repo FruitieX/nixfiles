@@ -12,9 +12,6 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use the most recent kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   # Power management
   powerManagement.cpuFreqGovernor = "ondemand";
   powerManagement.powertop.enable = true;
