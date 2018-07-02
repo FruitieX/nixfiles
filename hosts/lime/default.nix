@@ -40,4 +40,17 @@
 
   users.extraUsers.rasse.cryptHomeLuks = "/dev/nvme0n1p8";
   security.pam.mount.enable = true;
+
+  # Virtualisation
+  virtualisation.virtualbox.host.enable = true;
+  # users.extraUsers.rasse.extraGroups = ["vboxusers"];
+  # virtualisation.docker.enable = true;
+  # users.extraUsers.rasse.extraGroups = ["docker"];
+
+  # Renoise
+  environment.systemPackages = with pkgs; [
+    (pkgs.renoise.override {
+      releasePath = "/home/rasse/nixfiles/ignore/rns_3_1_1_linux_x86_64.tar.gz";
+    })
+  ];
 }

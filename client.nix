@@ -42,9 +42,6 @@ in {
     unstable.filezilla
     unstable.kdeApplications.kio-extras               # MTP support for Dolphin
     unstable.steam
-    (pkgs.renoise.override {
-      releasePath = "/home/rasse/nixfiles/ignore/rns_3_1_1_linux_x86_64.tar.gz";
-    })
     libreoffice-fresh
   ];
 
@@ -109,12 +106,6 @@ in {
   programs.adb.enable = true;
   programs.java.enable = true;
   #users.extraUsers.rasse.extraGroups = ["adbusers"];
-
-  # Virtualisation
-  virtualisation.virtualbox.host.enable = true;
-  #users.extraUsers.rasse.extraGroups = ["vboxusers"];
-  # virtualisation.docker.enable = true;
-  # users.extraUsers.rasse.extraGroups = ["docker"];
 
   # Steam controller udev rules
   # TODO: maybe move this elsewhere
