@@ -1,6 +1,7 @@
 export BROWSER="google-chrome-stable"
 export EDITOR="nvim"
 export VISUAL="nvim"
+export DISPLAY=":0"
 #export PAGER="vimpager"
 
 if [[ -z "$LANG" ]]; then

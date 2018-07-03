@@ -82,7 +82,6 @@ export PYTHON=/run/current-system/sw/bin/python2
 [[ -f /home/rasse/src/ECOM/backend/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/rasse/src/ECOM/backend/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/rasse/src/ECOM/backend/node_modules/tabtab/.completions/sls.zsh ]] && . /home/rasse/src/ECOM/backend/node_modules/tabtab/.completions/sls.zsh[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
