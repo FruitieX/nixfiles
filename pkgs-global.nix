@@ -17,6 +17,7 @@ pkgs: with pkgs; [
   sshfs
   ncdu
   unzip
+  zip
 
   # Build stuff
   gnumake
@@ -28,13 +29,14 @@ pkgs: with pkgs; [
 
   # Dev stuff
   nodejs-9_x
+  yarn
   androidsdk
   atom
-  yarn
   docker
   docker_compose
-  python2
+  python2Full
   python3
+  awscli
 
   # Thesis stuff
   #pandoc
