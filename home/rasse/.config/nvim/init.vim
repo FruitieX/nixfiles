@@ -23,28 +23,31 @@ Plug 'gabrielelana/vim-markdown'
 "Plug 'Shougo/deoplete.nvim'
 
 Plug 'mbbill/undotree'
-Plug 'FruitieX/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Quramy/tsuquyomi'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'scrooloose/syntastic'
+"Plug 'christoomey/vim-tmux-navigator'
+"Plug 'scrooloose/syntastic'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'dhruvasagar/vim-table-mode'
+"Plug 'dhruvasagar/vim-table-mode'
 Plug 'easymotion/vim-easymotion'
 
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'brookhong/ag.vim'
 
 Plug 'scrooloose/nerdcommenter'
-Plug 'mileszs/ack.vim'
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
-Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+"Plug 'mileszs/ack.vim'
+"Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+"Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
+"Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx', { 'for': 'javascript' }
-Plug 'b4winckler/vim-objc'
+"Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+"Plug 'b4winckler/vim-objc'
 call plug#end()
 
 let g:ackprg = 'ag --vimgrep --smart-case'
@@ -366,10 +369,10 @@ hi GitGutterChangeDeleteLine ctermbg=none
 hi GitGutterChangeLine ctermbg=none
 hi SignColumn ctermbg=none
 
-let g:airline_theme="fruit"
+let g:airline_theme="base16_default"
 let g:airline_left_sep=""
 let g:airline_right_sep=""
-let g:airline#extensions#tabline#enabled = 0
+"let g:airline#extensions#tabline#enabled = 0
 
 " No extra space in numbers column
 set numberwidth=1
