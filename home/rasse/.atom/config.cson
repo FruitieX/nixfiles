@@ -5,6 +5,11 @@
     autocompleteBrackets: false
   core:
     autoHideMenuBar: true
+    customFileTypes:
+      "source.js.jsx": [
+        "tsx"
+        "ts"
+      ]
     disabledPackages: [
       "autosave"
       "linter"
