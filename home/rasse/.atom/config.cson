@@ -13,6 +13,9 @@
     disabledPackages: [
       "autosave"
       "linter"
+      "hidpi"
+      "atom-typescript"
+      "language-typescript"
     ]
     packagesWithKeymapsDisabled: []
     telemetryConsent: "limited"
