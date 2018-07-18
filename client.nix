@@ -100,7 +100,7 @@ in {
   services.redshift.provider = "geoclue2";
   services.redshift.temperature.night = 1900;
 
-  boot.plymouth.enable = true;
+  #boot.plymouth.enable = true;
 
   # Android stuff
   programs.adb.enable = true;
