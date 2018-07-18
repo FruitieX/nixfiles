@@ -86,6 +86,23 @@ in {
 
   programs.zsh.enableAutosuggestions = true;
   programs.zsh.enableCompletion = true;
+  # TODO: find out why this doesn't work.
+  # Currently we load zprezto from .zshrc with awkward hacks
+  #programs.zsh.interactiveShellInit = with builtins; ''
+  #  export ZDOTDIR=${pkgs.zsh-prezto}/
+  #  source "$ZDOTDIR/init.zsh"
+  #'';
+
+  #environment.shellAliases = {
+  #  la="ls -A";
+  #};
+  environment.variables = {
+    ZPREZTO = [ "${pkgs.zsh-prezto}" ];
+    NIXOS_CONFIG = [ "/etc/nixos" ];
+
+    # enable smooth scrolling in firefox
+    MOZ_USE_XINPUT2 = [ "1" ];
+  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database

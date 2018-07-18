@@ -12,7 +12,10 @@ for p in ''${(z)NIX_PROFILES}; do
   fpath+=($p/share/zsh/site-functions $p/share/zsh/$ZSH_VERSION/functions $p/share/zsh/vendor-completions)
 done
 
-source $HOME/.zprezto/init.zsh
+# TODO: add theme file to nix store
+fpath+=($NIXOS_CONFIG/zsh)
+source ~/.zpreztorc
+source $ZPREZTO/init.zsh
 
 unamestr=$(uname)
 
