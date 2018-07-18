@@ -1,5 +1,7 @@
 "*":
   "atom-ide-ui":
+    "atom-ide-diagnostics-ui":
+      showDiagnosticTraces: true
     use: {}
   "bracket-matcher":
     autocompleteBrackets: false
@@ -25,6 +27,7 @@
       "ctrl-k"
     ]
   editor:
+    fontSize: 16
     softWrap: true
   elmjutsu:
     autocompleteEnabled: true
@@ -45,7 +48,6 @@
   linter: {}
   "linter-ui-default":
     panelHeight: 86
-    showPanel: true
   minimap:
     charHeight: 1
     plugins:
@@ -61,6 +63,7 @@
       selectionDecorationsZIndex: 0
   "prettier-atom":
     formatOnSaveOptions:
+      enabled: true
       isDisabledIfNoConfigFile: true
       showInStatusBar: true
     prettierOptions:
@@ -71,8 +74,10 @@
     locales: [
       "en-US"
     ]
-  "tree-view":
-    hideVcsIgnoredFiles: true
+  tabs:
+    enableMruTabSwitching: false
+    enableVcsColoring: true
+  "tree-view": {}
   "vim-mode-plus":
     highlightSearch: true
     incrementalSearch: true
