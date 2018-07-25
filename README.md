@@ -1,6 +1,8 @@
 # FruitieX' nixfiles
 
-My NixOS configuration files
+NixOS makes it possible to declaratively build a system configuration.
+
+Here are my NixOS configuration files to build an identical configuration as what I have.
 
 ## Setup
 
