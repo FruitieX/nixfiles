@@ -15,6 +15,7 @@ Here are my NixOS configuration files which can be used to build identical confi
 ## TODO
 
 - Manage KDE system settings
+- Atom packages
 - Dotfiles in Nix store
 
 ## Setup instructions
