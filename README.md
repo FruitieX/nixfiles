@@ -1,13 +1,31 @@
 # FruitieX' nixfiles
 
-NixOS makes it possible to declaratively build a system configuration.
+NixOS makes it possible to build system configurations declaratively.
 
-Here are my NixOS configuration files to build an identical configuration as what I have.
+Here are my NixOS configuration files which can be used to build identical configurations as what I run on my hosts.
 
-## Setup
+## Features
+
+- Easy per-host configuration
+- `fhs` command for running third party binaries in an FHS environment
+- System-wide package lists, partly shared with FHS environments
+- Dotfiles symlinked to home directory
+- And more...
+
+## TODO
+
+- Manage KDE system settings
+- Dotfiles in Nix store
+
+## Setup instructions
 
 Note: All steps except last one only need to be ran once (when performing
 first setup).
+
+### Install NixOS
+
+If you haven't done so already, install [NixOS](https://nixos.org) and boot into your
+NixOS installation.
 
 ### Fetching the repo
 
