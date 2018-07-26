@@ -31,7 +31,6 @@ pkgs: with pkgs; [
   nodejs-9_x
   yarn
   androidsdk
-  atom
   vscode
   docker
   docker_compose
