@@ -1,0 +1,22 @@
+{
+    "workbench.colorTheme": "Monokai Dimmed",
+    "editor.tabSize": 2,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "all",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "files.associations": {
+        "*.tsx": "javascript"
+    }
+}

@@ -32,6 +32,7 @@ pkgs: with pkgs; [
   yarn
   androidsdk
   atom
+  vscode
   docker
   docker_compose
   python2Full
