@@ -30,5 +30,8 @@ in {
 
     # Windows crap
     ntfs3g
+
+    # GUI stuff
+    unstable.vscode
   ];
 }

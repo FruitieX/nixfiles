@@ -1,5 +1,6 @@
 {
     "workbench.colorTheme": "Monokai Dimmed",
+    "window.titleBarStyle": "custom",
     "editor.tabSize": 2,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
@@ -16,7 +17,25 @@
             ]
         }
     ],
-    "files.associations": {
-        "*.tsx": "javascript"
-    }
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": true,
+    "bracketPairColorizer.consecutivePairColors": [
+        "()",
+        "[]",
+        "{}",
+        [
+            "<",
+            "</"
+        ],
+        [
+            "<",
+            "/>"
+        ],
+        [
+            "Gold",
+            "Orchid",
+            "LightSkyBlue"
+        ],
+        "Red"
+    ]
 }
