@@ -33,5 +33,6 @@ in {
 
     # GUI stuff
     unstable.vscode
+    xsel # needed by vscode vim plugin
   ];
 }

@@ -17,6 +17,7 @@
             ]
         }
     ],
+    "vim.useSystemClipboard": true,
     "workbench.statusBar.visible": true,
     "workbench.activityBar.visible": true,
     "bracketPairColorizer.consecutivePairColors": [
