@@ -1,42 +1,57 @@
 {
-    "workbench.colorTheme": "Monokai Dimmed",
-    "window.titleBarStyle": "custom",
-    "editor.tabSize": 2,
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "prettier.singleQuote": true,
-    "prettier.trailingComma": "all",
-    "vim.insertModeKeyBindings": [
+  "workbench.colorTheme": "Monokai Dimmed",
+  "window.titleBarStyle": "custom",
+  "editor.tabSize": 2,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["u"],
+      "after": [],
+      "commands": [
         {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
+          "command": "undo",
+          "args": []
         }
-    ],
-    "vim.useSystemClipboard": true,
-    "workbench.statusBar.visible": true,
-    "workbench.activityBar.visible": true,
-    "bracketPairColorizer.consecutivePairColors": [
-        "()",
-        "[]",
-        "{}",
-        [
-            "<",
-            "</"
-        ],
-        [
-            "<",
-            "/>"
-        ],
-        [
-            "Gold",
-            "Orchid",
-            "LightSkyBlue"
-        ],
-        "Red"
-    ]
+      ]
+    },
+    {
+      "before": ["<C-r>"],
+      "after": [],
+      "commands": [
+        {
+          "command": "redo",
+          "args": []
+        }
+      ]
+    }
+  ],
+  "vim.handleKeys": {
+    "<C-k>": false
+  },
+  "vim.useSystemClipboard": true,
+  "workbench.statusBar.visible": true,
+  "workbench.activityBar.visible": true,
+  "bracketPairColorizer.consecutivePairColors": [
+    "()",
+    "[]",
+    "{}",
+    ["<", "</"],
+    ["<", "/>"],
+    ["Gold", "Orchid", "LightSkyBlue"],
+    "Red"
+  ],
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "window.zoomLevel": 1,
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
