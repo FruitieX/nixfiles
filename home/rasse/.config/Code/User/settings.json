@@ -53,5 +53,6 @@
     "suppressShowKeyBindingsNotice": true
   },
   "window.zoomLevel": 1,
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "breadcrumbs.enabled": true
 }
