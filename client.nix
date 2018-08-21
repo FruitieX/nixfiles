@@ -72,7 +72,7 @@ in {
   };
 
   # PulseAudio needs a restart after resume to fix Bluetooth audio
-  powerManagement.resumeCommands = "killall pulseaudio";
+  #powerManagement.resumeCommands = "killall pulseaudio";
 
   # Suspend when lid closed
   services.logind.lidSwitch = "suspend";
