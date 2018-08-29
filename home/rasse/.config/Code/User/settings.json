@@ -49,9 +49,6 @@
     ["Gold", "Orchid", "LightSkyBlue"],
     "Red"
   ],
-  "gitlens.advanced.messages": {
-    "suppressShowKeyBindingsNotice": true
-  },
   "window.zoomLevel": 1,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "breadcrumbs.enabled": true
