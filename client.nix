@@ -43,7 +43,7 @@ in {
     unstable.kdeApplications.kio-extras               # MTP support for Dolphin
     unstable.steam
     unstable.vlc
-    libreoffice-fresh
+    unstable.noto-fonts-emoji
     lm_sensors
   ];
 
