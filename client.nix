@@ -103,8 +103,7 @@ in {
   services.redshift.temperature.night = 1900;
 
   # Nice bootup screen
-  # TODO: Disabled as this causes problems with X.org after wakeup from suspend
-  #boot.plymouth.enable = true;
+  boot.plymouth.enable = true;
 
   # Android stuff
   programs.adb.enable = true;
