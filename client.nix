@@ -147,7 +147,20 @@ in {
 
       # Nintendo Switch Pro Controller over bluetooth hidraw
       KERNEL=="hidraw*", KERNELS=="*057E:2009*", MODE="0666"
+
+      # Enable USB tethering when plugging in my phone
+      ATTRS{idVendor}=="12d1", ATTRS{idProduct}=="107e", ACTION=="add", RUN+="${pkgs.systemd}/bin/systemctl --no-block start tether.service"
     '';
   };
 
+  systemd.services.tether = {
+    environment = {
+      ADB = "${pkgs.androidsdk}/bin/adb";
+    };
+    serviceConfig = {
+      User = "rasse";
+      Type = "simple";
+      ExecStart = "${pkgs.bash}/bin/bash /etc/nixos/home/rasse/bin/tether.sh";
+    };
+  };
 }
