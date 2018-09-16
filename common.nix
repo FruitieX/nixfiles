@@ -5,8 +5,22 @@
 let
   hostname = import ./hostname.nix;
 in {
-  # Define global packages that are available in all environments
-  environment.systemPackages = import ./pkgs-global.nix pkgs;
+  nixpkgs.config = {
+    # Allow non-free licenses
+    allowUnfree = true;
+
+    # Unstable package set
+    packageOverrides = {
+      unstable = import (fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz) {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
+
+  # System packages
+  environment.systemPackages =
+    (import ./pkgs-global.nix pkgs) ++
+    (import ./pkgs-system.nix pkgs);
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -44,9 +58,6 @@ in {
     consoleKeyMap = "dvorak";
     defaultLocale = "en_US.UTF-8";
   };
-
-  # Allow non-free licenses
-  nixpkgs.config.allowUnfree = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Helsinki";

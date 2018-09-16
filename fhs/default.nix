@@ -1,6 +1,6 @@
-with import <nixpkgs> { config = { allowUnfree = true; }; };
+{ pkgs, ... }: with pkgs;
 
-buildFHSUserEnv {
+pkgs.buildFHSUserEnv {
   name = "fhs";
 
   # TODO: automatically pick these from packages.nix somehow?

@@ -11,7 +11,6 @@ in {
     [
       ("/etc/nixos/hosts/" + hostname + "/hardware-configuration.nix")
       ./common.nix
-      ./pkgs-root.nix
       ("/etc/nixos/hosts/" + hostname)
     ];
 }

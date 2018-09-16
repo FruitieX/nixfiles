@@ -1,4 +1,4 @@
-pkgs: with pkgs; [
+{ pkgs, ... }: with pkgs; [
   # Misc CLI tools
   wget
   htop
@@ -29,7 +29,7 @@ pkgs: with pkgs; [
 
   # Dev stuff
   nodejs-9_x
-  yarn
+  unstable.yarn
   androidsdk
   docker
   docker_compose
@@ -49,4 +49,9 @@ pkgs: with pkgs; [
   # NixOS stuff
   nox
   nix-zsh-completions
+
+  # puppeteer trash
+  alsaLib
+  gtk3
+  at_spi2_atk
 ]

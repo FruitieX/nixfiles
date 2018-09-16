@@ -3,17 +3,7 @@
 
 { config, pkgs, ... }:
 
-let
-  unstableTarball =
-    fetchTarball
-      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
-in {
-  nixpkgs.config.packageOverrides = {
-    unstable = import unstableTarball {
-      config = config.nixpkgs.config;
-    };
-  };
-
+{
   environment.systemPackages = with pkgs; [
     # Dev stuff
     unstable.android-studio
@@ -114,6 +104,8 @@ in {
   # TODO: maybe move this elsewhere
   services.udev = {
     extraRules = ''
+      SUBSYSTEM=="serio", DRIVERS=="psmouse", ATTRS{press_to_select}="1", ATTRS{sensitivity}="122" ATTRS{drift_time}="30"
+
       # This rule is needed for basic functionality of the controller in Steam and keyboard/mouse emulation
       SUBSYSTEM=="usb", ATTRS{idVendor}=="28de", MODE="0666"
 
