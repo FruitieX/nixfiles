@@ -12,12 +12,6 @@ Here are my NixOS configuration files which can be used to build identical confi
 - Dotfiles symlinked to home directory
 - And more...
 
-## TODO
-
-- Manage KDE system settings
-- Atom packages
-- Dotfiles in Nix store
-
 ## Setup instructions
 
 Note: All steps except last one only need to be ran once (when performing
