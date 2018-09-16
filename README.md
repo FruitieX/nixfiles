@@ -8,9 +8,8 @@ Here are my NixOS configuration files which can be used to build identical confi
 
 - Easy per-host configuration
 - `fhs` command for running third party binaries in an FHS environment
-- System-wide package lists, partly shared with FHS environments
+- System-wide package lists, partially shared with FHS environments
 - Dotfiles symlinked to home directory
-- And more...
 
 ## Setup instructions
 
