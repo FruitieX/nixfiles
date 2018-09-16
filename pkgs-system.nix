@@ -1,12 +1,15 @@
+# These packages are only available in the system environment
+
 { pkgs, ... }: with pkgs; [
   # Misc CLI tools
   (import ./fhs pkgs)
 
-  # Key generation
-  openssl
-
   # Debugging power stuff
   powertop
+
+  # Virtualisation
+  #docker
+  #docker_compose
 
   # Network debugging tools
   tcpdump
@@ -18,8 +21,7 @@
   # Windows crap
   ntfs3g
 
-  # GUI stuff
-  unstable.vscode
-  unstable.spotify
-  xsel # needed by vscode vim plugin
+  # NixOS stuff
+  nox
+  nix-zsh-completions
 ]

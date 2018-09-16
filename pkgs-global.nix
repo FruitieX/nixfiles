@@ -1,6 +1,9 @@
+# These packages are available in all environments
+
 { pkgs, ... }: with pkgs; [
   # Misc CLI tools
   wget
+  openssl
   htop
   git
   pass
@@ -10,7 +13,7 @@
   jq
   silver-searcher
   vim
-  neovim
+  unstable.neovim
   bc
   dos2unix
   binutils
@@ -28,11 +31,9 @@
   usbutils
 
   # Dev stuff
-  nodejs-9_x
+  unstable.nodejs-10_x
   unstable.yarn
-  androidsdk
-  docker
-  docker_compose
+  unstable.androidsdk
   python2Full
   python3
   awscli
@@ -46,10 +47,7 @@
   pciutils
   psmisc
 
-  # NixOS stuff
-  nox
-  nix-zsh-completions
-
+  # TODO: move these to a nix-shell
   # puppeteer trash
   alsaLib
   gtk3

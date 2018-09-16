@@ -12,16 +12,18 @@
     unstable.qt5.qttools
 
     # Windows crap
-    wine
-    winetricks
+    unstable.wine
+    unstable.winetricks
 
     # GUI stuff
-    rofi
+    #rofi
     xorg.xkill
     terminus_font
     unstable.ark
     unstable.firefox
     unstable.google-chrome
+    unstable.chromium
+    #unstable.chromiumDev
     unstable.alacritty
     unstable.xorg.xmodmap
     unstable.gimp
@@ -35,6 +37,10 @@
     unstable.vlc
     unstable.noto-fonts-emoji
     lm_sensors
+
+    unstable.vscode
+    unstable.spotify
+    xsel # needed by vscode vim plugin
   ];
 
   # Enable Bluetooth support
@@ -64,8 +70,8 @@
   # PulseAudio needs a restart after resume to fix Bluetooth audio
   #powerManagement.resumeCommands = "killall pulseaudio";
 
-  # Suspend when lid closed
-  services.logind.lidSwitch = "suspend";
+  # Suspend when lid closed, handled by KDE?
+  #services.logind.lidSwitch = "suspend";
 
   # Steam & co. needs this
   hardware.opengl.driSupport32Bit = true;
