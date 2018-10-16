@@ -95,7 +95,9 @@
 
   # Adjust display color temperature during nighttime
   services.redshift.enable = true;
-  services.redshift.provider = "geoclue2";
+  services.redshift.provider = "manual";
+  services.redshift.latitude = "60";
+  services.redshift.longitude = "0";
   services.redshift.temperature.night = 1900;
 
   # Nice bootup screen
