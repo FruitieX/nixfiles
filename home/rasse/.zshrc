@@ -88,3 +88,24 @@ export PYTHON=/run/current-system/sw/bin/python2
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+eval "$(direnv hook zsh)"
+
+nixify() {
+	if [ ! -e ./.envrc ]; then
+		echo "use nix" > .envrc
+		direnv allow
+	fi
+	if [ ! -e default.nix ]; then
+		cat > default.nix <<'EOF'
+with import <nixpkgs> {};
+stdenv.mkDerivation {
+  name = "env";
+  buildInputs = [
+    bashInteractive
+  ];
+}
+EOF
+    ${EDITOR:-vim} default.nix
+      fi
+}

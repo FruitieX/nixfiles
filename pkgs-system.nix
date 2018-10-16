@@ -24,4 +24,6 @@
   # NixOS stuff
   nox
   nix-zsh-completions
+
+  direnv
 ]
