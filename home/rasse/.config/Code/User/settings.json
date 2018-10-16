@@ -52,5 +52,8 @@
   ],
   "window.zoomLevel": 1,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "breadcrumbs.enabled": true
+  "breadcrumbs.enabled": true,
+  "files.associations": {
+    "*.json": "jsonc"
+  }
 }
