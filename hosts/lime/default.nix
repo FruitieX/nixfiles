@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
     [
       ../../client.nix
+      ./cpu-throttling-bug.nix
     ];
 
   # Use the most recent kernel in hopes of eventual better S0i3 support
