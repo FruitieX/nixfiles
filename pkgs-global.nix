@@ -38,14 +38,15 @@
   python3
   awscli
 
-  # Thesis stuff
-  #pandoc
-  #texlive.combined.scheme-full
-  #python36Packages.pygments
+  # browsers
+  unstable.firefox
+  unstable.google-chrome
+  chromium
 
   # System utils
   pciutils
   psmisc
+  strace
 
   # TODO: move these to a nix-shell
   # puppeteer trash

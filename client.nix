@@ -22,7 +22,7 @@
     unstable.ark
     unstable.firefox
     unstable.google-chrome
-    unstable.chromium
+    #unstable.chromium
     #unstable.chromiumDev
     unstable.alacritty
     unstable.xorg.xmodmap
@@ -36,11 +36,21 @@
     unstable.steam
     unstable.vlc
     unstable.noto-fonts-emoji
+    unstable.libreoffice
     lm_sensors
+
+    # Thesis stuff
+    pandoc
+    texlive.combined.scheme-medium
+    #python36Packages.pygments
 
     unstable.vscode
     unstable.spotify
     xsel # needed by vscode vim plugin
+
+    unstable.sway
+    unstable.s-tui
+    unstable.stress
   ];
 
   # Enable Bluetooth support
