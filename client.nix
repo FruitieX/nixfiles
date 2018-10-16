@@ -100,6 +100,8 @@
   services.redshift.longitude = "0";
   services.redshift.temperature.night = 1900;
 
+  services.upower.enable = true;
+
   # Nice bootup screen
   boot.plymouth.enable = true;
 
