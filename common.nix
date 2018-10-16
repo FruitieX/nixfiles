@@ -95,7 +95,7 @@ in {
     port = 4000;
   };
 
-  programs.zsh.enableAutosuggestions = true;
+  programs.zsh.autosuggestions.enable = true;
   programs.zsh.enableCompletion = true;
   # TODO: find out why this doesn't work.
   # Currently we load zprezto from .zshrc with awkward hacks
