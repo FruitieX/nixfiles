@@ -96,3 +96,6 @@ alias ri="react-native run-ios"
 alias rr="adb shell input text rr"
 alias rd="adb shell input keyevent 82"
 
+# shorthand for nix-shell --run
+# passes all arguments to --run flag
+nr() { nix-shell --run "$*" }
