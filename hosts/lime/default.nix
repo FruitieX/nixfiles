@@ -13,21 +13,29 @@
   # Fix S3 suspend on X1C6 by patching DSDT tables.
   # How to obtain your own acpi_override file:
   # https://delta-xi.net/#056
-  boot.initrd.prepend = [ "/etc/nixos/hosts/lime/acpi_override" ];
+  # NOTE: This has been fixed by a recent firmware update by Lenovo.
+  # Enable "Linux" sleep mode in BIOS for fix.
+  # boot.initrd.prepend = [ "/etc/nixos/hosts/lime/acpi_override" ];
+  # boot.kernelParams = [
+  #   "acpi.ec_no_wakeup=1"
+  #   "mem_sleep_default=deep"
+  # ];
+
   boot.kernelParams = [
-    "acpi.ec_no_wakeup=1"
-    "mem_sleep_default=deep"
+    "psmouse.synaptics_intertouch=1"
   ];
 
-  # Fixes unresponsive TrackPoint
-  boot.extraModprobeConfig = ''
-    options psmouse proto=bare
-  '';
+  boot.kernelModules = [ "acpi_call" ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
 
-  # Tweak TrackPoint sensitivity and speed
-  hardware.trackpoint.enable = true;
-  hardware.trackpoint.sensitivity = 255;
-  hardware.trackpoint.speed = 150;
+  services.tlp.enable = true;
+
+  # Disable governor set in hardware-configuration.nix,
+  # required when services.tlp.enable is true:
+  powerManagement.cpuFreqGovernor =
+    lib.mkIf config.services.tlp.enable (lib.mkForce null);
+
+  hardware.cpu.intel.updateMicrocode = true;
 
   # Auto-mount encrypted LUKS home partition on login.
   # Partition can be created during setup with:
