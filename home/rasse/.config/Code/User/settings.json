@@ -55,5 +55,6 @@
   "breadcrumbs.enabled": true,
   "files.associations": {
     "*.json": "jsonc"
-  }
+  },
+  "keyboard.dispatch": "keyCode"
 }
