@@ -112,6 +112,15 @@
 
   services.upower.enable = true;
 
+  services.printing.enable = true;
+  services.printing.drivers = [
+    pkgs.gutenprint
+    pkgs.gutenprintBin
+    pkgs.hplip
+    #pkgs.samsungUnifiedLinuxDriver
+    #pkgs.splix
+  ];
+
   # Nice bootup screen
   boot.plymouth.enable = true;
 
