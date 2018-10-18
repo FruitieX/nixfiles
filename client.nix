@@ -99,21 +99,25 @@
   services.xserver.libinput.enable = true;
 
   # Enable the KDE Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  #services.xserver.displayManager.sddm.enable = true;
+  #services.xserver.desktopManager.plasma5.enable = true;
   #services.xserver.windowManager.herbstluftwm.enable = true;
 
   # Enable GNOME 3
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.displayManager.gdm.wayland = true;
-  #services.xserver.desktopManager.gnome3.enable = true;
+  services.xserver.desktopManager.gnome3.enable = true;
+
+  # Annoying hack to stop GDM from using PulseAudio
+  # (and thus capturing Bluetooth A2DP audio profiles)
+  systemd.tmpfiles.rules = [
+    "C /run/gdm/.config/pulse/client.conf 0644 gdm gdm - /etc/gdm-pulse-client.conf"
+  ];
 
   # Adjust display color temperature during nighttime
-  services.redshift.enable = true;
-  services.redshift.provider = "manual";
-  services.redshift.latitude = "60";
-  services.redshift.longitude = "0";
-  services.redshift.temperature.night = 1900;
+  #services.redshift.enable = true;
+  #services.redshift.provider = "manual";
+  #services.redshift.latitude = "60";
+  #services.redshift.longitude = "0";
+  #services.redshift.temperature.night = 1900;
 
   services.upower.enable = true;
 

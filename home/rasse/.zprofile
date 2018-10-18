@@ -1,3 +1,13 @@
+if [[ `tty` = /dev/tty1 ]]
+then
+	while true
+	do	
+		echo "=========================== STARTING GNOME SHELL ================================="
+		$HOME/bin/run_gnome_session.nixsh
+		echo "=========================== EXITING GNOME SHELL =================================="
+	done
+fi
+
 export BROWSER="google-chrome-stable"
 export EDITOR="nvim"
 export VISUAL="nvim"
