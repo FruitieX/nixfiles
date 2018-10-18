@@ -104,6 +104,7 @@
   #services.xserver.windowManager.herbstluftwm.enable = true;
 
   # Enable GNOME 3
+  services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
 
   # Annoying hack to stop GDM from using PulseAudio
@@ -112,7 +113,18 @@
   # currently this requires a manual step of copying it
   # from this git repo into /etc
   systemd.tmpfiles.rules = [
-    "C /run/gdm/.config/pulse/client.conf 0644 gdm gdm - /etc/gdm-pulse-client.conf"
+    "d /run/gdm/.config 0700 gdm gdm - -"
+
+    "d /run/gdm/.config/pulse 0700 gdm gdm - -"
+    "C /run/gdm/.config/pulse/default.pa 0600 gdm gdm - /etc/gdm-pulse-default.pa"
+
+    # TODO: this file might not be needed
+    "C /run/gdm/.config/pulse/client.conf 0600 gdm gdm - /etc/gdm-pulse-client.conf"
+
+    # TODO: this systemd socket activation hack might not be needed
+    "d /run/gdm/.config/systemd 0700 gdm gdm - -"
+    "d /run/gdm/.config/systemd/user 0700 gdm gdm - -"
+    "L /run/gdm/.config/systemd/user/pulseaudio.socket 0600 gdm gdm - /dev/null"
   ];
 
   # Adjust display color temperature during nighttime
