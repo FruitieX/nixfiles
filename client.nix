@@ -88,6 +88,7 @@
   #services.logind.lidSwitch = "suspend";
 
   # Steam & co. needs this
+  hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
 
   # Enable the X11 windowing system.
