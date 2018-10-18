@@ -108,6 +108,9 @@
 
   # Annoying hack to stop GDM from using PulseAudio
   # (and thus capturing Bluetooth A2DP audio profiles)
+  # TODO: store gdm-pulse-client.conf in the Nix store,
+  # currently this requires a manual step of copying it
+  # from this git repo into /etc
   systemd.tmpfiles.rules = [
     "C /run/gdm/.config/pulse/client.conf 0644 gdm gdm - /etc/gdm-pulse-client.conf"
   ];
