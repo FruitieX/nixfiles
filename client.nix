@@ -68,6 +68,10 @@
     # Discover PulseAudio sinks on the local network
     zeroconf.discovery.enable = true;
 
+    extraConfig = ''
+      load-module module-switch-on-connect
+    '';
+
     # Tweak the latency offset of a certain Bluetooth speaker
     #extraConfig = ''
       #set-port-latency-offset bluez_card.B8_D5_0B_E5_11_22 speaker-output 30000
