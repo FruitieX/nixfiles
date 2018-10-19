@@ -16,12 +16,9 @@
   # NOTE: This has been fixed by a recent firmware update by Lenovo.
   # Enable "Linux" sleep mode in BIOS for fix.
   # boot.initrd.prepend = [ "/etc/nixos/hosts/lime/acpi_override" ];
-  # boot.kernelParams = [
-  #   "acpi.ec_no_wakeup=1"
-  #   "mem_sleep_default=deep"
-  # ];
-
   boot.kernelParams = [
+    #"acpi.ec_no_wakeup=1"
+    #"mem_sleep_default=deep"
     "psmouse.synaptics_intertouch=1"
   ];
 
@@ -29,6 +26,25 @@
   boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
 
   services.tlp.enable = true;
+
+  #boot.extraModprobeConfig = ''
+  #  options psmouse proto=bare
+  #'';
+
+  powerManagement.resumeCommands = ''
+    echo "Reconnecting TrackPoint"
+    echo -n none > /sys/devices/platform/i8042/serio1/drvctl
+    sleep 1
+    echo -n reconnect > /sys/devices/platform/i8042/serio1/drvctl
+  '';
+
+  hardware.trackpoint = {
+    enable = true;
+    sensitivity = 255;
+    speed = 255;
+    device = "TPPS/2 Elan TrackPoint";
+    #device = "PS/2 Generic Mouse";
+  };
 
   # Disable governor set in hardware-configuration.nix,
   # required when services.tlp.enable is true:
