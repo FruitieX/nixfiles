@@ -82,4 +82,42 @@
 
   # Make Grafana accessible to local network
   services.grafana.addr = "0.0.0.0";
+
+  # TODO: package below nodejs properly with e.g. node2nix
+
+  # lightctl service
+  systemd.services.lightctl = {
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    description = "Start controlling lights with lightctl-koa";
+    path = [
+      pkgs.bash
+      pkgs.nodejs-10_x
+    ];
+    serviceConfig = {
+      Type = "simple";
+      User = "rasse";
+      Restart = "on-failure";
+      WorkingDirectory = "/home/rasse/src/lightctl-koa";
+      ExecStart = "${pkgs.nodejs-10_x}/bin/npm run start:release";
+    };
+  };
+
+  # tg-triviabot
+  systemd.services.triviabot = {
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" "mongodb.service" ];
+    description = "Launch tg-triviabot";
+    path = [
+      pkgs.bash
+      pkgs.nodejs-10_x
+    ];
+    serviceConfig = {
+      Type = "simple";
+      User = "rasse";
+      Restart = "on-failure";
+      WorkingDirectory = "/home/rasse/src/tg-triviabot";
+      ExecStart = "${pkgs.nodejs-10_x}/bin/npm run start";
+    };
+  };
 }
