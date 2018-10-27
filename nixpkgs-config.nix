@@ -65,6 +65,9 @@
         direnv
         nox
         nix-zsh-completions
+
+        # Development
+        unstable-small.nodejs-10_x
       ];
     };
 
