@@ -83,9 +83,9 @@
         unstable.winetricks
 
         # Media
-        unstable.gimp
+        unstable-small.gimp
         unstable.rawtherapee
-        unstable.spotify
+        unstable-small.spotify
         unstable.vlc
 
         # Misc GUI programs
@@ -93,7 +93,7 @@
         unstable.filezilla
         unstable.libreoffice
         unstable.synergy
-        unstable.steam
+        unstable-small.steam
         unstable.xorg.xmodmap
 
         # Misc
