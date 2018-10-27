@@ -27,9 +27,9 @@
 
   services.tlp.enable = true;
 
-  #boot.extraModprobeConfig = ''
-  #  options psmouse proto=bare
-  #'';
+  boot.extraModprobeConfig = ''
+    options psmouse proto=bare
+  '';
 
   powerManagement.resumeCommands = ''
     echo "Reconnecting TrackPoint"
