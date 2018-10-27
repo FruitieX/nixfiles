@@ -110,6 +110,6 @@
 
   # Symlink dotfiles
   system.activationScripts.dotfiles = ''
-    /etc/nixos/scripts/symlink.sh ${user}
+    ${pkgs.stdenv.shell} /etc/nixos/scripts/symlink.sh ${user}
   '';
 }

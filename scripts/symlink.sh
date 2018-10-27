@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 USER=$1
 
 # Symlink all the files in $1 to $2, $1 needs to be an absolute path
