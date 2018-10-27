@@ -88,7 +88,8 @@
   # lightctl service
   systemd.services.lightctl = {
     wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
+    after = [ "network-online.target" ];
+    requires = [ "network-online.target" ];
     description = "Start controlling lights with lightctl-koa";
     path = [
       pkgs.bash
@@ -106,7 +107,8 @@
   # tg-triviabot
   systemd.services.triviabot = {
     wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" "mongodb.service" ];
+    after = [ "network-online.target" "mongodb.service" ];
+    requires = [ "network-online.target" ];
     description = "Launch tg-triviabot";
     path = [
       pkgs.bash
