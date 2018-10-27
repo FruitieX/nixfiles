@@ -1,3 +1,1 @@
-{
-  allowUnfree = true;
-}
+import /etc/nixos/nixpkgs-config.nix
