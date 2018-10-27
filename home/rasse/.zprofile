@@ -109,3 +109,9 @@ alias rd="adb shell input keyevent 82"
 # shorthand for nix-shell --run
 # passes all arguments to --run flag
 nr() { nix-shell --run "$*" }
+
+# shorthand for nix-shell -p
+# passes all arguments to -p flag
+np() { nix-shell -p "$*" }
+
+alias nix-rebuild="nix-env -iA systemToolsEnv -f '<nixpkgs>'"
