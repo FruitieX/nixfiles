@@ -38,8 +38,9 @@
         # Networking
         httpie
         iperf
-        tcpdump
+        openssh
         sshfs
+        tcpdump
         wget
 
         # Editors
