@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, user, ... }:
 
 {
   imports =
@@ -63,19 +63,19 @@
   #   mount /dev/mapper/home /home/<username>
   #   chown -R <username>:users /home/<username>
 
-  users.extraUsers.rasse.cryptHomeLuks = "/dev/nvme0n1p8";
+  users.extraUsers.${user}.cryptHomeLuks = "/dev/nvme0n1p8";
   security.pam.mount.enable = true;
 
   # Virtualisation
   virtualisation.virtualbox.host.enable = true;
-  # users.extraUsers.rasse.extraGroups = ["vboxusers"];
+  # users.extraUsers.${user}.extraGroups = ["vboxusers"];
   # virtualisation.docker.enable = true;
-  # users.extraUsers.rasse.extraGroups = ["docker"];
+  # users.extraUsers.${user}.extraGroups = ["docker"];
 
   # Renoise
   environment.systemPackages = with pkgs; [
     (pkgs.renoise.override {
-      releasePath = "/home/rasse/nixfiles/ignore/rns_3_1_1_linux_x86_64.tar.gz";
+      releasePath = "/home/${user}/nixfiles/ignore/rns_3_1_1_linux_x86_64.tar.gz";
     })
   ];
 }

@@ -3,10 +3,13 @@
 pkgs.buildFHSUserEnv {
   name = "fhs";
 
-  # TODO: automatically pick these from packages.nix somehow?
-  targetPkgs = pkgs: with pkgs; import ../pkgs-global.nix pkgs;
+  # Make sure system tools are available in FHS env
+  targetPkgs = pkgs: with pkgs; [
+    systemToolsEnv
+  ];
 
   # Most of these are from pkgs/games/steam/chrootenv.nix
+  # TODO: import them from there instead of maintaining this list
   multiPkgs = pkgs: with pkgs; [
     xorg.libXcomposite
     xorg.libXtst

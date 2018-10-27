@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 
 {
   # Audio
@@ -74,7 +74,7 @@
         }
         {
           targets = [ "192.168.1.234:9182" ];
-          labels.alias = "rasse-win10";
+          labels.alias = "watermelon";
         }
       ];
     }
@@ -96,9 +96,9 @@
     ];
     serviceConfig = {
       Type = "simple";
-      User = "rasse";
+      User = user;
       Restart = "on-failure";
-      WorkingDirectory = "/home/rasse/src/lightctl-koa";
+      WorkingDirectory = "/home/${user}/src/lightctl-koa";
       ExecStart = "${pkgs.nodejs-10_x}/bin/npm run start:release";
     };
   };
@@ -114,9 +114,9 @@
     ];
     serviceConfig = {
       Type = "simple";
-      User = "rasse";
+      User = user;
       Restart = "on-failure";
-      WorkingDirectory = "/home/rasse/src/tg-triviabot";
+      WorkingDirectory = "/home/${user}/src/tg-triviabot";
       ExecStart = "${pkgs.nodejs-10_x}/bin/npm run start";
     };
   };

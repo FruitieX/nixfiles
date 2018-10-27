@@ -6,7 +6,12 @@
 
 let
   hostname = import ./hostname.nix;
+  user = "rasse";
 in {
+  # Make user and hostname available to included modules
+  _module.args.user = user;
+  _module.args.hostname = hostname;
+
   imports =
     [
       ("/etc/nixos/hosts/" + hostname + "/hardware-configuration.nix")

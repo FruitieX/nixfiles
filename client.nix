@@ -1,56 +1,12 @@
 # This file contains configs that are shared across "client" hosts
 # (laptops, desktop computers)
 
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 
 {
+  # Add desktop packages
   environment.systemPackages = with pkgs; [
-    # Dev stuff
-    unstable.android-studio
-
-    # qdbus lives in qttools
-    unstable.qt5.qttools
-
-    # Windows crap
-    unstable.wine
-    unstable.winetricks
-
-    # GUI stuff
-    #rofi
-    xorg.xkill
-    terminus_font
-    unstable.ark
-    unstable.firefox
-    unstable.google-chrome
-    #unstable.chromium
-    #unstable.chromiumDev
-    unstable.alacritty
-    unstable.xorg.xmodmap
-    unstable.gimp
-    unstable.rawtherapee
-    unstable.nitrogen
-    unstable.synergy
-    unstable.okular
-    unstable.filezilla
-    unstable.kdeApplications.kio-extras               # MTP support for Dolphin
-    unstable.steam
-    unstable.vlc
-    unstable.noto-fonts-emoji
-    unstable.libreoffice
-    lm_sensors
-
-    # Thesis stuff
-    pandoc
-    texlive.combined.scheme-medium
-    #python36Packages.pygments
-
-    unstable.vscode
-    unstable.spotify
-    xsel # needed by vscode vim plugin
-
-    unstable.sway
-    unstable.s-tui
-    unstable.stress
+    desktopToolsEnv
   ];
 
   # Enable Bluetooth support
@@ -151,7 +107,7 @@
   # Android stuff
   programs.adb.enable = true;
   programs.java.enable = true;
-  #users.extraUsers.rasse.extraGroups = ["adbusers"];
+  #users.extraUsers.${user}.extraGroups = ["adbusers"];
 
   # Steam controller udev rules
   # TODO: maybe move this elsewhere
@@ -203,9 +159,9 @@
       ADB = "${pkgs.androidsdk}/bin/adb";
     };
     serviceConfig = {
-      User = "rasse";
+      User = user;
       Type = "simple";
-      ExecStart = "${pkgs.bash}/bin/bash /etc/nixos/home/rasse/bin/tether.sh";
+      ExecStart = "${pkgs.bash}/bin/bash /etc/nixos/home/${user}/bin/tether.sh";
     };
   };
 }

@@ -1,26 +1,15 @@
 # This file contains configs that are common for all of my hosts
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, user, hostname, ... }:
 
-let
-  hostname = import ./hostname.nix;
-in {
-  nixpkgs.config = {
-    # Allow non-free licenses
-    allowUnfree = true;
+{
+  nixpkgs.config = import ./nixpkgs-config.nix;
 
-    # Unstable package set
-    packageOverrides = {
-      unstable = import (fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz) {
-        config = config.nixpkgs.config;
-      };
-    };
-  };
-
-  # System packages
-  environment.systemPackages =
-    (import ./pkgs-global.nix pkgs) ++
-    (import ./pkgs-system.nix pkgs);
+  # System packages are common to all hosts
+  environment.systemPackages = with pkgs; [
+    systemToolsEnv
+    (import ./fhs pkgs)
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -30,12 +19,15 @@ in {
   powerManagement.cpuFreqGovernor = "ondemand";
   powerManagement.powertop.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.extraUsers.rasse = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "adbusers" "vboxusers" "audio" "sway" ];
-    shell = pkgs.zsh;
-    openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxHyNeiwAzZoExz8iOWkxYmb/3xsN9QVwp/R0/SRUZlFQRPoXk4Ncwkt/U8aiSpm0XmrG1WWGYO9lf5UzAPX8LyHOfjaOyvCTok7RhyMSYZ1cBOJsEQ8MfMRKqjZ0vBaLjRDZoFBERT+/VBfazjTUB1Fv8dGHS8PLvdhMly2VinsSGTc/tApdigP61SJeLmo7NoDavBqTKHx1efJRAw4dRKilhl8fOvAsBCuOn9UzBdZAYX4WTpHvlZGFnkRvLteeAmHGuFPUq8ofc3X4HZfukIz1/l5Ya8l5srHAQEsSpKGcG7EuRHBz+cwEulfjDKlVyFK1Jx7UwJHFGKENtFbST rasse" ];
+  # Define a user account. Don't forget to change your password.
+  users.extraUsers = {
+    ${user} = {
+      password = "change-me";
+      isNormalUser = true;
+      extraGroups = [ "wheel" "adbusers" "vboxusers" "audio" "sway" ];
+      shell = pkgs.zsh;
+      openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxHyNeiwAzZoExz8iOWkxYmb/3xsN9QVwp/R0/SRUZlFQRPoXk4Ncwkt/U8aiSpm0XmrG1WWGYO9lf5UzAPX8LyHOfjaOyvCTok7RhyMSYZ1cBOJsEQ8MfMRKqjZ0vBaLjRDZoFBERT+/VBfazjTUB1Fv8dGHS8PLvdhMly2VinsSGTc/tApdigP61SJeLmo7NoDavBqTKHx1efJRAw4dRKilhl8fOvAsBCuOn9UzBdZAYX4WTpHvlZGFnkRvLteeAmHGuFPUq8ofc3X4HZfukIz1/l5Ya8l5srHAQEsSpKGcG7EuRHBz+cwEulfjDKlVyFK1Jx7UwJHFGKENtFbST rasse" ];
+    };
   };
 
   # Networking
@@ -122,7 +114,7 @@ in {
     linkdir() {
       for f in $(find $1 -maxdepth 1 -type f -printf '%P\n'); do
         ln -s -f -v $1/$f $2/$f;
-        chown -h rasse:users $2/$f
+        chown -h ${user}:users $2/$f
       done
     }
 
@@ -131,7 +123,7 @@ in {
       linkdir $1 $2
       for d in $(find $1 -type d -printf '%P\n'); do
         mkdir -p -v $2/$d;
-        chown rasse:users $2/$d
+        chown ${user}:users $2/$d
         linkdir $1/$d $2/$d;
       done
     };
