@@ -47,6 +47,7 @@
         vim
 
         # System utils
+        cryptsetup
         htop
         lm_sensors
         ncdu
