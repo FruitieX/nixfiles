@@ -58,5 +58,6 @@
   },
   "keyboard.dispatch": "keyCode",
   "files.autoSave": "afterDelay",
-  "workbench.editor.labelFormat": "medium"
+  "workbench.editor.labelFormat": "medium",
+  "prettier.requireConfig": true
 }
