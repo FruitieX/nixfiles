@@ -6,6 +6,14 @@ pkgs.buildFHSUserEnv {
   # Make sure system tools are available in FHS env
   targetPkgs = pkgs: with pkgs; [
     systemToolsEnv
+    unstable-small.yarn
+    unstable-small.nodejs
+
+    # Needed by cypress
+    chromium
+    alsaLib
+    gtk3
+    at_spi2_atk
   ];
 
   # Most of these are from pkgs/games/steam/chrootenv.nix
