@@ -36,6 +36,7 @@
         zip
 
         # Networking
+        dnsutils
         httpie
         iperf
         openssh
