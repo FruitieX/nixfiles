@@ -9,6 +9,9 @@
     desktopToolsEnv
   ];
 
+  # Attempt resolving DNS problems
+  services.resolved.enable = true;
+
   # Enable Bluetooth support
   hardware.bluetooth.enable = true;
 
