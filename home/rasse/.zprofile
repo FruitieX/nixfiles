@@ -115,3 +115,5 @@ nr() { nix-shell --run "$*" }
 np() { nix-shell -p "$*" }
 
 alias nix-rebuild="nix-env -iA systemToolsEnv -f '<nixpkgs>'"
+
+export DIRENV_WARN_TIMEOUT=30s
