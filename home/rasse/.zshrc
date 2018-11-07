@@ -78,7 +78,7 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.npm/bin:$PATH"
-export PYTHON=/run/current-system/sw/bin/python2
+#export PYTHON=/run/current-system/sw/bin/python2
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
