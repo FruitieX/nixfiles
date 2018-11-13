@@ -117,3 +117,4 @@ np() { nix-shell -p "$*" }
 alias nix-rebuild="nix-env -iA systemToolsEnv -f '<nixpkgs>'"
 
 export DIRENV_WARN_TIMEOUT=30s
+alias debug_shitty_web_code="chromium --disable-web-security --disable-features=CrossSiteDocumentBlockingIfIsolating --user-data-dir=$HOME/tmp"
