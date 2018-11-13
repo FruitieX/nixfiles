@@ -78,4 +78,17 @@
       releasePath = "/home/${user}/nixfiles/ignore/rns_3_1_1_linux_x86_64.tar.gz";
     })
   ];
+
+  # PostgreSQL server for development purposes.
+  # Accepts connections on 127.0.0.1 with "postgres" user
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql100;
+    authentication = lib.mkForce ''
+      # TYPE  DATABASE        USER            ADDRESS                 METHOD
+      local   all             all                                     trust
+      host    all             all             127.0.0.1/32            trust
+      host    all             all             ::1/128                 trust
+    '';
+  };
 }
