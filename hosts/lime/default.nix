@@ -79,6 +79,9 @@
     })
   ];
 
+  # Fix a certain wi-fi portal login
+  networking.extraHosts = "132.171.104.123 securelogin.arubanetworks.com";
+
   # PostgreSQL server for development purposes.
   # Accepts connections on 127.0.0.1 with "postgres" user
   services.postgresql = {
