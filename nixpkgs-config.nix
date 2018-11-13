@@ -69,6 +69,7 @@
 
         # Development
         unstable-small.nodejs-10_x
+        postgresql100
       ];
     };
 
