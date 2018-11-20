@@ -30,7 +30,7 @@
         jq
         pass
         openssl
-        silver-searcher
+        ripgrep
         tmux
         unzip
         zip
