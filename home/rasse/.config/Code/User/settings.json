@@ -62,5 +62,8 @@
   "workbench.editor.labelFormat": "medium",
   "prettier.requireConfig": true,
   "search.location": "sidebar",
-  "workbench.startupEditor": "newUntitledFile"
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.editor.highlightModifiedTabs": true,
+  "files.eol": "\n",
+  "prettier.endOfLine": "lf"
 }
