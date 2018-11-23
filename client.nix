@@ -11,6 +11,7 @@
 
   # Attempt resolving DNS problems
   services.resolved.enable = true;
+  services.resolved.fallbackDns = ["1.1.1.1"];
 
   # Enable Bluetooth support
   hardware.bluetooth.enable = true;
