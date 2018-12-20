@@ -7,20 +7,7 @@
       ./cpu-throttling-bug.nix
     ];
 
-  # Use the most recent kernel in hopes of eventual better S0i3 support
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  # Fix S3 suspend on X1C6 by patching DSDT tables.
-  # How to obtain your own acpi_override file:
-  # https://delta-xi.net/#056
-  # NOTE: This has been fixed by a recent firmware update by Lenovo.
-  # Enable "Linux" sleep mode in BIOS for fix.
-  # boot.initrd.prepend = [ "/etc/nixos/hosts/lime/acpi_override" ];
-  boot.kernelParams = [
-    #"acpi.ec_no_wakeup=1"
-    #"mem_sleep_default=deep"
-    "psmouse.synaptics_intertouch=1"
-  ];
 
   boot.kernelModules = [ "acpi_call" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
@@ -28,23 +15,8 @@
   services.tlp.enable = true;
 
   boot.extraModprobeConfig = ''
-    options psmouse proto=bare
+    options psmouse proto=imps
   '';
-
-  powerManagement.resumeCommands = ''
-    echo "Reconnecting TrackPoint"
-    echo -n none > /sys/devices/platform/i8042/serio1/drvctl
-    sleep 1
-    echo -n reconnect > /sys/devices/platform/i8042/serio1/drvctl
-  '';
-
-  hardware.trackpoint = {
-    enable = true;
-    sensitivity = 255;
-    speed = 255;
-    device = "TPPS/2 Elan TrackPoint";
-    #device = "PS/2 Generic Mouse";
-  };
 
   # Disable governor set in hardware-configuration.nix,
   # required when services.tlp.enable is true:
@@ -62,7 +34,6 @@
   #   mkfs.ext4 -L home /dev/mapper/home
   #   mount /dev/mapper/home /home/<username>
   #   chown -R <username>:users /home/<username>
-
   users.extraUsers.${user}.cryptHomeLuks = "/dev/nvme0n1p8";
   security.pam.mount.enable = true;
 
@@ -70,14 +41,14 @@
   virtualisation.virtualbox.host.enable = true;
   # users.extraUsers.${user}.extraGroups = ["vboxusers"];
   # virtualisation.docker.enable = true;
-  # users.extraUsers.${user}.extraGroups = ["docker"];
+  #users.extraUsers.${user}.extraGroups = ["docker"];
 
   # Renoise
-  environment.systemPackages = with pkgs; [
-    (pkgs.renoise.override {
-      releasePath = "/home/${user}/nixfiles/ignore/rns_3_1_1_linux_x86_64.tar.gz";
-    })
-  ];
+  #environment.systemPackages = with pkgs; [
+    #(pkgs.renoise.override {
+      #releasePath = "/home/${user}/nixfiles/ignore/rns_3_1_1_linux_x86_64.tar.gz";
+    #})
+  #];
 
   # Fix a certain wi-fi portal login
   networking.extraHosts = "132.171.104.123 securelogin.arubanetworks.com";
