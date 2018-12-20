@@ -2,18 +2,37 @@
   # Allow non-free licenses
   allowUnfree = true;
 
+  # Android SDK license
+  android_sdk.accept_license = true;
+
   # Inspired by https://github.com/GeoscienceAustralia/NixOS-Machines/blob/master/nixpkgs-config.nix
   packageOverrides = super: let self = super.pkgs; in with self; rec {
+    # Declarative config
+
     # Unstable package set
     # View last updated time at: https://howoldis.herokuapp.com
-    unstable = import (fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz) {
-      config = self.config;
-    };
+    # unstable = import (fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz) {
+    #   config = self.config;
+    # };
 
     # Unstable-small package set
     # Contains more recent packages, but larger chance of having to build from source.
     # This is fine for binary packages though, which build fast anyway.
-    unstable-small = import (fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable-small.tar.gz) {
+    # unstable-small = import (fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable-small.tar.gz) {
+    #   config = self.config;
+    # };
+
+    # Channel based
+
+    # unstable package set, install by running:
+    # sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable
+    unstable = import <unstable> {
+      config = self.config;
+    };
+
+    # unstable-small package set, install by running:
+    # sudo nix-channel --add https://nixos.org/channels/nixos-unstable-small unstable-small
+    unstable-small = import <unstable-small> {
       config = self.config;
     };
 
