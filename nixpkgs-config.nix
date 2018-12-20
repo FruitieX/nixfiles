@@ -92,14 +92,14 @@
         # Media
         unstable-small.gimp
         unstable.rawtherapee
-        unstable-small.spotify
+        spotify
         unstable.vlc
 
         # Misc GUI programs
         unstable.alacritty
         unstable.filezilla
-        unstable.libreoffice
-        unstable.synergy
+        libreoffice
+        unstable-small.synergy
         unstable-small.steam
         unstable.xorg.xmodmap
 
