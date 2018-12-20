@@ -65,5 +65,6 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.editor.highlightModifiedTabs": true,
   "files.eol": "\n",
-  "prettier.endOfLine": "lf"
+  "prettier.endOfLine": "lf",
+  "editor.minimap.enabled": false
 }
