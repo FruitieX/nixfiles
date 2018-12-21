@@ -36,6 +36,18 @@
       config = self.config;
     };
 
+    # https://vaibhavsagar.com/blog/2018/05/27/quick-easy-nixpkgs-pinning/
+    #master = import (fetchFromGitHub {
+    #  owner = "nixos";
+    #  repo = "nixpkgs";
+    #  rev = "master";
+    #}) {
+    #  config = self.config;
+    #};
+    master = import (fetchTarball https://github.com/NixOS/nixpkgs/archive/master.tar.gz) {
+      config = self.config;
+    };
+
     systemToolsEnv = with super; buildEnv {
       name = "systemToolsEnv";
       paths = [
@@ -101,7 +113,7 @@
         unstable-small.google-chrome
 
         # Development
-        unstable-small.vscode
+        master.vscode
         xsel # needed by vscode vim plugin
 
         # Windows
@@ -111,7 +123,7 @@
         # Media
         unstable-small.gimp
         unstable.rawtherapee
-        spotify
+        #spotify
         unstable.vlc
 
         # Misc GUI programs
