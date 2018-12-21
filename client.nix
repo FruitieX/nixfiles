@@ -13,6 +13,9 @@
   services.resolved.enable = true;
   services.resolved.fallbackDns = ["1.1.1.1"];
 
+  # Flatpak support: https://github.com/NixOS/nixpkgs/pull/33371
+  services.flatpak.enable = true;
+
   # Enable Bluetooth support
   hardware.bluetooth.enable = true;
 

@@ -1,13 +1,3 @@
-if [[ `tty` = /dev/tty1 ]]
-then
-	while true
-	do	
-		echo "=========================== STARTING GNOME SHELL ================================="
-		$HOME/bin/run_gnome_session.nixsh
-		echo "=========================== EXITING GNOME SHELL =================================="
-	done
-fi
-
 export BROWSER="google-chrome-stable"
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -65,6 +55,10 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # yarn crap
 export PATH="$HOME/.yarn/bin:$PATH"
 
+# flatpak
+export PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"
+export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
+
 if [ -f $HOME/.zprofile.secret ]; then
     source $HOME/.zprofile.secret
 fi
@@ -118,3 +112,14 @@ alias nix-rebuild="nix-env -iA systemToolsEnv -f '<nixpkgs>'"
 
 export DIRENV_WARN_TIMEOUT=30s
 alias debug_shitty_web_code="chromium --disable-web-security --disable-features=CrossSiteDocumentBlockingIfIsolating --user-data-dir=$HOME/tmp"
+
+if [[ `tty` = /dev/tty1 ]]
+then
+	while true
+	do	
+		echo "=========================== STARTING GNOME SHELL ================================="
+		$HOME/bin/run_gnome_session.nixsh
+		echo "=========================== EXITING GNOME SHELL =================================="
+	done
+fi
+
