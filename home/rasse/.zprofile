@@ -1,7 +1,6 @@
 export BROWSER="google-chrome-stable"
 export EDITOR="nvim"
 export VISUAL="nvim"
-export DISPLAY=":0"
 #export PAGER="vimpager"
 
 export LC_ALL="en_US.UTF-8"
@@ -123,3 +122,4 @@ then
 	done
 fi
 
+export DISPLAY=":0"
