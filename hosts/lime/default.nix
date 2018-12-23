@@ -14,6 +14,8 @@
 
   services.tlp.enable = true;
 
+  # Use IMPS protocol for TrackPoint.
+  # Fixes unresponsive TrackPoint after resume
   boot.extraModprobeConfig = ''
     options psmouse proto=imps
   '';
