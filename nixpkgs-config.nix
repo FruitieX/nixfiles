@@ -108,7 +108,7 @@
       name = "desktopToolsEnv";
       paths = [
         # Browsers
-        unstable.chromium
+        unstable-small.chromium
         unstable-small.firefox-bin
         unstable-small.google-chrome
 
