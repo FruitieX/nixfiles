@@ -1,6 +1,17 @@
 { config, pkgs, lib, user, ... }:
 
 {
+  # NOTE:
+  # X1C6 users should run the following firmware update utilities using Windows
+  # in this order before proceeding:
+  # - BIOS Update Utility (adds S3 suspend mode)
+  # - Synaptics Touchpad Firmware (prevents unresponsive touchpad/trackpoint
+  #   after the following update...)
+  # - TrackPoint Firmware Update Utility (fixes TrackPoint drift issues)
+  #
+  # Afterwards, make sure to enable "Linux sleep mode" in the BIOS settings to
+  # fix suspend issues on Linux
+
   imports =
     [
       ../../client.nix
