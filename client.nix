@@ -50,6 +50,13 @@
   # Suspend when lid closed, handled by KDE?
   #services.logind.lidSwitch = "suspend";
 
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-emoji
+    fira-code
+    fira-code-symbols
+  ];
+
   # Steam & co. needs this
   hardware.opengl.enable = true;
   hardware.opengl.driSupport32Bit = true;
