@@ -4,7 +4,7 @@
   "editor.tabSize": 2,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
-  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+  "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
   "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
   "vim.insertModeKeyBindings": [
@@ -66,5 +66,9 @@
   "workbench.editor.highlightModifiedTabs": true,
   "files.eol": "\n",
   "prettier.endOfLine": "lf",
-  "editor.minimap.enabled": false
+  "editor.minimap.enabled": false,
+  "jest.autoEnable": false,
+  "jest.coverageFormatter": "GutterFormatter",
+  "jest.showCoverageOnLoad": true,
+  "editor.fontLigatures": true
 }
