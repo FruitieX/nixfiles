@@ -20,21 +20,17 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.kernelModules = [ "acpi_call" ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
-
-  services.tlp.enable = true;
-
-  # Use IMPS protocol for TrackPoint.
-  # Fixes unresponsive TrackPoint after resume
-  boot.extraModprobeConfig = ''
-    options psmouse proto=imps
-  '';
-
   # Disable governor set in hardware-configuration.nix,
   # required when services.tlp.enable is true:
   powerManagement.cpuFreqGovernor =
     lib.mkIf config.services.tlp.enable (lib.mkForce null);
+  services.tlp.enable = true;
+
+  # Use IMPS protocol for TrackPoint. Fixes unresponsive TrackPoint after
+  # resume, and makes the TrackPoint a lot smoother at least this machine.
+  boot.extraModprobeConfig = ''
+    options psmouse proto=imps
+  '';
 
   hardware.cpu.intel.updateMicrocode = true;
 
@@ -51,7 +47,13 @@
   security.pam.mount.enable = true;
 
   # Virtualisation
+
+  # Enable VirtualBox with proprietary extensions pack
+  # NOTE: this causes VirtualBox to be compiled from source,
+  # remove the enableExtensionPack option if this is undesirable
   virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+
   # users.extraUsers.${user}.extraGroups = ["vboxusers"];
   # virtualisation.docker.enable = true;
   #users.extraUsers.${user}.extraGroups = ["docker"];
