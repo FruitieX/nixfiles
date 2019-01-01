@@ -69,6 +69,7 @@
   fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-emoji
+    fira
     fira-code
     fira-code-symbols
   ];
@@ -92,6 +93,52 @@
   # Enable GNOME 3
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
+
+  # gsettings overrides
+  # `dconf watch /` is useful for discovering these
+  # TODO: favorite-apps doesn't work
+  services.xserver.desktopManager.gnome3.extraGSettingsOverrides = ''
+    [org.gnome.desktop.interface]
+    gtk-theme='Adwaita-dark'
+    clock-show-date=true
+
+    [org.gnome.desktop.input-sources]
+    sources=[('xkb', 'us+dvorak')]
+    xkb-options=['terminate:ctrl_alt_bksp', 'caps:escape']
+
+    [org.gnome.desktop.peripherals.mouse]
+    speed=1.0
+    accel-profile='adaptive'
+    natural-scroll=false
+
+    [org.gnome.desktop.peripherals.touchpad]
+    natural-scroll=false
+
+    [org.gnome.settings-daemon.plugins.power]
+    sleep-inactive-battery-type='suspend'
+    sleep-inactive-battery-timeout=900
+    sleep-inactive-ac-type='suspend'
+    sleep-inactive-ac-timeout=3600
+
+    [org.gnome.settings-daemon.plugins.xsettings]
+    antialiasing='rgba'
+    hinting='none'
+
+    [org.gnome.shell]
+    favorite-apps=['alacritty.desktop', 'code.desktop', 'firefox.desktop', 'google-chrome.desktop', 'com.spotify.Client.desktop']
+
+    [org.gnome.shell.overrides]
+    workspaces-only-on-primary=false
+
+    [org.gnome.desktop.interface]
+    font-name='Fira Sans 11'
+    document-font-name='Fira Sans 11'
+    monospace-font-name='Fira Code 11'
+
+    [org.gnome.desktop.wm.preferences]
+    titlebar-font='Fira Sans Bold 11'
+    resize-with-right-button=true
+  '';
 
   # Annoying hack to stop GDM from using PulseAudio
   # (and thus capturing Bluetooth A2DP audio profiles)
