@@ -108,7 +108,7 @@
       name = "desktopToolsEnv";
       paths = [
         # Browsers
-        unstable-small.chromium
+        unstable.chromium
         unstable-small.firefox-bin
         unstable-small.google-chrome
 
@@ -120,18 +120,9 @@
         unstable.wine
         unstable.winetricks
 
-        # Media
-        unstable-small.gimp
-        unstable.rawtherapee
-        #spotify
-        unstable.vlc
-
         # Misc GUI programs
         unstable.alacritty
-        unstable.filezilla
-        libreoffice
         unstable-small.synergy
-        unstable-small.steam
         unstable.xorg.xmodmap
 
         # Misc

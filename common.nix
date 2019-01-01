@@ -111,7 +111,9 @@
   # system.autoUpgrade.enable = true;
 
   # Symlink dotfiles
-  system.activationScripts.dotfiles = ''
-    ${pkgs.stdenv.shell} /etc/nixos/scripts/symlink.sh ${user}
-  '';
+  system.activationScripts.dotfiles = import ./scripts/symlink.nix {
+    inherit user;
+    source = "/etc/nixos/home";
+    target = "/home";
+  };
 }

@@ -16,6 +16,22 @@
   # Flatpak support: https://github.com/NixOS/nixpkgs/pull/33371
   services.flatpak.enable = true;
 
+  # Install flatpak packages
+  system.activationScripts.flatpak-install = import ./scripts/flatpak-install.nix {
+    inherit pkgs;
+    inherit user;
+    flatpakPackages = [
+      "com.discordapp.Discord"
+      "com.spotify.Client"
+      "com.valvesoftware.Steam"
+      "org.darktable.Darktable"
+      "org.filezillaproject.Filezilla"
+      "org.gimp.GIMP"
+      "org.libreoffice.LibreOffice"
+      "org.videolan.VLC"
+    ];
+  };
+
   # Enable Bluetooth support
   hardware.bluetooth.enable = true;
 
