@@ -100,6 +100,7 @@
 
         # Development
         unstable-small.nodejs-10_x
+        unstable-small.yarn
         postgresql100
       ];
     };
@@ -108,7 +109,7 @@
       name = "desktopToolsEnv";
       paths = [
         # Browsers
-        unstable.chromium
+        chromium
         unstable-small.firefox-bin
         unstable-small.google-chrome
 
