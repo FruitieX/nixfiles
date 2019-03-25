@@ -20,6 +20,11 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  zramSwap.enable = true;
+  zramSwap.memoryPercent = 10;
+  boot.kernel.sysctl = { "vm.swappiness" = 80; };
+  services.earlyoom.enable = true;
+
   # Disable governor set in hardware-configuration.nix,
   # required when services.tlp.enable is true:
   powerManagement.cpuFreqGovernor =
