@@ -53,6 +53,7 @@
   #   chown -R <username>:users /home/<username>
   users.extraUsers.${user}.cryptHomeLuks = "/dev/nvme0n1p8";
   security.pam.mount.enable = true;
+  #security.pam.services.${user}.pamMount = true;
 
   # Virtualisation
 
@@ -60,7 +61,7 @@
   # NOTE: this causes VirtualBox to be compiled from source,
   # remove the enableExtensionPack option if this is undesirable
   virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
+  #virtualisation.virtualbox.host.enableExtensionPack = true;
 
   # users.extraUsers.${user}.extraGroups = ["vboxusers"];
   # virtualisation.docker.enable = true;
