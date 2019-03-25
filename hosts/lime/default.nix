@@ -39,6 +39,9 @@
 
   hardware.cpu.intel.updateMicrocode = true;
 
+  # GPU video decoding support
+  hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
+
   # Auto-mount encrypted LUKS home partition on login.
   # Partition can be created during setup with:
   #
