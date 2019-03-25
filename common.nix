@@ -19,6 +19,9 @@
   powerManagement.cpuFreqGovernor = "ondemand";
   powerManagement.powertop.enable = true;
 
+  # Kernel same-page merging
+  hardware.enableKSM = true;
+
   # Define a user account. Don't forget to change your password.
   users.extraUsers = {
     ${user} = {
