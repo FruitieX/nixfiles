@@ -60,6 +60,7 @@
         git
         jq
         pass
+        procps
         openssl
         ripgrep
         tmux
