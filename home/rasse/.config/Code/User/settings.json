@@ -70,5 +70,9 @@
   "jest.autoEnable": false,
   "jest.coverageFormatter": "GutterFormatter",
   "jest.showCoverageOnLoad": true,
-  "editor.fontLigatures": true
+  "editor.fontLigatures": true,
+  "diffEditor.renderSideBySide": true,
+  "explorer.confirmDragAndDrop": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
