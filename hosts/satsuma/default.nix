@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }:
+{ config, pkgs, user, hostname, ... }:
 
 {
   # Audio
@@ -19,6 +19,33 @@
     '';
   };
 
+  # Samba
+  users.extraUsers.julle = {
+    password = "change-me";
+    isNormalUser = true;
+  };
+
+  services.samba = {
+    enable = true;
+    extraConfig = ''
+      workgroup = WORKGROUP
+      server string = ${hostname}
+      netbios name = ${hostname}
+    '';
+    shares = {
+      media = {
+        path = "/media";
+        browseable = "yes";
+        writable = "yes";
+      };
+      julle = {
+        path = "/mnt/home/julle";
+        browseable = "yes";
+        writable = "yes";
+      };
+    };
+  };
+
   # Sync system time with NTP
   services.ntp.enable = true;
 
@@ -35,10 +62,16 @@
       root = "/var/www/fruitiex";
     };
   };
-  services.nginx.virtualHosts."player.fruitiex.org" = {
-    locations."/" = {
-      proxyPass = "http://localhost:8087";
+  services.nginx.virtualHosts."ircsitz.fruitiex.org" = {
+    locations."/api" = {
+      proxyPass = "http://localhost:3000";
+    };
+    locations."/socket.io" = {
+      proxyPass = "http://localhost:3000";
       proxyWebsockets = true;
+    };
+    locations."/" = {
+      root = "/var/www/ircsitz";
     };
   };
   services.nginx.virtualHosts."192.168.1.101" = {
