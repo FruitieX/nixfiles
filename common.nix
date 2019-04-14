@@ -22,6 +22,9 @@
   # Kernel same-page merging
   hardware.enableKSM = true;
 
+  # All my systems have Intel processors at the moment
+  hardware.cpu.intel.updateMicrocode = true;
+
   # Define a user account. Don't forget to change your password.
   users.extraUsers = {
     ${user} = {
@@ -111,7 +114,7 @@
 
   # TODO: make this clear out ancient kernels so /boot doesn't fill up
   # OR: resize /boot partition on satsuma so this is no longer an issue
-  # system.autoUpgrade.enable = true;
+  system.autoUpgrade.enable = true;
 
   # Symlink dotfiles
   system.activationScripts.dotfiles = import ./scripts/symlink.nix {
