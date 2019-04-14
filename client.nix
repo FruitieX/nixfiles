@@ -133,6 +133,7 @@
     workspaces-only-on-primary=false
 
     [org.gnome.desktop.interface]
+    enable-animations=false
     font-name='Fira Sans 11'
     document-font-name='Fira Sans 11'
     monospace-font-name='Fira Code 11'
