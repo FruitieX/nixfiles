@@ -81,7 +81,7 @@
   # Accepts connections on 127.0.0.1 with "postgres" user
   services.postgresql = {
     enable = true;
-    package = pkgs.postgresql100;
+    package = pkgs.postgresql_10;
     authentication = lib.mkForce ''
       # TYPE  DATABASE        USER            ADDRESS                 METHOD
       local   all             all                                     trust

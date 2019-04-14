@@ -102,7 +102,7 @@
         # Development
         unstable-small.nodejs-10_x
         unstable-small.yarn
-        postgresql100
+        postgresql_10
       ];
     };
 

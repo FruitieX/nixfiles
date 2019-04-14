@@ -90,7 +90,7 @@
 
   # PostgreSQL
   services.postgresql.enable = true;
-  services.postgresql.package = pkgs.postgresql100;
+  services.postgresql.package = pkgs.postgresql_10;
 
   # MongoDB
   services.mongodb.enable = true;

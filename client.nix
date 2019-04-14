@@ -236,7 +236,7 @@
 
   systemd.services.tether = {
     environment = {
-      ADB = "${pkgs.androidsdk}/bin/adb";
+      ADB = "${pkgs.androidenv.androidPkgs_9_0.platform-tools}/bin/adb";
     };
     serviceConfig = {
       User = user;
