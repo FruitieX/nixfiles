@@ -77,8 +77,7 @@
         wget
 
         # Editors
-        unstable.neovim
-        vim
+        (unstable.neovim.override (import ./configs/neovim-config.nix { inherit pkgs; }))
 
         # System utils
         cryptsetup
@@ -116,7 +115,7 @@
 
         # Development
         (master.vscode-with-extensions.override {
-          vscodeExtensions = super.vscode-utils.extensionsFromVscodeMarketplace (import ./vscode-extensions.nix).extensions;
+          vscodeExtensions = super.vscode-utils.extensionsFromVscodeMarketplace (import ./configs/vscode-extensions.nix).extensions;
         })
         xsel # needed by vscode vim plugin
 

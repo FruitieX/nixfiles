@@ -51,7 +51,7 @@
     ["Gold", "Orchid", "LightSkyBlue"],
     "Red"
   ],
-  "window.zoomLevel": 1,
+  "window.zoomLevel": -1,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "breadcrumbs.enabled": true,
   "files.associations": {
