@@ -7,40 +7,48 @@ Here are my NixOS configuration files which can be used to build identical confi
 ## Features
 
 - Easy per-host configuration
+- System-wide package lists, with separate client / server configs
+- Most programs configured declaratively through Nix
+- Problematic programs have their dotfiles symlinked into user's home directory
 - `fhs` command for running third party binaries in an FHS environment
-- System-wide package lists, partially shared with FHS environments
-- Dotfiles symlinked to home directory
 
 ## Setup instructions
 
 Note: All steps except last one only need to be ran once (when performing
 first setup).
 
-### Install NixOS
+### Prerequisites
+
+##### Install NixOS
 
 If you haven't done so already, install [NixOS](https://nixos.org) and boot into your
 NixOS installation.
 
-### Create user and home directory
+##### Preparing the environment
+
+Run the following commands as root:
 
 ```
+# Install unstable & unstable-small channels, some packages will be fetched from these
+nix-channel --add https://nixos.org/channels/nixos-unstable unstable
+nix-channel --add https://nixos.org/channels/nixos-unstable-small unstable-small
+nix-channel --update
+
+# Create unprivileged user and set their password
 useradd -m username
 passwd username
 ```
 
-### Fetching the repo
+##### Fetching the repo and editing configuration
+
+Log in as your newly created user and run the following commands:
 
 ```sh
 # Clone the repo to e.g. ~/nixfiles, then cd to it:
 nix-shell -p git --run "git clone https://github.com/FruitieX/nixfiles.git ~/nixfiles"
 cd ~/nixfiles
-```
 
-### Per-host configuration
-
-```sh
 # Name this host "my-hostname" by writing the hostname string to hostname.nix
-# Note that hostname.nix is ignored by git
 echo \"my-hostname\" > hostname.nix
 
 # Create per-host configuration directory for my-hostname
@@ -53,17 +61,30 @@ cp /etc/nixos/hardware-configuration.nix hosts/my-hostname/
 # Write your per-host configuration, use e.g. satsuma's (my home server)
 # default.nix as an example:
 cp hosts/satsuma/default.nix hosts/my-hostname/default.nix
+
+# Read through and edit the configs to your liking. `configuration.nix` is a
+# good place to start, as everything else is imported from here. You should at
+# least change the user variable, and probably also remove my SSH pubkey from
+# `common.nix`... :-)
+$EDITOR configuration.nix
 ```
 
 ### Installing configuration
 
+Run the following command as root:
+
 ```sh
-NIXOS_CONFIG=~/nixfiles sudo nixos-rebuild switch
+NIXOS_CONFIG=/home/username/nixfiles nixos-rebuild switch
 ```
+
+If there were no errors, the installation is now complete. If there were
+errors, you may want to retry a few times, as e.g. temporary Internet
+connection issues can fail the build. Already downloaded packages are fetched
+from cache.
 
 ### Rebuilding the system using configuration from nixfiles
 
-Run this command whenever you change the configuration in ~/nixfiles
+Run this command whenever you change the configuration in nixfiles:
 
 ```sh
 sudo nixos-rebuild switch
