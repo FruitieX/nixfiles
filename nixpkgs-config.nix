@@ -115,7 +115,9 @@
         unstable-small.google-chrome
 
         # Development
-        master.vscode
+        (master.vscode-with-extensions.override {
+          vscodeExtensions = super.vscode-utils.extensionsFromVscodeMarketplace (import ./vscode-extensions.nix).extensions;
+        })
         xsel # needed by vscode vim plugin
 
         # Windows
