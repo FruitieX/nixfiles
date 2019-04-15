@@ -33,10 +33,10 @@
     bind c new-window -c "#{pane_current_path}"
 
     # focus panes with C-hjkl
-    bind h select-pane -L
-    bind j select-pane -D
-    bind k select-pane -U
-    bind l select-pane -R
+    bind -n C-h select-pane -L
+    bind -n C-j select-pane -D
+    bind -n C-k select-pane -U
+    bind -n C-l select-pane -R
 
     # resize panes with C-a C-hjkl
     bind C-h resize-pane -L 8
