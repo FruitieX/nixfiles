@@ -41,12 +41,7 @@
     MOZ_USE_XINPUT2 = [ "1" ];
   };
 
-  environment.extraInit = ''
-    # LS colors
-    eval `${pkgs.coreutils}/bin/dircolors "${./configs/dircolors.256dark}"`
-  '';
-
-  programs.fish = (import ./configs/fish-config.nix);
+  programs.fish = (import ./configs/fish-config.nix { inherit pkgs; });
   programs.tmux = (import ./configs/tmux-config.nix { inherit pkgs; });
 
   # Networking

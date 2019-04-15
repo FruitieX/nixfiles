@@ -1,5 +1,7 @@
-# Fish shell configuration
+{ pkgs, ... }:
+
 {
+  # Fish shell configuration
   enable = true;
 
   interactiveShellInit = ''
@@ -11,6 +13,9 @@
     # Fish vi keybindings with jj mapped to normal mode
     fish_vi_key_bindings
     bind -M insert -m default jj force-repaint
+
+    # LS colors
+    eval (${pkgs.coreutils}/bin/dircolors "${./dircolors.base16.dark}" | sed "s/LS_COLORS=/set LS_COLORS /")
   '';
 
   promptInit = ''
