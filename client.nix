@@ -236,7 +236,7 @@
     serviceConfig = {
       User = user;
       Type = "simple";
-      ExecStart = "${pkgs.bash}/bin/bash /etc/nixos/home/${user}/bin/tether.sh";
+      ExecStart = "${pkgs.bash}/bin/bash \"${./scripts/android-tether.sh}\"";
     };
   };
 }
