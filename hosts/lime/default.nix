@@ -20,6 +20,10 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # Update Intel CPU microcode
+  hardware.cpu.intel.updateMicrocode = true;
+
+  # Web development is resource intensive, download more RAM
   zramSwap.enable = true;
   zramSwap.memoryPercent = 10;
   boot.kernel.sysctl = { "vm.swappiness" = 80; };

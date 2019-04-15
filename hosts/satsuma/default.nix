@@ -1,6 +1,9 @@
 { config, pkgs, user, hostname, ... }:
 
 {
+  # Update Intel CPU microcode
+  hardware.cpu.intel.updateMicrocode = true;
+
   # Audio
   hardware.pulseaudio = {
     # System-wide needed in headless usage
