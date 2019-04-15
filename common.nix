@@ -22,9 +22,6 @@
   # Kernel same-page merging
   hardware.enableKSM = true;
 
-  # All my systems have Intel processors at the moment
-  hardware.cpu.intel.updateMicrocode = true;
-
   # Define a user account. Don't forget to change your password.
   users.extraUsers = {
     ${user} = {
@@ -35,7 +32,6 @@
       openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxHyNeiwAzZoExz8iOWkxYmb/3xsN9QVwp/R0/SRUZlFQRPoXk4Ncwkt/U8aiSpm0XmrG1WWGYO9lf5UzAPX8LyHOfjaOyvCTok7RhyMSYZ1cBOJsEQ8MfMRKqjZ0vBaLjRDZoFBERT+/VBfazjTUB1Fv8dGHS8PLvdhMly2VinsSGTc/tApdigP61SJeLmo7NoDavBqTKHx1efJRAw4dRKilhl8fOvAsBCuOn9UzBdZAYX4WTpHvlZGFnkRvLteeAmHGuFPUq8ofc3X4HZfukIz1/l5Ya8l5srHAQEsSpKGcG7EuRHBz+cwEulfjDKlVyFK1Jx7UwJHFGKENtFbST rasse" ];
     };
   };
-
 
   # Fish shell configs
   programs.fish = {
@@ -50,71 +46,6 @@
       # Fish vi keybindings with jj mapped to normal mode
       fish_vi_key_bindings
       bind -M insert -m default jj force-repaint
-
-      # Git aliases, mostly from https://github.com/sorin-ionescu/prezto/blob/master/modules/git/alias.zsh
-      alias g='git'
-
-      # Branch (b)
-      alias gb='git branch'
-      alias gbc='git checkout -b'
-      alias gbd='git branch --delete'
-
-      # Commit (c)
-      alias gc='git commit --verbose'
-      alias gca='git commit --verbose --all'
-      alias gcm='git commit --message'
-      alias gco='git checkout'
-      alias gcf='git commit --amend --reuse-message HEAD'
-      alias gcp='git cherry-pick --ff'
-
-      # Fetch (f)
-      alias gf='git fetch'
-      alias gfc='git clone'
-      alias gfm='git pull'
-      alias gfr='git pull --rebase'
-      alias gl='gfm'
-
-      # Index (i)
-      alias gia='git add'
-      alias giA='git add --patch'
-      alias gir='git reset'
-
-      # Log (l)
-      # alias gl='git log --topo-order --pretty=format:"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B"'
-      alias gls='git log --topo-order --stat --pretty=format:"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B"'
-      # alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B"'
-      # alias glo='git log --topo-order --pretty=format:"%C(green)%h%C(reset) %s%C(red)%d%C(reset)%n"'
-      alias glg='git log --topo-order --all --graph --pretty=format:"%C(green)%h%C(reset) %s%C(red)%d%C(reset)%n"'
-      # alias glb='git log --topo-order --pretty=format:"%C(green)%h%C(reset) %s%n%C(blue)(%ar by %an)%C(red)%d%C(reset)%n"'
-      # alias glc='git shortlog --summary --numbered'
-      # alias glS='git log --show-signature'
-
-      # Push (p)
-      function current_branch
-        set ref (git symbolic-ref HEAD 2> /dev/null); or \
-        set ref (git rev-parse --short HEAD 2> /dev/null); or return
-        echo $ref | sed s-refs/heads/--
-      end
-
-      alias gp='git push'
-      alias gpf='git push --force-with-lease'
-      alias gpF='git push --force'
-      alias gpc='git push --set-upstream origin (current_branch)'
-
-      # Rebase (r)
-      alias gr='git rebase'
-      alias gra='git rebase --abort'
-      alias grc='git rebase --continue'
-      alias gri='git rebase --interactive'
-      alias grs='git rebase --skip'
-
-      # Stash (s)
-      alias gs='git stash'
-      alias gsp='git stash pop'
-
-      # Working Copy (w)
-      alias gws='git status --short'
-      alias gwd='git diff --no-ext-diff'
     '';
 
     promptInit = ''
@@ -156,6 +87,61 @@
         set_color normal
       end
     '';
+
+    # Git aliases, adapted from https://github.com/sorin-ionescu/prezto/blob/master/modules/git/alias.zsh
+    shellAliases = {
+      g = "git";
+
+      # Branch (b)
+      gb = "git branch";
+      gbc = "git checkout -b";
+      gbd = "git branch --delete";
+
+      # Commit (c)
+      gc = "git commit --verbose";
+      gca = "git commit --verbose --all";
+      gcm = "git commit --message";
+      gco = "git checkout";
+      gcf = "git commit --amend --reuse-message HEAD";
+      gcp = "git cherry-pick --ff";
+
+      # Fetch (f)
+      gf = "git fetch";
+      gfc = "git clone";
+      gfm = "git pull";
+      gfr = "git pull --rebase";
+      gl = "gfm";
+
+      # Index (i)
+      gia = "git add";
+      giA = "git add --patch";
+      gir = "git reset";
+
+      # Log (l)
+      gls = "git log --topo-order --stat --pretty=format:\"%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B\"";
+      glg = "git log --topo-order --all --graph --pretty=format:\"%C(green)%h%C(reset) %s%C(red)%d%C(reset)%n\"";
+
+      # Push (p)
+      gp = "git push";
+      gpf = "git push --force-with-lease";
+      gpF = "git push --force";
+      gpc = "git push --set-upstream origin (git symbolic-ref HEAD 2> /dev/null | sed s-refs/heads/--)";
+
+      # Rebase (r)
+      gr = "git rebase";
+      gra = "git rebase --abort";
+      grc = "git rebase --continue";
+      gri = "git rebase --interactive";
+      grs = "git rebase --skip";
+
+      # Stash (s)
+      gs = "git stash";
+      gsp = "git stash pop";
+
+      # Working Copy (w)
+      gws = "git status --short";
+      gwd = "git diff --no-ext-diff";
+    };
   };
 
   # Networking
@@ -208,18 +194,6 @@
     port = 4000;
   };
 
-  programs.zsh.autosuggestions.enable = true;
-  programs.zsh.enableCompletion = true;
-  # TODO: find out why this doesn't work.
-  # Currently we load zprezto from .zshrc with awkward hacks
-  #programs.zsh.interactiveShellInit = with builtins; ''
-  #  export ZDOTDIR=${pkgs.zsh-prezto}/
-  #  source "$ZDOTDIR/init.zsh"
-  #'';
-
-  #environment.shellAliases = {
-  #  la="ls -A";
-  #};
   environment.variables = {
     ZPREZTO = [ "${pkgs.zsh-prezto}" ];
     NIXOS_CONFIG = [ "/home/${user}/nixfiles" ];
@@ -234,8 +208,6 @@
   # should.
   system.stateVersion = "18.09"; # Did you read the comment?
 
-  # TODO: make this clear out ancient kernels so /boot doesn't fill up
-  # OR: resize /boot partition on satsuma so this is no longer an issue
   system.autoUpgrade.enable = true;
 
   # Symlink dotfiles
