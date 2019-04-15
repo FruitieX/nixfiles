@@ -21,11 +21,18 @@ first setup).
 If you haven't done so already, install [NixOS](https://nixos.org) and boot into your
 NixOS installation.
 
+### Create user and home directory
+
+```
+useradd -m username
+passwd username
+```
+
 ### Fetching the repo
 
 ```sh
 # Clone the repo to e.g. ~/nixfiles, then cd to it:
-git clone https://github.com/FruitieX/nixfiles.git ~/nixfiles
+nix-shell -p git --run "git clone https://github.com/FruitieX/nixfiles.git ~/nixfiles"
 cd ~/nixfiles
 ```
 
@@ -51,8 +58,7 @@ cp hosts/satsuma/default.nix hosts/my-hostname/default.nix
 ### Installing configuration
 
 ```sh
-sudo mv /etc/nixos /etc/nixos-old
-sudo ln -s ~/nixfiles /etc/nixos
+NIXOS_CONFIG=~/nixfiles sudo nixos-rebuild switch
 ```
 
 ### Rebuilding the system using configuration from nixfiles
