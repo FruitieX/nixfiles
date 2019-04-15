@@ -1,4 +1,5 @@
 " FruitieX' .vimrc v0.3
+" TODO: put me in the Nix store https://nixos.wiki/wiki/Vim
 
 """"""""""""""""""""""""""""""""
 " Plugins
