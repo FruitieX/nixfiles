@@ -41,8 +41,6 @@
     options psmouse proto=imps
   '';
 
-  hardware.cpu.intel.updateMicrocode = true;
-
   # GPU video decoding support
   hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
 
