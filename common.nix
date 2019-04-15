@@ -100,7 +100,7 @@
   #};
   environment.variables = {
     ZPREZTO = [ "${pkgs.zsh-prezto}" ];
-    NIXOS_CONFIG = [ "/etc/nixos" ];
+    NIXOS_CONFIG = [ "/home/${user}/nixfiles" ];
 
     # enable smooth scrolling in firefox
     MOZ_USE_XINPUT2 = [ "1" ];
@@ -119,7 +119,7 @@
   # Symlink dotfiles
   system.activationScripts.dotfiles = import ./scripts/symlink.nix {
     inherit user;
-    source = "/etc/nixos/home";
+    source = "/home/${user}/nixfiles/home";
     target = "/home";
   };
 }
