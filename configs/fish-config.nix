@@ -16,6 +16,9 @@
 
     # LS colors
     eval (${pkgs.coreutils}/bin/dircolors "${./dircolors.base16.dark}" | sed "s/LS_COLORS=/set LS_COLORS /")
+
+    # TODO: fix this alias
+    alias gpc "git push --set-upstream origin (git symbolic-ref HEAD 2> /dev/null | sed s-refs/heads/--)"
   '';
 
   promptInit = ''
@@ -99,7 +102,7 @@
     gp = "git push";
     gpf = "git push --force-with-lease";
     gpF = "git push --force";
-    gpc = "git push --set-upstream origin (git symbolic-ref HEAD 2> /dev/null | sed s-refs/heads/--)";
+    #gpc = "git push --set-upstream origin (git symbolic-ref HEAD 2> /dev/null | sed s-refs/heads/--)";
 
     # Rebase (r)
     gr = "git rebase";
