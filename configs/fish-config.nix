@@ -33,6 +33,9 @@
     set __fish_git_prompt_showupstream 'yes'
     set __fish_git_prompt_color_branch green
     set __fish_git_prompt_color_dirtystate blue
+    set __fish_git_prompt_color_merging red
+    set __fish_git_prompt_color_stagedstate green
+    set __fish_git_prompt_color_stashstate blue
     set __fish_git_prompt_color_upstream_ahead yellow
     set __fish_git_prompt_color_upstream_behind yellow
 
@@ -43,7 +46,8 @@
     set __fish_git_prompt_char_stashstate 's'
     set __fish_git_prompt_char_upstream_ahead '>'
     set __fish_git_prompt_char_upstream_behind '<'
-    set __fish_git_prompt_char_upstream_prefix ""
+    set __fish_git_prompt_char_upstream_equal ""
+    set __fish_git_prompt_char_stateseparator ' '
 
     function fish_prompt
       set last_status $status
