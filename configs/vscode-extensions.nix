@@ -59,5 +59,11 @@
     version = "2.12.0";
     sha256 = "1g6k8fxfa49ky8v3l5n6l7p6gnjf9sdd56crcj33p08gb8pyy86l";
   }
+  {
+    name = "shader";
+    publisher = "slevesque";
+    version = "1.1.4";
+    sha256 = "0m5ld6l5sizqbj2k6754n2hn50ygajy464qz66dar2n3nhvjdv9n";
+  }
 ];
 }
