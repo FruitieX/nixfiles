@@ -48,10 +48,16 @@ function get_vsixpkg() {
 EOF
 }
 
-# See if can find our code binary somewhere.
 if [ $# -ne 0 ]; then
-    CODE=$1
+    # Install new extensions by running this script with extension name and
+    # pasting result into your config
+    OWNER=$(echo "$@" | cut -d. -f1)
+    EXT=$(echo "$@" | cut -d. -f2)
+
+    get_vsixpkg $OWNER $EXT
+    exit 0
 else
+    # See if can find our code binary somewhere.
     CODE=$(command -v code)
 fi
 
