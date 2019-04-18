@@ -68,8 +68,11 @@
     end
   '';
 
-  # Git aliases, adapted from https://github.com/sorin-ionescu/prezto/blob/master/modules/git/alias.zsh
   shellAliases = {
+    # nvim is awkward to type on dvorak
+    vim = "nvim";
+
+    # Git aliases, adapted from https://github.com/sorin-ionescu/prezto/blob/master/modules/git/alias.zsh
     g = "git";
 
     # Branch (b)
