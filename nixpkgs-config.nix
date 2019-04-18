@@ -99,8 +99,8 @@
         nix-zsh-completions
 
         # Development
-        unstable-small.nodejs-10_x
-        unstable-small.yarn
+        unstable-small.nodejs-11_x
+        (unstable-small.yarn.override { nodejs = unstable-small.nodejs-11_x; })
         postgresql_10
       ];
     };
