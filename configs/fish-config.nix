@@ -19,6 +19,9 @@
 
     # TODO: fix this alias
     alias gpc "git push --set-upstream origin (git symbolic-ref HEAD 2> /dev/null | sed s-refs/heads/--)"
+
+    # Globally installed npm / yarn packages
+    export PATH="$HOME/.npm-packages/bin:$HOME/.yarn/bin:$PATH"
   '';
 
   promptInit = ''
