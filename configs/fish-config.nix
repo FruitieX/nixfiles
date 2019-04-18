@@ -22,6 +22,9 @@
 
     # Globally installed npm / yarn packages
     export PATH="$HOME/.npm-packages/bin:$HOME/.yarn/bin:$PATH"
+
+    # Locally installed npm / yarn packages
+    export PATH="./node_modules/.bin:$PATH"
   '';
 
   promptInit = ''
