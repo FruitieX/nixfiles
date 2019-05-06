@@ -65,5 +65,23 @@
     version = "1.1.4";
     sha256 = "0m5ld6l5sizqbj2k6754n2hn50ygajy464qz66dar2n3nhvjdv9n";
   }
+  {
+    name = "debugger-for-chrome";
+    publisher = "msjsdiag";
+    version = "4.11.3";
+    sha256 = "1i5skl12pdd1f5diday0prihdd99kdvcv3www3zrkpvxkpyp8v9a";
+  }
+  {
+    name = "vscode-jest";
+    publisher = "orta";
+    version = "2.9.2";
+    sha256 = "05y1hk0j001ibyzd76689fc4x8yfds0w5qwq87jdbr3xyfa4h090";
+  }
+  {
+    name = "gitlens";
+    publisher = "eamodio";
+    version = "9.7.0";
+    sha256 = "1czypyqwbi19vbqamnvhvranyx1am5b7jrb8l6k8c3826wbs9wrj";
+  }
 ];
 }
