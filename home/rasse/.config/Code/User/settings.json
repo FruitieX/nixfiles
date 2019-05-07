@@ -40,6 +40,9 @@
     "<C-d>": true
   },
   "vim.useSystemClipboard": true,
+  "vim.easymotion": true,
+  "vim.hlsearch":true,
+  "vim.sneak":true,
   "workbench.statusBar.visible": true,
   "workbench.activityBar.visible": true,
   "bracketPairColorizer.consecutivePairColors": [
@@ -78,5 +81,9 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "git.autofetch": true
+  "git.autofetch": true,
+  "cSpell.userWords": [
+    "autofetch",
+    "monospace"
+  ]
 }
