@@ -73,7 +73,7 @@ trap clean_up SIGINT
 printf '{ extensions = [\n'
 
 # Note that we are only looking to update extensions that are already installed.
-for i in $($CODE --list-extensions)
+for i in $($CODE --list-extensions | sort)
 do
     OWNER=$(echo "$i" | cut -d. -f1)
     EXT=$(echo "$i" | cut -d. -f2)
