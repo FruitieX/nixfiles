@@ -1,33 +1,27 @@
 { extensions = [
   {
-    name = "bracket-pair-colorizer";
-    publisher = "CoenraadS";
-    version = "1.0.61";
-    sha256 = "0r3bfp8kvhf9zpbiil7acx7zain26grk133f0r0syxqgml12i652";
-  }
-  {
-    name = "EditorConfig";
-    publisher = "EditorConfig";
-    version = "0.13.0";
-    sha256 = "1dy7rf9w1mvk65fmxbvhbi5pf6cw2lwi07yhafq9x20c36g6dwyz";
-  }
-  {
-    name = "vscodeintellicode";
-    publisher = "VisualStudioExptTeam";
-    version = "1.1.6";
-    sha256 = "1jblviv14aijksz2a1cansbjjbay6m1xz9igj9q8g70s0z4v5080";
-  }
-  {
     name = "Nix";
     publisher = "bbenoist";
     version = "1.0.1";
     sha256 = "0zd0n9f5z1f0ckzfjr38xw2zzmcxg1gjrava7yahg5cvdcw6l35b";
   }
   {
+    name = "bracket-pair-colorizer";
+    publisher = "CoenraadS";
+    version = "1.0.61";
+    sha256 = "0r3bfp8kvhf9zpbiil7acx7zain26grk133f0r0syxqgml12i652";
+  }
+  {
     name = "gitlens";
     publisher = "eamodio";
-    version = "9.7.1";
-    sha256 = "08yg79gxqbxnfimfd6wyv2yvx686578757h8vm0lb9crfzb725r0";
+    version = "9.8.1";
+    sha256 = "1a6g5nd9s7afihmwfp4abqrra463mi22f22l24r2slj6rpn601yk";
+  }
+  {
+    name = "EditorConfig";
+    publisher = "EditorConfig";
+    version = "0.13.0";
+    sha256 = "1dy7rf9w1mvk65fmxbvhbi5pf6cw2lwi07yhafq9x20c36g6dwyz";
   }
   {
     name = "prettier-vscode";
@@ -42,16 +36,16 @@
     sha256 = "09lgc1fjdrgzw6n72w833kyfk7m0008lmd17r0vljcd572igfhhc";
   }
   {
-    name = "vscode-typescript-tslint-plugin";
-    publisher = "ms-vscode";
-    version = "1.0.0";
-    sha256 = "155frrf8fs0c6sgs532cxgwvxzinkgg4k0ywsbl7zzjip8qqmm0g";
-  }
-  {
     name = "debugger-for-chrome";
     publisher = "msjsdiag";
     version = "4.11.3";
     sha256 = "1i5skl12pdd1f5diday0prihdd99kdvcv3www3zrkpvxkpyp8v9a";
+  }
+  {
+    name = "vscode-typescript-tslint-plugin";
+    publisher = "ms-vscode";
+    version = "1.1.0";
+    sha256 = "1ji2z0wc8djwx9jgf7i8i4jdf5zwrj3msnp7agwn8kzc2jvm0ns0";
   }
   {
     name = "color-highlight";
@@ -74,14 +68,20 @@
   {
     name = "code-spell-checker";
     publisher = "streetsidesoftware";
-    version = "1.7.9";
-    sha256 = "15p80fcslb4d7abm8gc0n0sdifzv18cm50l0g7zjz8c9dpfbkkcg";
+    version = "1.7.12";
+    sha256 = "0yl1n2xmsc6qrlid1a31v9z3571x1cj5yhhd64gxcdldr7xskqhy";
+  }
+  {
+    name = "vscodeintellicode";
+    publisher = "VisualStudioExptTeam";
+    version = "1.1.6";
+    sha256 = "1jblviv14aijksz2a1cansbjjbay6m1xz9igj9q8g70s0z4v5080";
   }
   {
     name = "vim";
     publisher = "vscodevim";
-    version = "1.7.1";
-    sha256 = "0zmlwsb5fs7nsiv0yqyr6156y0ziajwji7f7c1cw1lbgfz1s5ph7";
+    version = "1.8.1";
+    sha256 = "0gra5sh4ln20fsbmg9hawxsv5c2yd7cw5frhcc2m3p793hgr3lq0";
   }
   {
     name = "vscode-import-cost";
