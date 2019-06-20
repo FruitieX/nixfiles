@@ -54,7 +54,7 @@
     ["Gold", "Orchid", "LightSkyBlue"],
     "Red"
   ],
-  "window.zoomLevel": -1,
+  "window.zoomLevel": 1,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "breadcrumbs.enabled": true,
   "files.associations": {
@@ -73,17 +73,29 @@
   "jest.autoEnable": false,
   "jest.coverageFormatter": "GutterFormatter",
   "jest.showCoverageOnLoad": true,
+  "jest.enableCodeLens": false,
   "editor.fontLigatures": true,
   "diffEditor.renderSideBySide": true,
   "explorer.confirmDragAndDrop": false,
-  "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "git.autofetch": true,
   "cSpell.userWords": [
+    "comparator",
+    "unmount",
     "autofetch",
-    "monospace"
-  ]
+    "monospace",
+    "murmurhash",
+    "rerender",
+    "scrollbar"
+  ],
+  "vim.neovimPath": "/run/current-system/sw/bin/nvim",
+  "vim.enableNeovim": true,
+  "vsintellicode.modelDownloadPath": "/home/rasse/.config/Code/IntelliCode",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
