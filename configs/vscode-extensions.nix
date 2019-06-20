@@ -12,10 +12,16 @@
     sha256 = "0r3bfp8kvhf9zpbiil7acx7zain26grk133f0r0syxqgml12i652";
   }
   {
+    name = "vscode-eslint";
+    publisher = "dbaeumer";
+    version = "1.9.0";
+    sha256 = "1lr25v236cz8kbgbgqj6izh3f4nwp9cxygpa0zzfvfrg8gg0x49w";
+  }
+  {
     name = "gitlens";
     publisher = "eamodio";
-    version = "9.8.1";
-    sha256 = "1a6g5nd9s7afihmwfp4abqrra463mi22f22l24r2slj6rpn601yk";
+    version = "9.8.2";
+    sha256 = "1q05w4wmpd56bxflzgqvj3831kfidd6xh1c0nihplpifdnaz3vw1";
   }
   {
     name = "EditorConfig";
@@ -38,14 +44,14 @@
   {
     name = "debugger-for-chrome";
     publisher = "msjsdiag";
-    version = "4.11.3";
-    sha256 = "1i5skl12pdd1f5diday0prihdd99kdvcv3www3zrkpvxkpyp8v9a";
+    version = "4.11.4";
+    sha256 = "07rfqlm44v2hwn4jykjcqr9d53jy88ii7y11q1is1dvprpf6hr6m";
   }
   {
     name = "vscode-typescript-tslint-plugin";
     publisher = "ms-vscode";
-    version = "1.1.0";
-    sha256 = "1ji2z0wc8djwx9jgf7i8i4jdf5zwrj3msnp7agwn8kzc2jvm0ns0";
+    version = "1.2.0";
+    sha256 = "1l654ixffipvx6yn9fb560cdqg7s3xj2hvbih7yfm9gx4sfm2rql";
   }
   {
     name = "color-highlight";
@@ -68,14 +74,14 @@
   {
     name = "code-spell-checker";
     publisher = "streetsidesoftware";
-    version = "1.7.12";
-    sha256 = "0yl1n2xmsc6qrlid1a31v9z3571x1cj5yhhd64gxcdldr7xskqhy";
+    version = "1.7.17";
+    sha256 = "0zw9is21hq0gc37ji9v5gvr749apx9zgxr7yyxkpl58ni2pi1r1c";
   }
   {
     name = "vscodeintellicode";
     publisher = "VisualStudioExptTeam";
-    version = "1.1.6";
-    sha256 = "1jblviv14aijksz2a1cansbjjbay6m1xz9igj9q8g70s0z4v5080";
+    version = "1.1.7";
+    sha256 = "1sakpdi0kcbnwx5smy4xwmhmnm9ffddgq18v007ralkv2ghpnjmh";
   }
   {
     name = "vim";
