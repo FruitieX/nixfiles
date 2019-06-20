@@ -23,10 +23,23 @@
   # Update Intel CPU microcode
   hardware.cpu.intel.updateMicrocode = true;
 
+  # Apparently this is needed on "busy" networks?
+  # https://www.cyberciti.biz/faq/centos-redhat-debian-linux-neighbor-table-overflow/
+  boot.kernel.sysctl = {
+    "net.ipv4.neigh.default.gc_interval" = 3600;
+    "net.ipv4.neigh.default.gc_stale_time" = 3600;
+
+    "net.ipv4.neigh.default.gc_thresh3" = 4096;
+    "net.ipv4.neigh.default.gc_thresh2" = 2048;
+    "net.ipv4.neigh.default.gc_thresh1" = 1024;
+
+     # Web development is resource intensive, download more RAM
+     "vm.swappiness" = 80;
+  };
+
   # Web development is resource intensive, download more RAM
   zramSwap.enable = true;
   zramSwap.memoryPercent = 10;
-  boot.kernel.sysctl = { "vm.swappiness" = 80; };
   services.earlyoom.enable = true;
 
   # Disable governor set in hardware-configuration.nix,
