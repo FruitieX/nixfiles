@@ -139,7 +139,7 @@
 
     [org.gnome.desktop.a11y.keyboard]
     bouncekeys-enable=true
-    bouncekeys-delay=20
+    bouncekeys-delay=30
   '';
 
   # Annoying hack to stop GDM from using PulseAudio
