@@ -136,6 +136,10 @@
     night-light-schedule-from=20.0
     night-light-schedule-to=6.0
     night-light-temperature=4000
+
+    [org.gnome.desktop.a11y.keyboard]
+    bouncekeys-enable=true
+    bouncekeys-delay=20
   '';
 
   # Annoying hack to stop GDM from using PulseAudio
