@@ -4,7 +4,7 @@
 # From https://github.com/NixOS/nixpkgs/blob/master/pkgs/misc/vscode-extensions/update_installed_exts.sh
 # TODO: can we run this without maintaining a copy in this repo?
 
-set -eu -o pipefail
+#set -eu -o pipefail
 
 # Helper to just fail with a message and non-zero exit code.
 function fail() {
