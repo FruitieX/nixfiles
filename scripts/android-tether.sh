@@ -31,5 +31,5 @@ input tap 200 1280
 ) &
 
 echo tapping on USB tethering
-input tap 200 500
+input tap 650 500
 SCRIPT
