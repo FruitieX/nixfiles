@@ -14,8 +14,8 @@ in {
 
   imports =
     [
-      ("/etc/nixos/hosts/" + hostname + "/hardware-configuration.nix")
+      ("/home/" + user + "/nixfiles/hosts/" + hostname + "/hardware-configuration.nix")
       ./common.nix
-      ("/etc/nixos/hosts/" + hostname)
+      ("/home/" + user + "/nixfiles/hosts/" + hostname)
     ];
 }
