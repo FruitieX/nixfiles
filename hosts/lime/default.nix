@@ -32,15 +32,16 @@
     "net.ipv4.neigh.default.gc_thresh3" = 4096;
     "net.ipv4.neigh.default.gc_thresh2" = 2048;
     "net.ipv4.neigh.default.gc_thresh1" = 1024;
-
-     # Web development is resource intensive, download more RAM
-     "vm.swappiness" = 80;
   };
 
-  # Web development is resource intensive, download more RAM
-  zramSwap.enable = true;
-  zramSwap.memoryPercent = 10;
-  services.earlyoom.enable = true;
+  boot.initrd.luks.devices = [
+    {
+      name = "root";
+      device = "/dev/disk/by-uuid/57158076-29f6-4b66-a041-a756e1fff208";
+      preLVM = true;
+      allowDiscards = true;
+    }
+  ];
 
   # Disable governor set in hardware-configuration.nix,
   # required when services.tlp.enable is true:
@@ -66,8 +67,8 @@
   #   mkfs.ext4 -L home /dev/mapper/home
   #   mount /dev/mapper/home /home/<username>
   #   chown -R <username>:users /home/<username>
-  users.extraUsers.${user}.cryptHomeLuks = "/dev/nvme0n1p8";
-  security.pam.mount.enable = true;
+  #   users.extraUsers.${user}.cryptHomeLuks = "/dev/nvme0n1p8";
+  #security.pam.mount.enable = true;
   #security.pam.services.${user}.pamMount = true;
 
   # Virtualisation
@@ -90,7 +91,7 @@
   #];
 
   # Fix a certain wi-fi portal login
-  networking.extraHosts = "132.171.104.123 securelogin.arubanetworks.com";
+  # networking.extraHosts = "132.171.104.123 securelogin.arubanetworks.com";
 
   # PostgreSQL server for development purposes.
   # Accepts connections on 127.0.0.1 with "postgres" user
