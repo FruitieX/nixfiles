@@ -120,8 +120,8 @@
         xsel # needed by vscode vim plugin
 
         # Windows
-        unstable.wine
-        unstable.winetricks
+        #unstable.wine
+        #unstable.winetricks
 
         # Misc GUI programs
         unstable.alacritty
