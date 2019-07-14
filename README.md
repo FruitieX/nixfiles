@@ -1,23 +1,20 @@
-# FruitieX' nixfiles
+# nixfiles
 
-NixOS makes it possible to build system configurations declaratively.
+This repo contains configuration files that I use on my NixOS hosts.
 
-Here are my NixOS configuration files which can be used to build identical configurations as what I run on my hosts.
+NixOS makes it possible to deploy Linux systems declaratively, and this repo is mostly useful to me when deploying my setup to new machines. Perhaps you will find some inspiration for your own NixOS configurations here!
 
 ## Features
 
 - Easy per-host configuration
-- System-wide package lists, with separate client / server configs
-- Most programs configured declaratively through Nix
-- Problematic programs have their dotfiles symlinked into user's home directory
-- `fhs` command for running third party binaries in an FHS environment
+- Programs declaratively installed through Nix
+- Where possible, programs are also configured declaratively through Nix
+  - Otherwise symlink dotfiles into home directory
+- `fhs` command for running problematic binaries in an FHS environment
 
 ## Setup instructions
 
-Note: All steps except last one only need to be ran once (when performing
-first setup).
-
-### Prerequisites
+### First setup
 
 ##### Install NixOS
 
@@ -65,22 +62,22 @@ cp hosts/satsuma/default.nix hosts/my-hostname/default.nix
 # Read through and edit the configs to your liking. `configuration.nix` is a
 # good place to start, as everything else is imported from here. You should at
 # least change the user variable, and probably also remove my SSH pubkey from
-# `common.nix`... :-)
+# `common.nix` unless you are OK with giving me shell access to your machines... :-)
 $EDITOR configuration.nix
 ```
 
-### Installing configuration
+##### Installing configuration
 
 Run the following command as root:
 
 ```sh
-NIXOS_CONFIG=/home/username/nixfiles nixos-rebuild switch
+NIXOS_CONFIG=/home/username/nixfiles/configuration.nix nixos-rebuild switch
 ```
 
 If there were no errors, the installation is now complete. If there were
 errors, you may want to retry a few times, as e.g. temporary Internet
-connection issues can fail the build. Already downloaded packages are fetched
-from cache.
+connection issues can cause the build to fail. Already downloaded packages are fetched
+from cache on subsequent tries.
 
 ### Rebuilding the system using configuration from nixfiles
 
