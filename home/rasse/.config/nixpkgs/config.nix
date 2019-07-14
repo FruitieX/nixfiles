@@ -1,1 +1,1 @@
-import /etc/nixos/nixpkgs-config.nix
+import /home/rasse/nixfiles/nixpkgs-config.nix
