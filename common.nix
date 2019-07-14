@@ -34,7 +34,7 @@
   };
 
   environment.variables = {
-    NIXOS_CONFIG = [ "/home/${user}/nixfiles" ];
+    NIXOS_CONFIG = [ "/home/${user}/nixfiles/configuration.nix" ];
     #NIXPKGS_CONFIG = [ "/home/${user}/nixfiles/nixpkgs-config.nix" ];
 
     # enable smooth scrolling in firefox
