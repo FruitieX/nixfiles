@@ -21,6 +21,8 @@ NixOS makes it possible to deploy Linux systems declaratively, and this repo is 
 If you haven't done so already, install [NixOS](https://nixos.org) and boot into your
 NixOS installation.
 
+Full-disk encryption instructions here: https://gist.github.com/martijnvermaat/76f2e24d0239470dd71050358b4d5134
+
 ##### Preparing the environment
 
 Run the following commands as root:
