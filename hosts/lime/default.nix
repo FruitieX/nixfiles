@@ -15,6 +15,7 @@
   imports =
     [
       ../../client.nix
+      ../../laptop.nix
       ./cpu-throttling-bug.nix
     ];
 
@@ -49,11 +50,15 @@
     lib.mkIf config.services.tlp.enable (lib.mkForce null);
   services.tlp.enable = true;
 
-  # Use IMPS protocol for TrackPoint. Fixes unresponsive TrackPoint after
-  # resume, and makes the TrackPoint a lot smoother at least this machine.
   boot.extraModprobeConfig = ''
-    options psmouse proto=imps
+    options psmouse proto=bare
   '';
+
+  #hardware.trackpoint = {
+    #enable = true;
+    #speed = 250;
+    #sensitivity = 255;
+  #};
 
   # GPU video decoding support
   hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
