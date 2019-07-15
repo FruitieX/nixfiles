@@ -81,10 +81,14 @@ errors, you may want to retry a few times, as e.g. temporary Internet
 connection issues can cause the build to fail. Already downloaded packages are fetched
 from cache on subsequent tries.
 
+After a successful install, reboot. You should now be able to log-in to GNOME 3.
+
 ### Rebuilding the system using configuration from nixfiles
 
 Run this command whenever you change the configuration in nixfiles:
 
 ```sh
-sudo nixos-rebuild switch
+sudo -E nixos-rebuild switch
 ```
+
+(note the -E flag which preserves the environment and thus our NIXOS_CONFIG environment variable)
