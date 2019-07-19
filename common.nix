@@ -15,10 +15,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Power management
-  powerManagement.cpuFreqGovernor = "ondemand";
-  powerManagement.powertop.enable = true;
-
   # Kernel same-page merging
   hardware.enableKSM = true;
 

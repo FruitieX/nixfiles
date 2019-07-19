@@ -4,11 +4,9 @@
 { config, pkgs, user, ... }:
 
 {
-  powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "ondemand";
-    powertop = {
-      enable = true;
-    };
-  };
+  # Power management
+  powerManagement.enable = true;
+  powerManagement.cpuFreqGovernor = "powersave";
+
+  powerManagement.powertop.enable = true;
 }
