@@ -67,32 +67,32 @@
     passwordAuthentication = lib.mkDefault false;
   };
 
-  services.prometheus = {
-    enable = true;
-    globalConfig.scrape_interval = "10s";
-    scrapeConfigs = lib.mkDefault [
-      {
-        job_name = "node";
-        static_configs = [
-          {
-            targets = [ "localhost:9100" ];
-            labels.alias = hostname;
-          }
-        ];
-      }
-    ];
-    exporters.node = {
-      enable = true;
-      enabledCollectors = [
-        "logind"
-        "systemd"
-      ];
-    };
-  };
-  services.grafana = {
-    enable = true;
-    port = 4000;
-  };
+  #services.prometheus = {
+  #  enable = true;
+  #  globalConfig.scrape_interval = "10s";
+  #  scrapeConfigs = lib.mkDefault [
+  #    {
+  #      job_name = "node";
+  #      static_configs = [
+  #        {
+  #          targets = [ "localhost:9100" ];
+  #          labels.alias = hostname;
+  #        }
+  #      ];
+  #    }
+  #  ];
+  #  exporters.node = {
+  #    enable = true;
+  #    enabledCollectors = [
+  #      "logind"
+  #      "systemd"
+  #    ];
+  #  };
+  #};
+  #services.grafana = {
+  #  enable = true;
+  #  port = 4000;
+  #};
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
