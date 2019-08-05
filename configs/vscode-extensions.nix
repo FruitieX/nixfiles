@@ -20,8 +20,8 @@
   {
     name = "gitlens";
     publisher = "eamodio";
-    version = "9.8.2";
-    sha256 = "1q05w4wmpd56bxflzgqvj3831kfidd6xh1c0nihplpifdnaz3vw1";
+    version = "9.9.2";
+    sha256 = "1hjmqq54ch2fk4b224lch1nm5jpw7yc7wlf3j5hc4g2niar12x0q";
   }
   {
     name = "EditorConfig";
@@ -44,14 +44,14 @@
   {
     name = "debugger-for-chrome";
     publisher = "msjsdiag";
-    version = "4.11.4";
-    sha256 = "07rfqlm44v2hwn4jykjcqr9d53jy88ii7y11q1is1dvprpf6hr6m";
+    version = "4.11.7";
+    sha256 = "11nsl98aqmw4a1s1v33ljk66kr8gi41pvvbc51v4fvbwk0r1xdx0";
   }
   {
     name = "vscode-typescript-tslint-plugin";
     publisher = "ms-vscode";
-    version = "1.2.0";
-    sha256 = "1l654ixffipvx6yn9fb560cdqg7s3xj2hvbih7yfm9gx4sfm2rql";
+    version = "1.2.2";
+    sha256 = "1n2yv37ljaadp84iipv7czzs32dbs4q2vmb98l3z0aan5w2g8x3z";
   }
   {
     name = "color-highlight";
@@ -60,10 +60,16 @@
     sha256 = "1syzf43ws343z911fnhrlbzbx70gdn930q67yqkf6g0mj8lf2za2";
   }
   {
+    name = "ide-purescript";
+    publisher = "nwolverson";
+    version = "0.20.8";
+    sha256 = "16avxmb1191l641r6pd99lw2cgq8gdfipb9n7d0czx1g9vfjr3ip";
+  }
+  {
     name = "vscode-jest";
     publisher = "Orta";
-    version = "2.9.2";
-    sha256 = "05y1hk0j001ibyzd76689fc4x8yfds0w5qwq87jdbr3xyfa4h090";
+    version = "3.0.2";
+    sha256 = "1vbbsfamsk0wplsl5n3lf84yv06l0bsvnlm8pb8c3k8xfc2pdp8w";
   }
   {
     name = "shader";
@@ -80,14 +86,14 @@
   {
     name = "vscodeintellicode";
     publisher = "VisualStudioExptTeam";
-    version = "1.1.7";
-    sha256 = "1sakpdi0kcbnwx5smy4xwmhmnm9ffddgq18v007ralkv2ghpnjmh";
+    version = "1.1.8";
+    sha256 = "1vf48mh4sjq40yc75xs287wngngdwx7s083ncwyhshxq1k4lv4mi";
   }
   {
     name = "vim";
     publisher = "vscodevim";
-    version = "1.8.1";
-    sha256 = "0gra5sh4ln20fsbmg9hawxsv5c2yd7cw5frhcc2m3p793hgr3lq0";
+    version = "1.9.0";
+    sha256 = "17adgd34p616i6hfli28kxdwkzhnci2m2zx7xn7k6ayg5wy93xvm";
   }
   {
     name = "vscode-import-cost";
