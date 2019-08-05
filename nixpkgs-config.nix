@@ -58,6 +58,7 @@
         dos2unix
         gnupg
         git
+        tig
         jq
         pass
         procps
@@ -114,10 +115,11 @@
         unstable-small.google-chrome
 
         # Development
-        (master.vscode-with-extensions.override {
+        (unstable-small.vscode-with-extensions.override {
           vscodeExtensions = super.vscode-utils.extensionsFromVscodeMarketplace (import ./configs/vscode-extensions.nix).extensions;
         })
         xsel # needed by vscode vim plugin
+        dbeaver
 
         # Windows
         #unstable.wine
