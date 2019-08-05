@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=xmodmap
+Exec=/run/current-system/sw/bin/xmodmap /home/rasse/.Xmodmap
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
