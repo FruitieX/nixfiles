@@ -25,6 +25,9 @@
 
     # Locally installed npm / yarn packages
     export PATH="./node_modules/.bin:$PATH"
+
+    # Suppress direnv logs
+    export DIRENV_LOG_FORMAT=""
   '';
 
   promptInit = ''
