@@ -85,8 +85,8 @@
   #virtualisation.virtualbox.host.enableExtensionPack = true;
 
   # users.extraUsers.${user}.extraGroups = ["vboxusers"];
-  # virtualisation.docker.enable = true;
-  #users.extraUsers.${user}.extraGroups = ["docker"];
+  virtualisation.docker.enable = true;
+  # users.extraUsers.${user}.extraGroups = ["docker"];
 
   # Renoise
   #environment.systemPackages = with pkgs; [
@@ -100,14 +100,14 @@
 
   # PostgreSQL server for development purposes.
   # Accepts connections on 127.0.0.1 with "postgres" user
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_10;
-    authentication = lib.mkForce ''
-      # TYPE  DATABASE        USER            ADDRESS                 METHOD
-      local   all             all                                     trust
-      host    all             all             127.0.0.1/32            trust
-      host    all             all             ::1/128                 trust
-    '';
-  };
+  # services.postgresql = {
+  #   enable = true;
+  #   package = pkgs.postgresql_10;
+  #   authentication = lib.mkForce ''
+  #     # TYPE  DATABASE        USER            ADDRESS                 METHOD
+  #     local   all             all                                     trust
+  #     host    all             all             127.0.0.1/32            trust
+  #     host    all             all             ::1/128                 trust
+  #   '';
+  # };
 }
