@@ -101,5 +101,11 @@
     version = "2.12.0";
     sha256 = "1g6k8fxfa49ky8v3l5n6l7p6gnjf9sdd56crcj33p08gb8pyy86l";
   }
+  {
+    name = "language-purescript";
+    publisher = "nwolverson";
+    version = "0.2.0";
+    sha256 = "14vrj35bw0k333wdv3x9brpxhwqfls882smzlq0ks24lvf510qa8";
+  }
 ];
 }
