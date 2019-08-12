@@ -28,6 +28,9 @@
 
     # Suppress direnv logs
     export DIRENV_LOG_FORMAT=""
+
+    # Don't use nano
+    export EDITOR="nvim"
   '';
 
   promptInit = ''
