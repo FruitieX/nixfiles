@@ -29,6 +29,9 @@
         nerdtree
 
         vim-javascript
+
+        purescript-vim
+        psc-ide-vim
       ];
       opt = [ ];
     }; 
