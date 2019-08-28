@@ -60,6 +60,15 @@
         });
       in super.callPackage src { inherit src; };
 
+    updatePrefetch = import (master.fetchFromGitHub {
+      owner = "justinwoo";
+      repo = "update-prefetch";
+
+      # more recent versions of lorri won't work in my setup :(
+      rev = "ffcf4e287bce46615056cf5466176dd70e5fb1bc";
+      sha256 = "0g7c4p8w738s0rnn1pbr39g0qv0jp6rwbdzimmb28g9g82mnc5v6";
+    }) { pkgs = master; };
+
     systemToolsEnv = with super; buildEnv {
       name = "systemToolsEnv";
       paths = [
@@ -112,6 +121,7 @@
         nix-zsh-completions
         nix-prefetch-git
         lorri
+        updatePrefetch
 
         # Development
         unstable-small.nodejs-11_x
