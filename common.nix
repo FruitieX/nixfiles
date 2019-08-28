@@ -97,6 +97,7 @@
   system.stateVersion = "18.09"; # Did you read the comment?
 
   system.autoUpgrade.enable = true;
+  system.autoUpgrade.flags = [ "-I" "nixos-config=/home/${user}/nixfiles/configuration.nix" ];
 
   # Symlink dotfiles
   system.activationScripts.dotfiles = import ./scripts/symlink.nix {
