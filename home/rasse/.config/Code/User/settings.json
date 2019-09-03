@@ -101,5 +101,7 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "gitlens.codeLens.enabled": false
+  "gitlens.codeLens.enabled": false,
+  "purescript.addSpagoSources": true,
+  "workbench.editor.showTabs": false
 }
