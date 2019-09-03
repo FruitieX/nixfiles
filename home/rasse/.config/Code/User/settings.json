@@ -103,5 +103,6 @@
   },
   "gitlens.codeLens.enabled": false,
   "purescript.addSpagoSources": true,
-  "workbench.editor.showTabs": false
+  "workbench.editor.showTabs": false,
+  "workbench.tree.indent": 16
 }
