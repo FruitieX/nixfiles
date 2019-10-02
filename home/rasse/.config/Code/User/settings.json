@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Monokai Dimmed",
+  "workbench.colorTheme": "Material Theme Darker High Contrast",
   "window.titleBarStyle": "custom",
   "editor.tabSize": 2,
   "editor.formatOnPaste": true,
@@ -104,5 +104,10 @@
   "gitlens.codeLens.enabled": false,
   "purescript.addSpagoSources": true,
   "workbench.editor.showTabs": false,
-  "workbench.tree.indent": 16
+  "workbench.tree.indent": 16,
+  "purescript.buildCommand": "spago build -- --json-errors -g sourcemaps",
+  "purescript.editorMode": true,
+  "search.useGlobalIgnoreFiles": true,
+  "python.jediEnabled": false,
+  "editor.renderWhitespace": "none"
 }
