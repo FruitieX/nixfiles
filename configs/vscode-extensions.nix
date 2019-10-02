@@ -54,12 +54,6 @@
     sha256 = "1n2yv37ljaadp84iipv7czzs32dbs4q2vmb98l3z0aan5w2g8x3z";
   }
   {
-    name = "color-highlight";
-    publisher = "naumovs";
-    version = "2.3.0";
-    sha256 = "1syzf43ws343z911fnhrlbzbx70gdn930q67yqkf6g0mj8lf2za2";
-  }
-  {
     name = "ide-purescript";
     publisher = "nwolverson";
     version = "0.20.8";
@@ -106,6 +100,36 @@
     publisher = "nwolverson";
     version = "0.2.0";
     sha256 = "14vrj35bw0k333wdv3x9brpxhwqfls882smzlq0ks24lvf510qa8";
+  }
+  {
+    name = "remote-ssh";
+    publisher = "ms-vscode-remote";
+    version = "0.46.0";
+    sha256 = "06bdphmpjdimxiln0zcfzqcsg997ij77a870qm2jvf7scsqz65p2";
+  }
+  {
+    name = "vsc-material-theme";
+    publisher = "Equinusocio";
+    version = "30.0.0";
+    sha256 = "0gkd24jiwgb7mmfrw8iwwl1abz675cpxjn6bfahlql07pyp8y4xc";
+  }
+  {
+    name = "debugger-for-chrome";
+    publisher = "msjsdiag";
+    version = "4.11.7";
+    sha256 = "11nsl98aqmw4a1s1v33ljk66kr8gi41pvvbc51v4fvbwk0r1xdx0";
+  }
+  {
+    name = "python";
+    publisher = "ms-python";
+    version = "2019.9.34911";
+    sha256 = "18c806dk1chmcnklr8v74fawaal2lkd644yq27pbvffriwj98fib";
+  }
+  {
+    name = "vscode-scss";
+    publisher = "mrmlnc";
+    version = "0.6.2";
+    sha256 = "1i3316bnjrfp6rm3d1c4rl20yxjgrvrmww9l5nqdkr20qic2d0vh";
   }
 ];
 }
