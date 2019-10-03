@@ -9,13 +9,20 @@
   "prettier.trailingComma": "all",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["u"],
+      "before": [
+        "u"
+      ],
       "after": [],
       "commands": [
         {
@@ -25,7 +32,9 @@
       ]
     },
     {
-      "before": ["<C-r>"],
+      "before": [
+        "<C-r>"
+      ],
       "after": [],
       "commands": [
         {
@@ -33,28 +42,59 @@
           "args": []
         }
       ]
+    },
+    {
+      "before": [
+        "<C-]>"
+      ],
+      "after": [
+        "y",
+        "s",
+        "w",
+        "(",
+        "w",
+        "i",
+        ":",
+        ":",
+        " ",
+        "?",
+        "x",
+        "<Esc>"
+      ],
     }
   ],
   "vim.handleKeys": {
     "<C-k>": false,
     "<C-d>": true
   },
-  "vim.useSystemClipboard": true,
+  // try fixing vim extension performance
+  "vim.useSystemClipboard": false,
+  "vim.statusBarColorControl": false,
   "vim.easymotion": true,
-  "vim.hlsearch":true,
-  "vim.sneak":true,
+  "vim.hlsearch": true,
+  "vim.sneak": true,
   "workbench.statusBar.visible": true,
   "workbench.activityBar.visible": true,
   "bracketPairColorizer.consecutivePairColors": [
     "()",
     "[]",
     "{}",
-    ["<", "</"],
-    ["<", "/>"],
-    ["Gold", "Orchid", "LightSkyBlue"],
+    [
+      "<",
+      "</"
+    ],
+    [
+      "<",
+      "/>"
+    ],
+    [
+      "Gold",
+      "Orchid",
+      "LightSkyBlue"
+    ],
     "Red"
   ],
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "breadcrumbs.enabled": true,
   "files.associations": {
@@ -109,5 +149,41 @@
   "purescript.editorMode": true,
   "search.useGlobalIgnoreFiles": true,
   "python.jediEnabled": false,
-  "editor.renderWhitespace": "none"
+  "editor.renderWhitespace": "none",
+  "cSpell.enabledLanguageIds": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "git-commit",
+    "go",
+    "handlebars",
+    "html",
+    "jade",
+    "java",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "pug",
+    "purescript",
+    "python",
+    "restructuredtext",
+    "rust",
+    "scala",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+    "yml"
+  ],
+  "files.autoSaveDelay": 200,
+  "editor.quickSuggestionsDelay": 200,
 }
