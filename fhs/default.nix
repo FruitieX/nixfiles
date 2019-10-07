@@ -14,6 +14,8 @@ pkgs.buildFHSUserEnv {
     alsaLib
     gtk3
     at_spi2_atk
+
+    fuse
   ];
 
   # Most of these are from pkgs/games/steam/chrootenv.nix
