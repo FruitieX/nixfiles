@@ -133,8 +133,8 @@
           updatePrefetch
 
           # Development
-          unstable-small.nodejs-11_x
-          (unstable-small.yarn.override { nodejs = unstable-small.nodejs-11_x; })
+          # unstable-small.nodejs-11_x
+          # (unstable-small.yarn.override { nodejs = unstable-small.nodejs-11_x; })
           postgresql_11
         ];
       };
@@ -155,7 +155,7 @@
           )
           xsel # needed by vscode vim plugin
           dbeaver
-          wireshark-gtk
+          wireshark-qt
 
           # Windows
           #unstable.wine

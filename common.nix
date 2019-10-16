@@ -17,7 +17,7 @@
   boot.loader.timeout = 30;
 
   # Kernel same-page merging
-  hardware.enableKSM = true;
+  hardware.ksm.enable = true;
 
   # Define a user account. Don't forget to change your password.
   users.extraUsers = {
@@ -95,7 +95,7 @@
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
   # should.
-  system.stateVersion = "19.03"; # Did you read the comment?
+  system.stateVersion = "19.09"; # Did you read the comment?
 
   system.autoUpgrade.enable = true;
   system.autoUpgrade.flags = [ "-I" "nixos-config=/home/${user}/nixfiles/configuration.nix" ];
