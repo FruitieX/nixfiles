@@ -105,6 +105,15 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.flags = [ "-I" "nixos-config=/home/${user}/nixfiles/configuration.nix" ];
 
+  # increase max number of open file descriptors
+  systemd.extraConfig = "DefaultLimitNOFILE=1048576";
+  security.pam.loginLimits = [{
+    domain = "*";
+    type = "hard";
+    item = "nofile";
+    value = "1048576";
+  }];
+
   # Symlink dotfiles
   system.activationScripts.dotfiles = import ./scripts/symlink.nix {
     inherit user;
