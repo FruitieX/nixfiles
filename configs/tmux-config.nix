@@ -68,13 +68,8 @@
     set -g visual-bell off
 
     # appearance settings
-    set -g pane-border-fg "#555555"
-    set -g pane-border-bg default
-    set -g pane-active-border-fg "#ffffff"
-    set -g pane-active-border-bg default
-
-    set -g status-bg default
-    set -g status-fg "#ffffff"
+    set -g pane-border-style fg="#555555",bg=default
+    set -g pane-active-border-style fg="#ffffff",bg=default
 
     set -g status on
     set -g status-interval 1
@@ -84,15 +79,12 @@
     set -g status-left ""
     set -g status-right "#h"
     set -g status-position top
+    set -g status-style bg=default,fg="#ffffff"
 
     setw -g window-status-format "#[bg=#555555, fg=#ffffff, noreverse] #I #W "
     setw -g window-status-current-format "#[bg=#ffffff, fg=#000000, noreverse] #I #W "
     setw -g window-status-separator " "
-    setw -g window-status-bell-bg default
-    setw -g window-status-bell-fg red
-    setw -g window-status-bell-attr none
-    setw -g window-status-activity-bg default
-    setw -g window-status-activity-fg cyan
-    setw -g window-status-activity-attr bold
+    setw -g window-status-bell-style fg=red,bg=default,none
+    setw -g window-status-activity-style fg=cyan,bg=default,bold
   '';
 }
