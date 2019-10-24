@@ -19,6 +19,8 @@
   # Kernel same-page merging
   hardware.ksm.enable = true;
 
+  hardware.enableRedistributableFirmware = true;
+
   # Define a user account. Don't forget to change your password.
   users.extraUsers = {
     ${user} = {
