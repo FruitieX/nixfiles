@@ -60,6 +60,9 @@
 
   # services.fwupd.enable = true;
 
+  # Sync system time with NTP
+  services.ntp.enable = true;
+
   services.openssh = {
     enable = true;
     startWhenNeeded = true;
