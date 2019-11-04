@@ -52,27 +52,14 @@
       };
 
       lorri =
-        let
-          src =
-            (
-              super.fetchFromGitHub {
-                owner = "target";
-                repo = "lorri";
-
-                # more recent versions of lorri won't work in my setup :(
-                rev = "e943fa403234f1a5e403b6fdc112e79abc1e29ba";
-                sha256 = "1ar7clza117qdzldld9qzg4q0wr3g20zxrnd1s51cg6gxwlpg7fa";
-              }
-            );
-        in
-          super.callPackage src { inherit src; };
+        import (fetchTarball {
+          url = https://github.com/target/lorri/archive/rolling-release.tar.gz;
+        }) {};
 
       updatePrefetch = import (
         master.fetchFromGitHub {
           owner = "justinwoo";
           repo = "update-prefetch";
-
-          # more recent versions of lorri won't work in my setup :(
           rev = "ffcf4e287bce46615056cf5466176dd70e5fb1bc";
           sha256 = "0g7c4p8w738s0rnn1pbr39g0qv0jp6rwbdzimmb28g9g82mnc5v6";
         }
@@ -112,6 +99,7 @@
 
           # System utils
           cryptsetup
+          cpufrequtils
           htop
           lm_sensors
           ncdu
