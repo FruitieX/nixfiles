@@ -68,7 +68,7 @@
     "<C-d>": true
   },
   // try fixing vim extension performance
-  "vim.useSystemClipboard": false,
+  "vim.useSystemClipboard": true,
   "vim.statusBarColorControl": false,
   "vim.easymotion": true,
   "vim.hlsearch": true,
