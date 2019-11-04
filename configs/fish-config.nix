@@ -10,7 +10,12 @@
       exec tmux new-session -t 0 \; set-option destroy-unattached
     end
 
-    # Fish vi keybindings with jj mapped to normal mode
+    # Fish vi keybindings with fixed ctrl+f & jj mapped to normal mode
+    function fish_user_key_bindings
+        for mode in insert default visual
+            bind -M $mode \cf forward-char
+        end
+    end
     fish_vi_key_bindings
     bind -M insert -m default jj force-repaint
 
