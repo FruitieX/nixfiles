@@ -22,7 +22,6 @@
     # LS colors
     eval (${pkgs.coreutils}/bin/dircolors "${./dircolors.base16.dark}" | sed "s/LS_COLORS=/set LS_COLORS /")
 
-    # TODO: fix this alias
     alias gpc "git push --set-upstream origin (git symbolic-ref HEAD 2> /dev/null | sed s-refs/heads/--)"
 
     # Globally installed npm / yarn packages

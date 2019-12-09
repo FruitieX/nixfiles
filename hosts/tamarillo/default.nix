@@ -15,6 +15,8 @@
     }
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   services.xserver.videoDrivers = [ "amdgpu" ];
   services.xserver.displayManager.gdm.wayland = false;
 

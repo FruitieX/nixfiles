@@ -156,6 +156,7 @@
 
           # Misc
           unstable.noto-fonts-emoji
+          gparted
         ];
       };
     };
