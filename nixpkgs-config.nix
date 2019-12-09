@@ -151,7 +151,7 @@
 
           # Misc GUI programs
           unstable.alacritty
-          unstable-small.synergy
+          unstable-small.barrier
           unstable.xorg.xmodmap
 
           # Misc
