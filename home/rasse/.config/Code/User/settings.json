@@ -101,7 +101,6 @@
     "*.json": "jsonc"
   },
   "keyboard.dispatch": "keyCode",
-  "files.autoSave": "afterDelay",
   "workbench.editor.labelFormat": "medium",
   "prettier.requireConfig": true,
   "search.location": "panel",
@@ -122,8 +121,12 @@
   },
   "git.autofetch": true,
   "cSpell.userWords": [
-    "autofetch",
     "comparator",
+    "unmount",
+    "Monoid",
+    "mempty",
+    "Newtype",
+    "autofetch",
     "forall",
     "monospace",
     "murmurhash",
@@ -184,9 +187,13 @@
     "yaml",
     "yml"
   ],
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 200,
   "editor.quickSuggestionsDelay": 200,
   "search.smartCase": true,
   "editor.multiCursorModifier": "alt",
   "gitlens.codeLens.enabled": false,
   "vscode-neovim.neovimPath": "/run/current-system/sw/bin/nvim",
+  "rust-client.channel": "beta",
+  "rust-client.disableRustup": true
 }
