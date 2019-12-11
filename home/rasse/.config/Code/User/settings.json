@@ -188,7 +188,7 @@
     "yml"
   ],
   "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 200,
+  "files.autoSaveDelay": 400,
   "editor.quickSuggestionsDelay": 200,
   "search.smartCase": true,
   "editor.multiCursorModifier": "alt",
