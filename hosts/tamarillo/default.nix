@@ -20,6 +20,6 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
   services.xserver.displayManager.gdm.wayland = false;
 
-  virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
 }
