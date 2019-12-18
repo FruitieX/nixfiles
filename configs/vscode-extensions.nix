@@ -2,8 +2,8 @@
   {
     name = "vscode-neovim";
     publisher = "asvetliakov";
-    version = "0.0.39";
-    sha256 = "1hr7sw9273w66frc2q5c3f2vipcwgsby91lva0w73g0pfgsib7hs";
+    version = "0.0.42";
+    sha256 = "1gljnbw30wmaw2hzn8kb08ci92l8baz82bi081jiphdk75vcx08c";
   }
   {
     name = "Nix";
@@ -20,8 +20,8 @@
   {
     name = "vscode-eslint";
     publisher = "dbaeumer";
-    version = "1.9.1";
-    sha256 = "0q3vnqmik1228zsy7favzsr3xpaci3z1zh38m79cpy5rac5bcr62";
+    version = "2.0.6";
+    sha256 = "0w9wwmcqrfmvwapz7fxmk3lfjlnnf4b3qhxkycx6w4m7mixh9rnp";
   }
   {
     name = "gitlens";
@@ -32,8 +32,8 @@
   {
     name = "EditorConfig";
     publisher = "EditorConfig";
-    version = "0.14.2";
-    sha256 = "19vqwhxqbxarswj3x2ghwk1b09bslmyw8aarnvjy6zz1jsigchl5";
+    version = "0.14.3";
+    sha256 = "19ynynbbdlhci05ch6dyidi3j94gjxmc1bq2m5al83ha9xacswk9";
   }
   {
     name = "vsc-material-theme";
@@ -44,8 +44,8 @@
   {
     name = "prettier-vscode";
     publisher = "esbenp";
-    version = "3.11.0";
-    sha256 = "0836wia7pkir472ipbldxblgjmba8mlblqryrgbf5ycm8jkg1ihf";
+    version = "3.16.1";
+    sha256 = "196dsfndx486iz0kjp0g3849y5f4pljh9ddlk9kq4zzg022635k9";
   }
   {
     name = "vscode-styled-components";
@@ -74,8 +74,8 @@
   {
     name = "remote-ssh";
     publisher = "ms-vscode-remote";
-    version = "0.47.2";
-    sha256 = "04niirbkrzsm4wk22pr5dcfymnhqq4vn25xwkf5xvbpw32v1bpp3";
+    version = "0.48.0";
+    sha256 = "04q53gljqh5snkrdf5l69g0ahn1s5z35a4ipfcbf1rsjjmm85a19";
   }
   {
     name = "vscode-typescript-tslint-plugin";
@@ -102,6 +102,12 @@
     sha256 = "1vbbsfamsk0wplsl5n3lf84yv06l0bsvnlm8pb8c3k8xfc2pdp8w";
   }
   {
+    name = "rust";
+    publisher = "rust-lang";
+    version = "0.7.0";
+    sha256 = "16n787agjjfa68r6xv0lyqvx25nfwqw7bqbxf8x8mbb61qhbkws0";
+  }
+  {
     name = "shader";
     publisher = "slevesque";
     version = "1.1.4";
@@ -124,12 +130,6 @@
     publisher = "wix";
     version = "2.12.0";
     sha256 = "1g6k8fxfa49ky8v3l5n6l7p6gnjf9sdd56crcj33p08gb8pyy86l";
-  }
-  {
-    name = "rust";
-    publisher = "rust-lang";
-    version = "0.6.3";
-    sha256 = "1r5q1iclr64wmgglsr3na3sv0fha5di8xyccv7xwcv5jf8w5rz5y";
   }
 ];
 }
