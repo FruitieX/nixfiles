@@ -64,9 +64,6 @@
 
   # Enable password authentication to satsuma
   services.openssh.passwordAuthentication = true;
-  programs.ssh.extraConfig = ''
-    AcceptEnv LANG LC_* TMUX
-  '';
 
   # Nginx
   services.nginx.enable = true;
