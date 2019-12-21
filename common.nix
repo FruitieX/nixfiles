@@ -67,6 +67,7 @@
     enable = true;
     startWhenNeeded = true;
     passwordAuthentication = lib.mkDefault false;
+    forwardX11 = true;
   };
 
   #services.prometheus = {
