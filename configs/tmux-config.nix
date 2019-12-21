@@ -19,7 +19,7 @@
     run-shell ${pkgs.tmuxPlugins.copycat.rtp}
 
     # automatically destroy session after all clients detach
-    set-option destroy-unattached
+    # set-option destroy-unattached
 
     # mouse support
     set -g mouse on
