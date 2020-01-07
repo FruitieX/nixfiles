@@ -38,8 +38,8 @@
   {
     name = "vsc-material-theme";
     publisher = "Equinusocio";
-    version = "31.2.0";
-    sha256 = "1imcxlkf44mj2swvj1qn2m656nkib3q8ny93g4i15nzbz5gizba4";
+    version = "30.0.0";
+    sha256 = "0gkd24jiwgb7mmfrw8iwwl1abz675cpxjn6bfahlql07pyp8y4xc";
   }
   {
     name = "prettier-vscode";
