@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "Material Theme Darker High Contrast",
+  "workbench.colorTheme": "Legacy - Material Theme Darker High Contrast",
   "window.titleBarStyle": "custom",
   "editor.tabSize": 2,
   "editor.formatOnPaste": true,
@@ -200,5 +200,6 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.scrollBeyondLastLine": false
+  "editor.scrollBeyondLastLine": false,
+  "materialTheme.accent": "Cyan"
 }

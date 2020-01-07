@@ -2,8 +2,8 @@
   {
     name = "vscode-neovim";
     publisher = "asvetliakov";
-    version = "0.0.42";
-    sha256 = "1gljnbw30wmaw2hzn8kb08ci92l8baz82bi081jiphdk75vcx08c";
+    version = "0.0.47";
+    sha256 = "0crzgay7ykn26klvnlx4pmi4h2rra357g7b6cyx77k6qw2vdbsiw";
   }
   {
     name = "Nix";
@@ -20,8 +20,8 @@
   {
     name = "vscode-eslint";
     publisher = "dbaeumer";
-    version = "2.0.6";
-    sha256 = "0w9wwmcqrfmvwapz7fxmk3lfjlnnf4b3qhxkycx6w4m7mixh9rnp";
+    version = "2.0.11";
+    sha256 = "14pj1hj6fzk2kg4fdydsyp7h1j6460d71wk4mzmm95b487xvhqlc";
   }
   {
     name = "gitlens";
@@ -32,20 +32,20 @@
   {
     name = "EditorConfig";
     publisher = "EditorConfig";
-    version = "0.14.3";
-    sha256 = "19ynynbbdlhci05ch6dyidi3j94gjxmc1bq2m5al83ha9xacswk9";
+    version = "0.14.4";
+    sha256 = "0580dsxhw78qgds9ljvzsqqkd2ndksppk7l9s5gnrddirn6fdk5i";
   }
   {
     name = "vsc-material-theme";
     publisher = "Equinusocio";
-    version = "30.0.0";
-    sha256 = "0gkd24jiwgb7mmfrw8iwwl1abz675cpxjn6bfahlql07pyp8y4xc";
+    version = "31.2.0";
+    sha256 = "1imcxlkf44mj2swvj1qn2m656nkib3q8ny93g4i15nzbz5gizba4";
   }
   {
     name = "prettier-vscode";
     publisher = "esbenp";
-    version = "3.16.1";
-    sha256 = "196dsfndx486iz0kjp0g3849y5f4pljh9ddlk9kq4zzg022635k9";
+    version = "3.18.0";
+    sha256 = "1gbl89813p9piahjbzlh6pn0yrdynmjx4hqgb0ywacic6f58yigm";
   }
   {
     name = "vscode-styled-components";
@@ -98,8 +98,8 @@
   {
     name = "vscode-jest";
     publisher = "Orta";
-    version = "3.0.2";
-    sha256 = "1vbbsfamsk0wplsl5n3lf84yv06l0bsvnlm8pb8c3k8xfc2pdp8w";
+    version = "3.1.0";
+    sha256 = "0sn4wp5pw76lrivzf40gdjvh55rvxlv7fwvy99zb9kf8ljjrpssm";
   }
   {
     name = "rust";
@@ -122,8 +122,8 @@
   {
     name = "vscodeintellicode";
     publisher = "VisualStudioExptTeam";
-    version = "1.2.0";
-    sha256 = "1dcyqd5ikm1w15qq75z9w1rzxbanwnr44hykwan2bwf905dm41wp";
+    version = "1.2.2";
+    sha256 = "125nqbc17s6xwxi43vlbjqmjg9kbwkr08rwkj6d5kxfv8m2vpp6c";
   }
   {
     name = "vscode-import-cost";
