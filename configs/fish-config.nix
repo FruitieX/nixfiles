@@ -30,6 +30,9 @@
     # Locally installed npm / yarn packages
     export PATH="./node_modules/.bin:$PATH"
 
+    # Locally installed pip packages
+    export PATH="$HOME/.local/bin:$PATH"
+
     # Suppress direnv logs
     export DIRENV_LOG_FORMAT=""
 
