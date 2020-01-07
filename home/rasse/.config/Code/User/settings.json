@@ -94,7 +94,7 @@
     ],
     "Red"
   ],
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "breadcrumbs.enabled": true,
   "files.associations": {
@@ -199,5 +199,6 @@
   "search.searchOnTypeDebouncePeriod": 100,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "editor.scrollBeyondLastLine": false
 }
