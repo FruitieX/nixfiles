@@ -3,42 +3,42 @@
 {
   configure = {
     packages.myVimPackage = with pkgs.vimPlugins; {
-      start = [
-        base16-vim
-        supertab
-        vim-markdown
-        undotree
-
-        vim-airline
-        vim-airline-themes
-
-        tsuquyomi
-
-        vim-gitgutter
-        vim-surround
-
-        editorconfig-vim
-
-        ctrlp-vim
-
-        vim-easymotion
-
-        incsearch-vim
-
-        nerdcommenter
-        nerdtree
-
-        vim-javascript
-
-        purescript-vim
-        psc-ide-vim
-      ];
+#      start = [
+#        base16-vim
+#        supertab
+#        vim-markdown
+#        undotree
+#
+#        vim-airline
+#        vim-airline-themes
+#
+#        tsuquyomi
+#
+#        vim-gitgutter
+#        vim-surround
+#
+#        editorconfig-vim
+#
+#        ctrlp-vim
+#
+#        vim-easymotion
+#
+#        incsearch-vim
+#
+#        nerdcommenter
+#        nerdtree
+#
+#        vim-javascript
+#
+#        purescript-vim
+#        psc-ide-vim
+#      ];
     }; 
 
     customRC = ''
       if exists('g:vscode')
         " launched from vscode extension
-      else 
+      elseif 0
         " ordinary nvim config
 
         " incsearch
