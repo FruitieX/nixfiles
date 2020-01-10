@@ -94,7 +94,7 @@
     ],
     "Red"
   ],
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "breadcrumbs.enabled": true,
   "files.associations": {
@@ -121,18 +121,20 @@
   },
   "git.autofetch": true,
   "cSpell.userWords": [
-    "comparator",
-    "unmount",
     "Monoid",
-    "mempty",
     "Newtype",
     "autofetch",
+    "autogenerate",
+    "comparator",
+    "flexbox",
     "forall",
+    "mempty",
     "monospace",
     "murmurhash",
     "rerender",
     "scrollbar",
-    "unmount"
+    "unmount",
+    "uuid"
   ],
   "vim.neovimPath": "/run/current-system/sw/bin/nvim",
   "vim.enableNeovim": true,
@@ -202,5 +204,7 @@
   },
   "editor.scrollBeyondLastLine": false,
   "materialTheme.accent": "Cyan",
-  "workbench.panel.defaultLocation": "right"
+  "workbench.sideBar.location": "left",
+  "editor.scrollBeyondLastLine": false,
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }
