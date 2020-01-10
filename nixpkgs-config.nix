@@ -87,7 +87,7 @@
 
           # Networking
           dnsutils
-          httpie
+          curlie
           iperf
           openssh
           sshfs
