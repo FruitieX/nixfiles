@@ -201,5 +201,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.scrollBeyondLastLine": false,
-  "materialTheme.accent": "Cyan"
+  "materialTheme.accent": "Cyan",
+  "workbench.panel.defaultLocation": "right"
 }
