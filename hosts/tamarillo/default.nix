@@ -22,4 +22,9 @@
 
   # virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
+
+  services.buildkite-agent.enable = true;
+  services.buildkite-agent.tokenPath = "/var/lib/buildkite-agent/token";
+  services.buildkite-agent.openssh.privateKeyPath = "/var/lib/buildkite-agent/id_rsa_buildkite";
+  services.buildkite-agent.openssh.publicKeyPath = "/var/lib/buildkite-agent/id_rsa_buildkite.pub";
 }
