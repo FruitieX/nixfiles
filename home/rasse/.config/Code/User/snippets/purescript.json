@@ -1,0 +1,60 @@
+{
+	// Place your snippets for purescript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"purescript-react-emotion styles module template": {
+		"prefix": "styleModule",
+		"body": [
+			"module ${1:name}.Styles where",
+			"",
+			"import Common",
+			"import Box (BoxProp(..), boxStyle)",
+			"import React.Basic.Emotion as E",
+			"import StyleProperties as SP",
+			"",
+			"type Props = {}",
+			"",
+			"${1/^(.)(.*)$/${1:/downcase}${2}/}ContainerStyles :: Props -> E.Style",
+			"${1/^(.)(.*)$/${1:/downcase}${2}/}ContainerStyles props = boxStyle",
+			"  [$0]"
+		]
+	},
+	"purescript-react-basic-hooks hook component module template": {
+		"prefix": "hookComponentModule",
+		"body": [
+			"module ${1:name} where",
+			"",
+			"import Common",
+			"",
+			"import React.Basic as RB",
+			"import React.Basic.DOM as R",
+			"import React.Basic.DOM.Events as DE",
+			"import React.Basic.Emotion as E",
+			"import React.Basic.Hooks as RH",
+			"import ReactHooksUtils as HU",
+			"",
+			"import ${1:name}.Styles (${1/^(.)(.*)$/${1:/downcase}${2}/}ContainerStyles)",
+			"",
+			"type Props = {}",
+			"",
+			"component :: Props -> RB.JSX",
+			"component = HU.make \"${1:name}\" \\props -> RH.do",
+			"  pure $ E.element R.div'",
+			"    { className: \"${1:name}\"",
+			"    , css: ${1/^(.)(.*)$/${1:/downcase}${2}/}ContainerStyles {}",
+			"    , children:",
+			"        [ ${2:R.text \"Hello, world!\"} ]",
+			"    }"
+		]
+	}
+}
