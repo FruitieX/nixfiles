@@ -38,7 +38,7 @@
   boot.initrd.luks.devices = [
     {
       name = "root";
-      device = "/dev/disk/by-uuid/57158076-29f6-4b66-a041-a756e1fff208";
+      device = "/dev/disk/by-uuid/0bcee80f-d963-4472-9bd5-a35fdc5ce93c";
       preLVM = true;
       allowDiscards = true;
     }
@@ -50,9 +50,9 @@
   #   lib.mkIf config.services.tlp.enable (lib.mkForce null);
   # services.tlp.enable = true;
 
-  boot.extraModprobeConfig = ''
-    options psmouse proto=bare
-  '';
+  #boot.extraModprobeConfig = ''
+  #  options psmouse proto=bare
+  #'';
 
   #hardware.trackpoint = {
     #enable = true;
