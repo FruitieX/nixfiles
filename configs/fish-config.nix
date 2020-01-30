@@ -89,5 +89,8 @@
     vim = "nvim";
 
     g = "git";
+
+    # da comrade
+    da = "direnv allow";
   };
 }
