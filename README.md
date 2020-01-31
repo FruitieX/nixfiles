@@ -71,10 +71,6 @@ mkfs.fat /dev/sda1
 mkfs.ext4 -L root /dev/vg/root
 mkswap -L swap /dev/vg/swap
 
-mkfs.fat /dev/sda1
-mkfs.ext4 -L root /dev/vg/root
-mkswap -L swap /dev/vg/swap
-
 mount /dev/vg/root /mnt
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
