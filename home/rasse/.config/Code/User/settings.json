@@ -94,7 +94,7 @@
     ],
     "Red"
   ],
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "breadcrumbs.enabled": true,
   "files.associations": {
@@ -103,7 +103,6 @@
   "keyboard.dispatch": "keyCode",
   "workbench.editor.labelFormat": "medium",
   "prettier.requireConfig": true,
-  "search.location": "panel",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.editor.highlightModifiedTabs": true,
   "files.eol": "\n",
@@ -206,5 +205,8 @@
   "materialTheme.accent": "Cyan",
   "workbench.sideBar.location": "left",
   "editor.scrollBeyondLastLine": false,
-  "javascript.updateImportsOnFileMove.enabled": "always"
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.limit.value": 5
 }
