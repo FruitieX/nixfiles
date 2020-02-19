@@ -195,8 +195,7 @@
   "editor.multiCursorModifier": "alt",
   "gitlens.codeLens.enabled": false,
   "vscode-neovim.neovimPath": "/run/current-system/sw/bin/nvim",
-  "rust-client.channel": "beta",
-  "rust-client.disableRustup": true,
+  "rust-client.channel": "nightly",
   "search.searchOnTypeDebouncePeriod": 100,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

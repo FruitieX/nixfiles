@@ -33,6 +33,9 @@
     # Locally installed pip packages
     export PATH="$HOME/.local/bin:$PATH"
 
+    # Locally installed cargo packages
+    export PATH="$HOME/.cargo/bin:$PATH"
+
     # Suppress direnv logs
     export DIRENV_LOG_FORMAT=""
 
