@@ -93,6 +93,7 @@
           tmux
           unzip
           zip
+	  srm
 
           # Networking
           dnsutils
@@ -102,6 +103,7 @@
           sshfs
           tcpdump
           wget
+	  socat
 
           # Editors
           (unstable.neovim.override (import ./configs/neovim-config.nix { inherit pkgs; }))
@@ -134,6 +136,8 @@
           # unstable-small.nodejs-11_x
           # (unstable-small.yarn.override { nodejs = unstable-small.nodejs-11_x; })
           postgresql_11
+	  gnumake
+	  unstable.rustup
         ];
       };
 
@@ -171,6 +175,8 @@
           unstable.alacritty
           unstable-small.barrier
           unstable.xorg.xmodmap
+	  unstable.pavucontrol
+	  unstable.xorg.xev
 
           # Misc
           unstable.noto-fonts-emoji
