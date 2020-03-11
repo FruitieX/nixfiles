@@ -36,8 +36,18 @@
     }; 
 
     customRC = ''
+      " global settings
+      
+      " Smart case-sensitive search
+      set ignorecase
+      set smartcase
+
+      " Use unnamed clipboard by default
+      set clipboard=unnamed
+
       if exists('g:vscode')
         " launched from vscode extension
+
       elseif 0
         " ordinary nvim config
 
@@ -223,10 +233,6 @@
         set backspace=eol,start,indent
         set whichwrap+=<,>,h,l
 
-        " Smart case-sensitive search
-        set ignorecase
-        set smartcase
-
         " Don't redraw while executing macros
         set lazyredraw
 
@@ -335,9 +341,6 @@
 
         " No extra space in numbers column
         set numberwidth=1
-
-        " Use unnamed clipboard by default
-        set clipboard=unnamed
 
         " JSX extension not required for JSX files
         let g:jsx_ext_required = 0
