@@ -96,12 +96,6 @@
     sha256 = "10ninyhrkzgp4gc3v6aqx391fwhnvwj66hvb26jvchc3hb2vc90x";
   }
   {
-    name = "rust";
-    publisher = "rust-lang";
-    version = "0.7.0";
-    sha256 = "16n787agjjfa68r6xv0lyqvx25nfwqw7bqbxf8x8mbb61qhbkws0";
-  }
-  {
     name = "shader";
     publisher = "slevesque";
     version = "1.1.4";
@@ -130,6 +124,12 @@
     publisher = "jakearl";
     version = "0.1.1";
     sha256 = "01z5mql81h1gg787ksrcz99wyflbav4klzsvw7cnf6l4qpchy1fq";
+  }
+  {
+  name = "rust-analyzer";
+  publisher = "matklad";
+  version = "0.1.20200309";
+  sha256 = "1927by914ysxyx46b1rwr2pqyzs1q1si41c9dpmds0sflwydmawv";
   }
 ];
 }
