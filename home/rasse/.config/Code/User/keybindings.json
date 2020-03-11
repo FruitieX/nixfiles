@@ -37,4 +37,9 @@
     "command": "-purescript.build",
     "when": "editorTextFocus && editorLangId == 'purescript'"
   },
+  {
+    "key": "ctrl+s",
+    "command": "searchEditorApplyChanges.apply",
+    "when": "inSearchEditor"
+  }
 ]

@@ -125,5 +125,11 @@
     version = "2.12.0";
     sha256 = "1g6k8fxfa49ky8v3l5n6l7p6gnjf9sdd56crcj33p08gb8pyy86l";
   }
+  {
+    name = "search-editor-apply-changes";
+    publisher = "jakearl";
+    version = "0.1.1";
+    sha256 = "01z5mql81h1gg787ksrcz99wyflbav4klzsvw7cnf6l4qpchy1fq";
+  }
 ];
 }
