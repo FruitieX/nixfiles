@@ -160,7 +160,7 @@
           # Development
           (
             master.vscode-with-extensions.override {
-              vscodeExtensions = super.vscode-utils.extensionsFromVscodeMarketplace (import ./configs/vscode-extensions.nix).extensions;
+              vscodeExtensions = master.vscode-utils.extensionsFromVscodeMarketplace (import ./configs/vscode-extensions.nix).extensions;
             }
           )
           xsel # needed by vscode vim plugin
