@@ -106,7 +106,6 @@
   "workbench.editor.highlightModifiedTabs": true,
   "files.eol": "\n",
   "prettier.endOfLine": "lf",
-  "editor.minimap.enabled": false,
   "jest.autoEnable": false,
   "jest.coverageFormatter": "GutterFormatter",
   "jest.showCoverageOnLoad": true,
@@ -188,23 +187,28 @@
     "yml"
   ],
   "files.autoSave": "afterDelay",
-  "editor.quickSuggestionsDelay": 200,
+  "editor.quickSuggestionsDelay": 400,
   "search.smartCase": true,
   "editor.multiCursorModifier": "alt",
   "gitlens.codeLens.enabled": false,
   "vscode-neovim.neovimPath": "/run/current-system/sw/bin/nvim",
   "rust-client.channel": "nightly",
-  "search.searchOnTypeDebouncePeriod": 100,
+  "search.searchOnTypeDebouncePeriod": 400,
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.scrollBeyondLastLine": false,
-  "materialTheme.accent": "Cyan",
   "workbench.sideBar.location": "left",
-  "editor.scrollBeyondLastLine": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.value": 5,
-  "workbench.colorTheme": "Monokai Dimmed"
+  "workbench.colorTheme": "Monokai Dimmed",
+  "editor.minimap.size": "fit",
+  "editor.minimap.showSlider": "always",
+  "editor.minimap.maxColumn": 80,
+  "workbench.colorCustomizations": {
+    "minimap.background": "#20202080",
+  },
+  "editor.scrollbar.verticalScrollbarSize": 0,
 }
