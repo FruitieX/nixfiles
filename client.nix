@@ -74,7 +74,6 @@
   # Use GNOME 3
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
-  nixpkgs.config.firefox.enableGnomeExtensions = true;
 
   # gsettings overrides
   # `dconf watch /` is useful for discovering these
