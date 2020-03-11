@@ -1,5 +1,4 @@
 {
-  "workbench.colorTheme": "Material Theme Darker High Contrast",
   "window.titleBarStyle": "custom",
   "editor.tabSize": 2,
   "editor.formatOnPaste": true,
@@ -94,7 +93,7 @@
     ],
     "Red"
   ],
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "breadcrumbs.enabled": true,
   "files.associations": {
@@ -189,7 +188,6 @@
     "yml"
   ],
   "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 400,
   "editor.quickSuggestionsDelay": 200,
   "search.smartCase": true,
   "editor.multiCursorModifier": "alt",
@@ -207,5 +205,6 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.perEditorGroup": true,
-  "workbench.editor.limit.value": 5
+  "workbench.editor.limit.value": 5,
+  "workbench.colorTheme": "Monokai Dimmed"
 }
