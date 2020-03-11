@@ -36,12 +36,6 @@
     sha256 = "0580dsxhw78qgds9ljvzsqqkd2ndksppk7l9s5gnrddirn6fdk5i";
   }
   {
-    name = "vsc-material-theme";
-    publisher = "Equinusocio";
-    version = "32.5.0";
-    sha256 = "0vgzny41zlwin4gbjvbbhpv5gpjr4j6sjkym8dqk1pw20svnnhvb";
-  }
-  {
     name = "prettier-vscode";
     publisher = "esbenp";
     version = "3.20.0";
