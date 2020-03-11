@@ -22,10 +22,8 @@
 			"import React.Basic.Emotion as E",
 			"import StyleProperties as SP",
 			"",
-			"type Props = {}",
-			"",
-			"${1/^(.)(.*)$/${1:/downcase}${2}/}ContainerStyles :: Props -> E.Style",
-			"${1/^(.)(.*)$/${1:/downcase}${2}/}ContainerStyles props = boxStyle",
+			"${1/^(.)(.*)$/${1:/downcase}${2}/}ContainerStyles :: E.Style",
+			"${1/^(.)(.*)$/${1:/downcase}${2}/}ContainerStyles = boxStyle",
 			"  [$0]"
 		]
 	},
