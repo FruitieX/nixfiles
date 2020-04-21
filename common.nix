@@ -50,10 +50,8 @@
   # networking.firewall.allowedTCPPorts = [ 1234 3000 ];
 
   # Select internationalisation properties.
-  i18n = {
-    consoleKeyMap = "dvorak";
-    defaultLocale = "en_US.UTF-8";
-  };
+  i18n.defaultLocale = "en_US.UTF-8";
+  console.keyMap = "dvorak";
 
   # Set your time zone.
   time.timeZone = "Europe/Helsinki";

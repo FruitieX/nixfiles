@@ -12,7 +12,7 @@
   baseIndex = 1;
   escapeTime = 0;
 
-  extraTmuxConf = ''
+  extraConfig = ''
     # tmux plugins
     run-shell ${pkgs.tmuxPlugins.sensible.rtp}
     run-shell ${pkgs.tmuxPlugins.yank.rtp}

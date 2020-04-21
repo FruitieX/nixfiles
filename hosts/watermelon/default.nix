@@ -24,7 +24,7 @@
   # hardware.enableAllFirmware = true;
   hardware.firmware = [ pkgs.master.firmwareLinuxNonfree ];
 
-  virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
 
   users.extraUsers.code = {
