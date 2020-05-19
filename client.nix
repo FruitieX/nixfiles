@@ -66,7 +66,9 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.layout = "dvorak";
+  services.xserver.layout = "us";
+  services.xserver.xkbVariant = "dvorak";
+  services.xserver.displayManager.sessionCommands = "${pkgs.xorg.xmodmap}/bin/xmodmap ${import ./configs/xmodmap.nix { inherit pkgs; }}";
 
   # Use libinput
   services.xserver.libinput.enable = true;
@@ -84,7 +86,6 @@
     clock-show-date=true
 
     [org.gnome.desktop.input-sources]
-    sources=[('xkb', 'us+dvorak')]
     xkb-options=['terminate:ctrl_alt_bksp', 'caps:escape']
 
     [org.gnome.desktop.peripherals.mouse]
@@ -116,6 +117,7 @@
     font-name='Fira Sans 11'
     document-font-name='Fira Sans 11'
     monospace-font-name='Fira Code 11'
+    clock-show-weekday=true
 
     [org.gnome.desktop.wm.preferences]
     titlebar-font='Fira Sans Bold 11'
@@ -139,6 +141,9 @@
     [org.gnome.desktop.a11y.keyboard]
     bouncekeys-enable=true
     bouncekeys-delay=30
+
+    [org.gnome.desktop.calendar]
+    show-weekdate=true
   '';
 
   # Annoying hack to stop GDM from using PulseAudio
