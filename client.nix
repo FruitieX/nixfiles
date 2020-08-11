@@ -68,7 +68,7 @@
   services.xserver.enable = true;
   services.xserver.layout = "us";
   services.xserver.xkbVariant = "dvorak";
-  services.xserver.displayManager.sessionCommands = "${pkgs.xorg.xmodmap}/bin/xmodmap ${import ./configs/xmodmap.nix { inherit pkgs; }}";
+  # services.xserver.displayManager.sessionCommands = "${pkgs.xorg.xmodmap}/bin/xmodmap ${import ./configs/xmodmap.nix { inherit pkgs; }}";
 
   # Use libinput
   services.xserver.libinput.enable = true;

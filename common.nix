@@ -15,7 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 5;
-  boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
+  # boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
 
   # Kernel same-page merging
   hardware.ksm.enable = true;
