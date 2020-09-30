@@ -125,6 +125,7 @@
 
           # Nix specific
           direnv
+          nix-direnv
           nox
           nix-zsh-completions
           nix-prefetch-git
@@ -138,6 +139,7 @@
           postgresql_11
 	  gnumake
 	  unstable.rustup
+	  docker-compose
         ];
       };
 

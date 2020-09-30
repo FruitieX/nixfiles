@@ -44,6 +44,15 @@
   programs.fish = (import ./configs/fish-config.nix { inherit pkgs; });
   programs.tmux = (import ./configs/tmux-config.nix { inherit pkgs; });
 
+  nix.extraOptions = ''
+    keep-outputs = true
+    keep-derivations = true
+  '';
+
+  environment.pathsToLink = [
+    "/share/nix-direnv"
+  ];
+
   # Networking
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
