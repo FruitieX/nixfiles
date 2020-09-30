@@ -5,6 +5,9 @@
   enable = true;
 
   interactiveShellInit = ''
+    mkdir -p $HOME/.tmux
+    export TMUX_TMPDIR=$HOME/.tmux
+
     # Launch in tmux session if we're not already in one
     if not test $TMUX
       exec tmux new-session -t 0 \; set-option destroy-unattached
