@@ -129,4 +129,16 @@
     source = "/home/${user}/nixfiles/home";
     target = "/home";
   };
+
+  # Join the dark side
+  system.activationScripts.let-me-run-random-garbage = with pkgs; let loader = "ld-linux-x86-64.so.2"; in ''
+    mkdir -p /lib /lib64
+    ln -fs ${pkgs.glibc}/lib64/${loader} /lib64/${loader}
+    ln -fs ${pkgs.glibc}/lib/${loader} /lib/${loader}
+  '';
+
+  environment.extraInit = ''
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/run/current-system/sw/lib"
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${pkgs.stdenv.cc.cc.lib}/lib"
+  '';
 }
