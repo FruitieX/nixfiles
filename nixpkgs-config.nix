@@ -94,6 +94,8 @@
           unzip
           zip
 	  srm
+	  file
+	  man
 
           # Networking
           dnsutils
