@@ -45,5 +45,7 @@
 
     # Don't use nano
     export EDITOR="nvim"
+
+    eval "$(direnv hook zsh)"
   '';
 }
