@@ -3,6 +3,7 @@
 {
   imports =
     [
+      ../../bare-metal.nix
       ../../client.nix
     ];
 

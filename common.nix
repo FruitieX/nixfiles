@@ -8,14 +8,7 @@
   # System packages are common to all hosts
   environment.systemPackages = with pkgs; [
     systemToolsEnv
-    (import ./fhs pkgs)
   ];
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.timeout = 5;
-  # boot.extraModulePackages = [ config.boot.kernelPackages.wireguard ];
 
   # Kernel same-page merging
   hardware.ksm.enable = true;
@@ -56,7 +49,6 @@
 
   # Networking
   networking.hostName = hostname;
-  networking.networkmanager.enable = true;
   networking.firewall.enable = false;
   # networking.firewall.allowedTCPPorts = [ 1234 3000 ];
 
@@ -76,7 +68,6 @@
     enable = true;
     startWhenNeeded = true;
     passwordAuthentication = lib.mkDefault false;
-    forwardX11 = true;
   };
 
   #services.prometheus = {

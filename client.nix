@@ -7,6 +7,7 @@
   # Add desktop packages
   environment.systemPackages = with pkgs; [
     desktopToolsEnv
+    (import ./fhs pkgs)
   ];
 
   # Attempt resolving DNS problems

@@ -14,6 +14,7 @@
 
   imports =
     [
+      ../../bare-metal.nix
       ../../client.nix
       ../../laptop.nix
       ./cpu-throttling-bug.nix

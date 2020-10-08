@@ -1,6 +1,11 @@
 { config, pkgs, user, hostname, ... }:
 
 {
+  imports =
+    [
+      ../../bare-metal.nix
+    ];
+
   # Update Intel CPU microcode
   hardware.cpu.intel.updateMicrocode = true;
 
