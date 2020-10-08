@@ -28,7 +28,7 @@
       password = "change-me";
       isNormalUser = true;
       extraGroups = [ "wheel" "adbusers" "vboxusers" "audio" "sway" "docker" ];
-      shell = pkgs.fish;
+      shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxHyNeiwAzZoExz8iOWkxYmb/3xsN9QVwp/R0/SRUZlFQRPoXk4Ncwkt/U8aiSpm0XmrG1WWGYO9lf5UzAPX8LyHOfjaOyvCTok7RhyMSYZ1cBOJsEQ8MfMRKqjZ0vBaLjRDZoFBERT+/VBfazjTUB1Fv8dGHS8PLvdhMly2VinsSGTc/tApdigP61SJeLmo7NoDavBqTKHx1efJRAw4dRKilhl8fOvAsBCuOn9UzBdZAYX4WTpHvlZGFnkRvLteeAmHGuFPUq8ofc3X4HZfukIz1/l5Ya8l5srHAQEsSpKGcG7EuRHBz+cwEulfjDKlVyFK1Jx7UwJHFGKENtFbST rasse" ];
     };
   };
@@ -42,6 +42,7 @@
   };
 
   programs.fish = (import ./configs/fish-config.nix { inherit pkgs; });
+  programs.zsh = (import ./configs/zsh-config.nix { inherit pkgs; });
   programs.tmux = (import ./configs/tmux-config.nix { inherit pkgs; });
 
   nix.extraOptions = ''
