@@ -75,7 +75,7 @@
           # Global CLI tools
           awscli
           bc
-          binutils # contains eg readelf
+          # binutils # contains eg readelf
           dos2unix
           gnupg
           git
@@ -91,6 +91,7 @@
 	  srm
 	  file
 	  man
+	  master.starship
 
           # Networking
           dnsutils
@@ -136,6 +137,10 @@
 	  gnumake
 	  unstable.rustup
 	  docker-compose
+	  gcc
+	  openssl
+	  openssl.dev
+	  pkg-config
         ];
       };
 
