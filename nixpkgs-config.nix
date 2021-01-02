@@ -135,7 +135,6 @@
           # (unstable-small.yarn.override { nodejs = unstable-small.nodejs-11_x; })
           postgresql_11
 	  gnumake
-	  unstable.rustup
 	  docker-compose
 	  gcc
 	  openssl
