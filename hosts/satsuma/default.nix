@@ -1,4 +1,4 @@
-{ config, pkgs, user, hostname, ... }:
+{ config, pkgs, user, hostname, lib, ... }:
 
 {
   imports =
@@ -18,6 +18,9 @@
       ExecStart = "${pkgs.hd-idle}/bin/hd-idle -i 60";
     };
   };
+
+  # Don't manage wlan interface with NetworkManager as it spams dmesg
+  networking.networkmanager.unmanaged = [ "be:cb:c5:db:72:5f" ];
 
   # Audio
   hardware.pulseaudio = {
@@ -102,13 +105,22 @@
   security.acme.certs."fruitiex.org" = {
     email = "fruitiex@gmail.com";
   };
+  security.acme.acceptTerms = true;
 
   # Plex media server
-  services.plex.enable = true;
+  # services.plex.enable = true;
 
   # PostgreSQL
-  services.postgresql.enable = true;
-  services.postgresql.package = pkgs.postgresql_10;
+  # services.postgresql = {
+  #   enable = true;
+  #   package = pkgs.postgresql_11;
+  #   authentication = lib.mkForce ''
+  #     # TYPE  DATABASE        USER            ADDRESS                 METHOD
+  #     local   all             all                                     trust
+  #     host    all             all             127.0.0.1/32            trust
+  #     host    all             all             ::1/128                 trust
+  #   '';
+  # };
 
   # MongoDB
   services.mongodb.enable = true;
@@ -136,24 +148,43 @@
 
   # TODO: package below nodejs properly with e.g. node2nix
 
+  # homectl service
+  # systemd.services.homectl = {
+  #   wantedBy = [ "multi-user.target" ];
+  #   after = [ "network-online.target" ];
+  #   requires = [ "network-online.target" ];
+  #   description = "homectl home automation daemon";
+  #   path = [
+  #     pkgs.bash
+  #     pkgs.nodejs-12_x
+  #   ];
+  #   serviceConfig = {
+  #     Type = "simple";
+  #     User = user;
+  #     Restart = "on-failure";
+  #     WorkingDirectory = "/home/${user}/src/homectl";
+  #     ExecStart = "${pkgs.nodejs-10_x}/bin/npm run start:release";
+  #   };
+  # };
+
   # lightctl service
-  systemd.services.lightctl = {
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network-online.target" ];
-    requires = [ "network-online.target" ];
-    description = "Start controlling lights with lightctl-koa";
-    path = [
-      pkgs.bash
-      pkgs.nodejs-10_x
-    ];
-    serviceConfig = {
-      Type = "simple";
-      User = user;
-      Restart = "on-failure";
-      WorkingDirectory = "/home/${user}/src/lightctl-koa";
-      ExecStart = "${pkgs.nodejs-10_x}/bin/npm run start:release";
-    };
-  };
+  # systemd.services.lightctl = {
+  #   wantedBy = [ "multi-user.target" ];
+  #   after = [ "network-online.target" ];
+  #   requires = [ "network-online.target" ];
+  #   description = "Start controlling lights with lightctl-koa";
+  #   path = [
+  #     pkgs.bash
+  #     pkgs.nodejs-10_x
+  #   ];
+  #   serviceConfig = {
+  #     Type = "simple";
+  #     User = user;
+  #     Restart = "on-failure";
+  #     WorkingDirectory = "/home/${user}/src/lightctl-koa";
+  #     ExecStart = "${pkgs.nodejs-10_x}/bin/npm run start:release";
+  #   };
+  # };
 
   # tg-triviabot
   systemd.services.triviabot = {
@@ -211,23 +242,26 @@
   #  };
   #};
 
-  systemd.services.csgo-smokes = {
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network-online.target" ];
-    requires = [ "network-online.target" ];
-    description = "Launch csgo smokes server";
-    path = [
-      pkgs.steamcmd
-      (import ../../fhs pkgs)
-    ];
-    serviceConfig = {
-      Type = "simple";
-      User = user;
-      Restart = "on-failure";
-      WorkingDirectory = "/home/${user}/csgo-smokes";
-      ExecStart = "${pkgs.bash}/bin/bash /home/${user}/csgo-smokes.sh";
-    };
-  };
+  # systemd.services.csgo-smokes = {
+  #   wantedBy = [ "multi-user.target" ];
+  #   after = [ "network-online.target" ];
+  #   requires = [ "network-online.target" ];
+  #   description = "Launch csgo smokes server";
+  #   path = [
+  #     pkgs.steamcmd
+  #     #(import ../../fhs pkgs)
+  #   ];
+  #   serviceConfig = {
+  #     Type = "simple";
+  #     User = user;
+  #     Restart = "on-failure";
+  #     WorkingDirectory = "/home/${user}/csgo-smokes";
+  #     ExecStart = "${pkgs.bash}/bin/bash /home/${user}/csgo-smokes.sh";
+  #   };
+  # };
+
+  # virtualisation.virtualbox.host.enable = true;
+  virtualisation.docker.enable = true;
 
   users.extraUsers.code = {
     isNormalUser = true;

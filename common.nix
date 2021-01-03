@@ -11,7 +11,7 @@
   ];
 
   # Kernel same-page merging
-  hardware.ksm.enable = true;
+  #hardware.ksm.enable = true;
 
   hardware.enableRedistributableFirmware = true;
 
@@ -66,7 +66,7 @@
 
   services.openssh = {
     enable = true;
-    startWhenNeeded = true;
+    startWhenNeeded = false;
     passwordAuthentication = lib.mkDefault false;
   };
 

@@ -117,14 +117,13 @@
           psmisc
           powertop
           strace
-          unstable.s-tui
-          unstable.stress
+          s-tui
+          stress
           usbutils
 
           # Nix specific
           direnv
           nix-direnv
-          nox
           nix-zsh-completions
           nix-prefetch-git
           updatePrefetch
@@ -133,13 +132,13 @@
           # Development
           # unstable-small.nodejs-11_x
           # (unstable-small.yarn.override { nodejs = unstable-small.nodejs-11_x; })
-          postgresql_11
-	  gnumake
-	  docker-compose
-	  gcc
-	  openssl
-	  openssl.dev
-	  pkg-config
+          # postgresql_11
+	  # gnumake
+	  # docker-compose
+	  # gcc
+	  # openssl
+	  # openssl.dev
+	  # pkg-config
         ];
       };
 

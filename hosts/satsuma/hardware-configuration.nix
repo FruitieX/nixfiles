@@ -20,16 +20,16 @@
     };
 
     # /dev/sdb2
-    "/mnt" = {
-      device = "/dev/disk/by-uuid/6BBE8C5E54FA7A8C";
-      fsType = "ntfs-3g";
-    };
+    #"/mnt" = {
+    #  device = "/dev/disk/by-uuid/6BBE8C5E54FA7A8C";
+    #  fsType = "ntfs-3g";
+    #};
 
     # /dev/sdc1
-    "/media" = {
-      device = "/dev/disk/by-uuid/6ec87ce4-cb35-4ed2-92ee-d1f242b382d3";
-      fsType = "ext4";
-    };
+    #"/media" = {
+    #  device = "/dev/disk/by-uuid/6ec87ce4-cb35-4ed2-92ee-d1f242b382d3";
+    #  fsType = "ext4";
+    #};
   };
 
   swapDevices = [ ];
