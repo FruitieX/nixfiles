@@ -48,9 +48,6 @@ Log in as your newly created user and run the following commands:
 nix-shell -p git --run "git clone https://github.com/FruitieX/nixfiles.git ~/nixfiles"
 cd ~/nixfiles
 
-# If you're installing on WSL 2:
-nix-shell -p git --run "git checkout wsl"
-
 # Name this host "my-hostname" by writing the hostname string to hostname.nix
 echo \"my-hostname\" > hostname.nix
 
